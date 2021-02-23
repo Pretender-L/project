@@ -1,4 +1,4 @@
-package com.demo.grammar.generic;
+package com.project.grammar.generic;
 
 //类泛型指定了类中存放什么类型的数据
 public class GenericTest<T> {

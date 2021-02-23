@@ -1,4 +1,4 @@
-package com.demo.grammar.parameter
+package com.project.grammar.parameter
 
 /**
  * 可变数量参数

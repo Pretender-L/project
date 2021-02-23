@@ -1,4 +1,4 @@
-package com.demo.pattern.template;
+package com.project.pattern.template;
 
 /**
  * @author wjl

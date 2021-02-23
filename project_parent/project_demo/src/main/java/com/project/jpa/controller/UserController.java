@@ -1,11 +1,11 @@
-package com.demo.jpa.controller;
+package com.project.jpa.controller;
 
-import com.demo.excetion.BadException;
-import com.demo.jpa.service.UserService;
-import com.demo.pojo.PageInfo;
-import com.demo.pojo.PageResult;
-import com.demo.pojo.Result;
-import com.demo.pojo.User;
+import com.project.excetion.BadException;
+import com.project.jpa.service.UserService;
+import com.project.pojo.PageInfo;
+import com.project.pojo.PageResult;
+import com.project.pojo.Result;
+import com.project.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;

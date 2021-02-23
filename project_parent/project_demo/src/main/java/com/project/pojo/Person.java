@@ -1,4 +1,4 @@
-package com.demo.pojo;
+package com.project.pojo;
 
 public class Person {
     private String name;

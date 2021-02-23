@@ -1,4 +1,4 @@
-package com.demo.pojo;
+package com.project.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;

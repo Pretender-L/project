@@ -1,4 +1,4 @@
-package com.demo.grammar.design.patterns.factory;
+package com.project.grammar.design.patterns.factory;
 
 /**
  * 工厂方法

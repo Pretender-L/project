@@ -1,4 +1,4 @@
-package com.demo.grammar.design.patterns.bulider;
+package com.project.grammar.design.patterns.bulider;
 
 public class Bulider {
 

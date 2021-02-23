@@ -1,16 +1,14 @@
-package com.demo.service.impl
+package com.project.service.impl
 
-import com.demo.excetion.BadException
-import com.demo.pojo.Admin
-import com.demo.pojo.JpaPageInfo
-import com.demo.pojo.PageInfo
-import com.demo.repository.AdminRepository
-import com.demo.service.AdminService
+import com.project.excetion.BadException
+import com.project.pojo.Admin
+import com.project.pojo.JpaPageInfo
+import com.project.repository.AdminRepository
+import com.project.service.AdminService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Example
 import org.springframework.data.domain.ExampleMatcher
 import org.springframework.data.domain.Page
-import org.springframework.data.domain.PageRequest
 import org.springframework.data.jpa.domain.Specification
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.stereotype.Service

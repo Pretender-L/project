@@ -1,4 +1,4 @@
-package com.demo.grammar.collection
+package com.project.grammar.collection
 
 class MapTest {
 }

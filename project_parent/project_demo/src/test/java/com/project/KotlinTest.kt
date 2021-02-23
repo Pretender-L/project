@@ -1,10 +1,8 @@
-package com.demo
+package com.project
 
 import org.junit.Test
-import org.junit.runner.RunWith
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.data.redis.core.RedisTemplate
-import org.springframework.test.context.junit4.SpringRunner
 
 @SpringBootTest
 class KotlinTest {

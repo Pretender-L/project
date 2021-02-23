@@ -1,6 +1,6 @@
-package com.demo.jpa.repository;
+package com.project.jpa.repository;
 
-import com.demo.pojo.User;
+import com.project.pojo.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

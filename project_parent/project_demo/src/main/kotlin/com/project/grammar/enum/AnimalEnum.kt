@@ -1,4 +1,4 @@
-package com.demo.grammar.enum
+package com.project.grammar.enum
 
 enum class AnimalEnum {
     dog, cat,monky,panda,fish

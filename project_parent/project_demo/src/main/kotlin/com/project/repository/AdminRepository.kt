@@ -1,6 +1,6 @@
-package com.demo.repository
+package com.project.repository
 
-import com.demo.pojo.Admin
+import com.project.pojo.Admin
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor
 import org.springframework.stereotype.Repository

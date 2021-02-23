@@ -1,10 +1,8 @@
-package com.demo;
+package com.project;
 
-import com.demo.pojo.User;
+import com.project.pojo.User;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.*;
 

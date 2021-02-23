@@ -1,4 +1,4 @@
-package com.demo.grammar.inner
+package com.project.grammar.inner
 
 /**
  * 匿名内部类方法

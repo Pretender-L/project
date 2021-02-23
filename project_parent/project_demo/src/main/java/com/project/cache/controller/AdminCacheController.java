@@ -1,8 +1,8 @@
-package com.demo.cache.controller;
+package com.project.cache.controller;
 
-import com.demo.cache.service.AdminCacheService;
-import com.demo.pojo.Admin;
-import com.demo.pojo.Result;
+import com.project.cache.service.AdminCacheService;
+import com.project.pojo.Admin;
+import com.project.pojo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

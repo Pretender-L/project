@@ -1,4 +1,4 @@
-package com.demo.task;
+package com.project.task;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.demo.grammar.generic;
+package com.project.grammar.generic;
 
 public class GenericMethod {
     //这个类是个泛型类，在上面已经介绍过

@@ -1,7 +1,7 @@
-package com.demo.controller
+package com.project.controller
 
-import com.demo.pojo.*
-import com.demo.service.AdminService
+import com.project.pojo.*
+import com.project.service.AdminService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.web.bind.annotation.*

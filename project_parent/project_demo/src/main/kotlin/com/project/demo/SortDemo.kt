@@ -1,6 +1,6 @@
-package com.demo.demo
+package com.project.demo
 
-import com.demo.pojo.People
+import com.project.pojo.People
 
 
 class SortDemo {

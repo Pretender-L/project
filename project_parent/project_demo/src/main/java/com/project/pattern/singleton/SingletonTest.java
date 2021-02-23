@@ -1,4 +1,4 @@
-package com.demo.pattern.singleton;
+package com.project.pattern.singleton;
 
 public class SingletonTest {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.demo.excetion.service;
+package com.project.excetion.service;
 
 public interface BaseErrorInfo {
 

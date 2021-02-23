@@ -1,6 +1,6 @@
-package com.demo.grammar.function
+package com.project.grammar.function
 
-import com.demo.pojo.Admin
+import com.project.pojo.Admin
 
 fun main(args: Array<String>) {
     //把字符串中的每一个字符转换为Int的值，用于累加，最后返回累加的值

@@ -1,7 +1,7 @@
-package com.demo.excetion;
+package com.project.excetion;
 
-import com.demo.excetion.service.impl.BaseErrorInfoEnumImpl;
-import com.demo.pojo.Result;
+import com.project.excetion.service.impl.BaseErrorInfoEnumImpl;
+import com.project.pojo.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;

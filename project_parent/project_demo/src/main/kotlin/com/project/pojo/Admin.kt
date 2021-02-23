@@ -1,4 +1,4 @@
-package com.demo.pojo
+package com.project.pojo
 
 import java.io.Serializable
 import javax.persistence.Entity

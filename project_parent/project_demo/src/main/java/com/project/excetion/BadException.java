@@ -1,7 +1,7 @@
-package com.demo.excetion;
+package com.project.excetion;
 
 
-import com.demo.excetion.service.BaseErrorInfo;
+import com.project.excetion.service.BaseErrorInfo;
 
 public class BadException extends Exception {
 

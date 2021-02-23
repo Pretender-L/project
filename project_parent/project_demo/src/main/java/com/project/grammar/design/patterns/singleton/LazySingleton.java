@@ -1,4 +1,4 @@
-package com.demo.grammar.design.patterns.singleton;
+package com.project.grammar.design.patterns.singleton;
 
 /**
  * 懒汉式单例

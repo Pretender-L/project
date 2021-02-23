@@ -1,6 +1,6 @@
-package com.demo.listener;
+package com.project.listener;
 
-import com.demo.config.RabbitMQConfig;
+import com.project.config.RabbitMQConfig;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;

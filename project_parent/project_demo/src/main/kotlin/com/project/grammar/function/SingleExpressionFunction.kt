@@ -1,4 +1,4 @@
-package com.demo.grammar.function
+package com.project.grammar.function
 
 class SingleExpressionFunction {
 }

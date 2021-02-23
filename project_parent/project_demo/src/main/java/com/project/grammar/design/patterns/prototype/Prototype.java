@@ -1,4 +1,4 @@
-package com.demo.grammar.design.patterns.prototype;
+package com.project.grammar.design.patterns.prototype;
 
 /**
  * 原型模式

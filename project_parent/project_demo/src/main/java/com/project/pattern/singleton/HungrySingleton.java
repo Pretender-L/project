@@ -1,4 +1,4 @@
-package com.demo.pattern.singleton;
+package com.project.pattern.singleton;
 
 /**
  * 饿汉式单例

@@ -1,8 +1,7 @@
-package com.demo.service
+package com.project.service
 
-import com.demo.pojo.Admin
-import com.demo.pojo.JpaPageInfo
-import com.demo.pojo.PageInfo
+import com.project.pojo.Admin
+import com.project.pojo.JpaPageInfo
 import org.springframework.data.domain.Page
 
 interface AdminService {

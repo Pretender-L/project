@@ -1,4 +1,4 @@
-package com.demo.grammar.generic;
+package com.project.grammar.generic;
 
 public class GenericInterfaceImpl implements GenericInterface<String> {
     @Override

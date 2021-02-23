@@ -1,4 +1,4 @@
-package com.demo.pojo
+package com.project.pojo
 
 class People {
     var name: String? = null

@@ -1,4 +1,4 @@
-package com.demo.grammar.`interface`
+package com.project.grammar.`interface`
 
 /**
  * 接口不带结构体的函数可以省略大括号，且不用强制重写带结构体的函数就可以直接调用

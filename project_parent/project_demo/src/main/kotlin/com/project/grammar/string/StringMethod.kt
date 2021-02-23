@@ -1,4 +1,4 @@
-package com.demo.grammar.string
+package com.project.grammar.string
 
 class StringMethod {
 }

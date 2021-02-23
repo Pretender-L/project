@@ -1,8 +1,8 @@
-package com.demo.pojo;
+package com.project.pojo;
 
 
-import com.demo.excetion.service.BaseErrorInfo;
-import com.demo.excetion.service.impl.BaseErrorInfoEnumImpl;
+import com.project.excetion.service.BaseErrorInfo;
+import com.project.excetion.service.impl.BaseErrorInfoEnumImpl;
 
 /**
  * 返回结果实体类

@@ -1,4 +1,4 @@
-package com.demo.grammar.enum
+package com.project.grammar.enum
 
 /**
  * 枚举常量的匿名类

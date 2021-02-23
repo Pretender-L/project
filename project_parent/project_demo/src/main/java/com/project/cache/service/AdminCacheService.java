@@ -1,6 +1,6 @@
-package com.demo.cache.service;
+package com.project.cache.service;
 
-import com.demo.pojo.Admin;
+import com.project.pojo.Admin;
 
 public interface AdminCacheService {
 

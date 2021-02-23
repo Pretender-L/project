@@ -1,4 +1,4 @@
-package com.demo.grammar.lambda
+package com.project.grammar.lambda
 
 class LambdaTest {
 }

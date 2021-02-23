@@ -1,4 +1,4 @@
-package com.demo.pojo;
+package com.project.pojo;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

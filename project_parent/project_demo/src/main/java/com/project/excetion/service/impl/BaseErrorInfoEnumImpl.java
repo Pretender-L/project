@@ -1,7 +1,7 @@
-package com.demo.excetion.service.impl;
+package com.project.excetion.service.impl;
 
 
-import com.demo.excetion.service.BaseErrorInfo;
+import com.project.excetion.service.BaseErrorInfo;
 
 public enum BaseErrorInfoEnumImpl implements BaseErrorInfo {
 

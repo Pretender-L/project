@@ -1,6 +1,6 @@
-package com.demo;
+package com.project;
 
-import com.demo.config.RabbitMQConfig;
+import com.project.config.RabbitMQConfig;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
