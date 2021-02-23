@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_menu")
 public class Menu implements Serializable {
-
     @Id
     private String id;//菜单ID
     private String name;//菜单名称
@@ -56,5 +55,4 @@ public class Menu implements Serializable {
     public void setParentId(String parentId) {
         this.parentId = parentId;
     }
-
 }

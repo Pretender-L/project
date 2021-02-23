@@ -25,16 +25,12 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class AuthServiceImpl implements AuthService {
-
     @Autowired
     private RestTemplate restTemplate;
-
     @Autowired
     private LoadBalancerClient loadBalancerClient;
-
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
-
     @Value("${auth.ttl}")
     private long ttl;
 

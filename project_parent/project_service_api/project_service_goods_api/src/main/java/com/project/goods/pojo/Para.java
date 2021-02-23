@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_para")
 public class Para implements Serializable {
-
     @Id
     private Integer id;//id
     private String name;//名称
@@ -56,5 +55,4 @@ public class Para implements Serializable {
     public void setTemplateId(Integer templateId) {
         this.templateId = templateId;
     }
-
 }

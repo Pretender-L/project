@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/album")
 public class AlbumController {
-
     @Autowired
     private AlbumService albumService;
 
@@ -99,5 +98,4 @@ public class AlbumController {
         PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
         return Result.success("查询成功", pageResult);
     }
-
 }

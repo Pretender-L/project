@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_spu")
 public class Spu implements Serializable {
-
     @Id
     private String id;//主键
     private String sn;//货号
@@ -209,5 +208,4 @@ public class Spu implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-
 }

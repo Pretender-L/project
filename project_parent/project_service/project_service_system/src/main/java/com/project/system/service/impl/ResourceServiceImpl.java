@@ -15,10 +15,8 @@ import java.util.*;
 
 @Service
 public class ResourceServiceImpl implements ResourceService {
-
     @Autowired
     private ResourceMapper resourceMapper;
-
     @Autowired
     private RoleService roleService;
 
@@ -160,5 +158,4 @@ public class ResourceServiceImpl implements ResourceService {
         }
         return resourceSet;
     }
-
 }

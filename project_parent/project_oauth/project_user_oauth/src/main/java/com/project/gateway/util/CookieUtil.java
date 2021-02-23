@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CookieUtil {
-
     /***
      * 设置cookie
      * @param response 响应对象
@@ -47,5 +46,4 @@ public class CookieUtil {
         }
         return cookieMap;
     }
-
 }

@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "undo_log")
 public class Log implements Serializable {
-
     @Id
     private Long id;//id
     private Long branchId;//branch_id
@@ -19,7 +18,6 @@ public class Log implements Serializable {
     private java.util.Date logCreated;//log_created
     private java.util.Date logModified;//log_modified
     private String ext;//ext
-
 
     public Long getId() {
         return id;
@@ -84,5 +82,4 @@ public class Log implements Serializable {
     public void setExt(String ext) {
         this.ext = ext;
     }
-
 }

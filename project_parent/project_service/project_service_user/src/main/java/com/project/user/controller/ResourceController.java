@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/resource")
 public class ResourceController {
-
     @Autowired
     private ResourceService resourceService;
 

@@ -14,13 +14,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AddPointListener {
-
     @Autowired
     private RedisTemplate redisTemplate;
-
     @Autowired
     private UserService userService;
-
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
@@ -41,5 +38,4 @@ public class AddPointListener {
         }
         rabbitTemplate.convertAndSend(RabbitMQConfig.EX_BUYING_ADDPOINTUSER,RabbitMQConfig.CG_BUYING_FINISHADDPOINT_KEY,JSON.toJSONString(task));
     }
-
 }

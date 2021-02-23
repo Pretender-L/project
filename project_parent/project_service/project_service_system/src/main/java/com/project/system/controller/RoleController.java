@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/role")
 public class RoleController {
-
     @Autowired
     private RoleService roleService;
 
@@ -110,5 +109,4 @@ public class RoleController {
         List<Role> roleList = roleService.findByAdminId(adminId);
         return Result.success("查询成功", roleList);
     }
-
 }

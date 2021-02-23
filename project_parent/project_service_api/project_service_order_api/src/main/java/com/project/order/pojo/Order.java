@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_order")
 public class Order implements Serializable {
-
     @Id
     private String id;//订单id
     private Integer totalNum;//数量合计
@@ -254,5 +253,4 @@ public class Order implements Serializable {
     public void setIsDelete(String isDelete) {
         this.isDelete = isDelete;
     }
-
 }

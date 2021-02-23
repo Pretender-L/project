@@ -16,7 +16,6 @@ import java.util.Set;
 @CrossOrigin
 @RequestMapping("/resource")
 public class ResourceController {
-
     @Autowired
     private ResourceService resourceService;
 
@@ -123,5 +122,4 @@ public class ResourceController {
         Set<Resource> resourceSet = resourceService.findByAdminId(adminId);
         return Result.success("查询成功", resourceSet);
     }
-
 }

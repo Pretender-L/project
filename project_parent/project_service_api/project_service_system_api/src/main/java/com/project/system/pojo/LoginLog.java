@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_login_log")
 public class LoginLog implements Serializable {
-
     @Id
     private Integer id;//id
     private String loginName;//login_name
@@ -65,5 +64,4 @@ public class LoginLog implements Serializable {
     public void setLoginTime(java.util.Date loginTime) {
         this.loginTime = loginTime;
     }
-
 }

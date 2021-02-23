@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_return_cause")
 public class ReturnCause implements Serializable {
-
     @Id
     private Integer id;//ID
     private String cause;//原因
@@ -47,5 +46,4 @@ public class ReturnCause implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-
 }

@@ -19,7 +19,6 @@ import java.util.concurrent.TimeUnit;
 public class UserController {
     @Autowired
     private UserService userService;
-
     @Autowired
     private RedisTemplate redisTemplate;
 

@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class ProvincesServiceImpl implements ProvincesService {
-
     @Autowired
     private ProvincesMapper provincesMapper;
 
@@ -121,5 +120,4 @@ public class ProvincesServiceImpl implements ProvincesService {
         }
         return example;
     }
-
 }

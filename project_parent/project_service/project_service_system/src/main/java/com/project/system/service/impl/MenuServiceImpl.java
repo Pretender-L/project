@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class MenuServiceImpl implements MenuService {
-
     @Autowired
     private MenuMapper menuMapper;
 
@@ -133,5 +132,4 @@ public class MenuServiceImpl implements MenuService {
         }
         return example;
     }
-
 }

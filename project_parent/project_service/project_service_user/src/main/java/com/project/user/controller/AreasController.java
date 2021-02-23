@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/areas")
 public class AreasController {
-
     @Autowired
     private AreasService areasService;
 
@@ -99,5 +98,4 @@ public class AreasController {
         PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
         return Result.success("查询成功", pageResult);
     }
-
 }

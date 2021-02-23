@@ -22,7 +22,6 @@ import java.util.Map;
 
 @Configuration
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         //获得请求头
@@ -58,5 +57,4 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         //没有权限会被security拦截
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
-
 }

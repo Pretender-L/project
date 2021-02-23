@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_return_order")
 public class ReturnOrder implements Serializable {
-
     @Id
     private String id;//服务单号
     private String orderId;//订单号
@@ -164,5 +163,4 @@ public class ReturnOrder implements Serializable {
     public void setAdminId(Integer adminId) {
         this.adminId = adminId;
     }
-
 }

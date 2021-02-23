@@ -20,7 +20,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @Order(-1)
 class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
     /***
      * 忽略哪些资源不用security来管理
      * 忽略安全拦截的URL
@@ -75,6 +74,5 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().loginPage("/oauth/toLogin")//设置访问登录页面的路径
                 .loginProcessingUrl("/oauth/login");//设置执行登录操作的路径
     }
-
 }
 

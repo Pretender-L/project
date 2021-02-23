@@ -21,13 +21,10 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserServiceImpl implements UserService {
-
     @Autowired
     private UserMapper userMapper;
-
     @Autowired
     private PointLogMapper pointLogMapper;
-
     @Autowired
     private RedisTemplate redisTemplate;
 
@@ -221,5 +218,4 @@ public class UserServiceImpl implements UserService {
         }
         return example;
     }
-
 }

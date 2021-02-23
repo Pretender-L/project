@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Set;
 
 public interface ResourceService {
-
     /***
      * 查询所有
      * @return
@@ -77,5 +76,4 @@ public interface ResourceService {
      * @return
      */
     Set<Resource> findByAdminId(Integer adminId);
-
 }

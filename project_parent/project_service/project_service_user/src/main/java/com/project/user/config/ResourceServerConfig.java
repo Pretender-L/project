@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
 @EnableResourceServer
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)//激活方法上的PreAuthorize注解
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
-
     //公钥
     private static final String PUBLIC_KEY = "public.key";
 
@@ -77,5 +76,4 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .anyRequest().
                 authenticated();    //其他地址需要认证授权
     }
-
 }

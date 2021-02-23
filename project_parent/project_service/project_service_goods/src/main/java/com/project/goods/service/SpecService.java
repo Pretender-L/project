@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface SpecService {
-
     /***
      * 查询所有
      * @return
@@ -69,5 +68,4 @@ public interface SpecService {
      * @return
      */
     List<Map> findSpecListByCategoryName(String categoryName);
-
 }

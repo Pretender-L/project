@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/brand")
 public class BrandController {
-
     @Autowired
     private BrandService brandService;
 
@@ -110,5 +109,4 @@ public class BrandController {
         List<Map> brandList = brandService.findBrandListByCategoryName(categoryName);
         return Result.success("查询成功", brandList);
     }
-
 }

@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_pref")
 public class Pref implements Serializable {
-
     @Id
     private Integer id;//ID
     private Integer cateId;//分类ID
@@ -83,5 +82,4 @@ public class Pref implements Serializable {
     public void setState(String state) {
         this.state = state;
     }
-
 }

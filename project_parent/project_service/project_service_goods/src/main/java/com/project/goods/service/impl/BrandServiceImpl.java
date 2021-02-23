@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class BrandServiceImpl implements BrandService {
-
     @Autowired
     private BrandMapper brandMapper;
 
@@ -145,5 +144,4 @@ public class BrandServiceImpl implements BrandService {
         List<Map> brandList = brandMapper.findBrandListByCategoryName(categoryName);
         return brandList;
     }
-
 }

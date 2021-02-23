@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface AdminService {
-
     /***
      * 查询所有
      * @return
@@ -71,5 +70,4 @@ public interface AdminService {
      * @return
      */
     Admin findByLoginName(String loginName);
-
 }

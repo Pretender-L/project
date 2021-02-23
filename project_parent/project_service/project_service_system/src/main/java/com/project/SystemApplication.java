@@ -12,9 +12,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 */
 public class SystemApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(SystemApplication.class);
     }
-
 }

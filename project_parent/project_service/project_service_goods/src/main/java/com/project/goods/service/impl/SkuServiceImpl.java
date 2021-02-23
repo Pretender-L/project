@@ -17,10 +17,8 @@ import java.util.Map;
 
 @Service
 public class SkuServiceImpl implements SkuService {
-
     @Autowired
     private SkuMapper skuMapper;
-
     @Autowired
     private RedisTemplate redisTemplate;
 
@@ -207,5 +205,4 @@ public class SkuServiceImpl implements SkuService {
     public void resumeStockNum(String skuId, Integer num) {
         skuMapper.resumeStockNum(skuId, num);
     }
-
 }

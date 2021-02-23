@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Update;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface SkuMapper extends Mapper<Sku> {
-
     /***
      * 扣减库存增强销量
      * @param orderItem
@@ -23,5 +22,4 @@ public interface SkuMapper extends Mapper<Sku> {
      */
     @Update("update tb_sku set num=num+#{num},sale_num=sale_num-#{num} where id=#{skuId}")
     void resumeStockNum(@Param("skuId") String skuId, @Param("num") Integer num);
-
 }

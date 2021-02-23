@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface LoginLogService {
-
     /***
      * 查询所有
      * @return
@@ -63,5 +62,4 @@ public interface LoginLogService {
      * @return
      */
     Page<LoginLog> findPage(Map<String, Object> searchMap, int page, int size);
-
 }

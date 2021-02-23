@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface UserService {
-
     /***
      * 查询所有
      * @return
@@ -65,5 +64,4 @@ public interface UserService {
     Page<User> findPage(Map<String, Object> searchMap, int page, int size);
 
     int updateUserPoint(Task task);
-
 }

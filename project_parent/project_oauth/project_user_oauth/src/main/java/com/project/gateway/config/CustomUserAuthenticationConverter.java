@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Component
 public class CustomUserAuthenticationConverter extends DefaultUserAuthenticationConverter {
-
     @Autowired
     UserDetailsService userDetailsService;
 
@@ -39,5 +38,4 @@ public class CustomUserAuthenticationConverter extends DefaultUserAuthentication
         }
         return response;
     }
-
 }

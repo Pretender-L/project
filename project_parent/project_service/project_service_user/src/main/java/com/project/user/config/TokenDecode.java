@@ -17,10 +17,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class TokenDecode {
-
     //公钥
     private static final String PUBLIC_KEY = "public.key";
-
     private static String publickey="";
 
     /***
@@ -64,5 +62,4 @@ public class TokenDecode {
             return null;
         }
     }
-
 }

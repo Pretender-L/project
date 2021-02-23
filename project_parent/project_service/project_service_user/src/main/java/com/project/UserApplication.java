@@ -11,7 +11,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableDiscoveryClient
 @MapperScan(basePackages = {"com.project.user.dao"})
 public class UserApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(UserApplication.class);
     }
@@ -20,5 +19,4 @@ public class UserApplication {
     public TokenDecode tokenDecode() {
         return new TokenDecode();
     }
-
 }

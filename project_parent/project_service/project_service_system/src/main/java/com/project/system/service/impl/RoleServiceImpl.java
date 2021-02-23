@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class RoleServiceImpl implements RoleService {
-
     @Autowired
     private RoleMapper roleMapper;
 
@@ -132,5 +131,4 @@ public class RoleServiceImpl implements RoleService {
     public List<Role> findByAdminId(Integer adminId) {
         return roleMapper.findByAdminId(adminId);
     }
-
 }

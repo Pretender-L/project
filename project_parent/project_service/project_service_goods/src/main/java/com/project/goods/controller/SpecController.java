@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/spec")
 public class SpecController {
-
     @Autowired
     private SpecService specService;
 
@@ -110,5 +109,4 @@ public class SpecController {
         List<Map> specList = specService.findSpecListByCategoryName(categoryName);
         return Result.success("查询成功", specList);
     }
-
 }

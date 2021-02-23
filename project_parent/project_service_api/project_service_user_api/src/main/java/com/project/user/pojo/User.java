@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_user")
 public class User implements Serializable {
-
     @Id
     private String username;//用户名
     private String password;//密码，加密存储
@@ -191,5 +190,4 @@ public class User implements Serializable {
     public void setLastLoginTime(java.util.Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
     }
-
 }

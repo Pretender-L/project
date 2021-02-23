@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/cart")
 public class CartController {
-
     @Autowired
     private RedisTemplate redisTemplate;
 
@@ -18,5 +17,4 @@ public class CartController {
     public Result add() {
         return null;
     }
-
 }

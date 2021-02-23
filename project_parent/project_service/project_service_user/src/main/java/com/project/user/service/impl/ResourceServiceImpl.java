@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class ResourceServiceImpl implements ResourceService {
-
     @Autowired
     private ResourceMapper resourceMapper;
 
@@ -140,5 +139,4 @@ public class ResourceServiceImpl implements ResourceService {
         List<Resource> resourceList = resourceMapper.findByUsername(username);
         return resourceList;
     }
-
 }

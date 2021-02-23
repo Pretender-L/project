@@ -16,7 +16,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/admin")
 public class AdminController {
-
     @Autowired
     private AdminService adminService;
 
@@ -112,5 +111,4 @@ public class AdminController {
         Admin admin = adminService.findByLoginName(loginName);
         return Result.success("查询成功", admin);
     }
-
 }

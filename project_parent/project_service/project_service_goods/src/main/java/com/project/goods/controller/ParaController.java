@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/para")
 public class ParaController {
-
     @Autowired
     private ParaService paraService;
 
@@ -99,5 +98,4 @@ public class ParaController {
         PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
         return Result.success("查询成功", pageResult);
     }
-
 }

@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
-
     @Autowired
     private CategoryMapper categoryMapper;
 
@@ -145,5 +144,4 @@ public class CategoryServiceImpl implements CategoryService {
         }
         return example;
     }
-
 }

@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class AlbumServiceImpl implements AlbumService {
-
     @Autowired
     private AlbumMapper albumMapper;
 
@@ -125,5 +124,4 @@ public class AlbumServiceImpl implements AlbumService {
         }
         return example;
     }
-
 }

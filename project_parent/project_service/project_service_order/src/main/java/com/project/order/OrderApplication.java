@@ -9,9 +9,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableDiscoveryClient
 @MapperScan(basePackages = {"com.project.order.dao"})
 public class OrderApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class);
     }
-
 }

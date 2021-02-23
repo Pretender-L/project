@@ -3,9 +3,7 @@ package com.project.goods.pojo;
 import java.util.List;
 
 public class Goods {
-
     private Spu spu;
-
     private List<Sku> skuList;
 
     public Spu getSpu() {

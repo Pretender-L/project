@@ -10,8 +10,6 @@ import java.util.List;
 
 @FeignClient(name = "user")
 public interface ResourceFeign {
-
     @GetMapping(value = "/user/resource/findByUsername/{username}")
     Result<List<Resource>> findByUsername(@PathVariable String username);
-
 }

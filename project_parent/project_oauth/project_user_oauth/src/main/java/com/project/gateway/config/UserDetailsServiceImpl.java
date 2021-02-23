@@ -24,13 +24,10 @@ import java.util.List;
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-
     @Autowired
     ClientDetailsService clientDetailsService;
-
     @Autowired
     private UserFeign userFeign;
-
     @Autowired
     private ResourceFeign resourceFeign;
 
@@ -73,5 +70,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         UserJwt userDetails = new UserJwt(username, user.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList(permissions));
         return userDetails;
     }
-
 }

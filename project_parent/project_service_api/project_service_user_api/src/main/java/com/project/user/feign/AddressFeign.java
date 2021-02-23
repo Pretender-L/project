@@ -9,8 +9,6 @@ import java.util.List;
 
 @FeignClient(name = "user")
 public interface AddressFeign {
-
     @GetMapping(value = "/user/address/list")
     Result<List<Address>> list();
-
 }

@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class AddressServiceImpl implements AddressService {
-
     @Autowired
     private AddressMapper addressMapper;
 
@@ -161,5 +160,4 @@ public class AddressServiceImpl implements AddressService {
         List<Address> addressList = addressMapper.select(address);
         return addressList;
     }
-
 }

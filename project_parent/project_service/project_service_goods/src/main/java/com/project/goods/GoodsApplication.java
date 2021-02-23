@@ -12,10 +12,8 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableDiscoveryClient
 @MapperScan(basePackages = {"com.project.goods.dao"})
 public class GoodsApplication {
-
     @Value("${workId}")
     private int workId;
-
     @Value("${datacenterId}")
     private int datacenterId;
 
@@ -27,5 +25,4 @@ public class GoodsApplication {
     public IdWorker idWorker() {
         return new IdWorker(workId, datacenterId);
     }
-
 }

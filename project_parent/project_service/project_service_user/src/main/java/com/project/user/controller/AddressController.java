@@ -16,10 +16,8 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/address")
 public class AddressController {
-
     @Autowired
     private AddressService addressService;
-
     @Autowired
     private TokenDecode tokenDecode;
 
@@ -111,5 +109,4 @@ public class AddressController {
         List<Address> addressList = addressService.list(username);
         return Result.success("查询成功", addressList);
     }
-
 }

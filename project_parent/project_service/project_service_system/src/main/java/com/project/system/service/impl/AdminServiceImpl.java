@@ -15,7 +15,6 @@ import java.util.Map;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-
     @Autowired
     private AdminMapper adminMapper;
 
@@ -145,5 +144,4 @@ public class AdminServiceImpl implements AdminService {
     public Admin findByLoginName(String loginName) {
         return adminMapper.findByLoginName(loginName);
     }
-
 }

@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_preferential")
 public class Preferential implements Serializable {
-
     @Id
     private Integer id;//ID
     private Integer buyMoney;//消费金额
@@ -83,5 +82,4 @@ public class Preferential implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
-
 }

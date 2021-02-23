@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable {
-
     @Id
     private String id;//ID
     private Integer categoryId1;//1级分类
@@ -155,5 +154,4 @@ public class OrderItem implements Serializable {
     public void setIsReturn(String isReturn) {
         this.isReturn = isReturn;
     }
-
 }

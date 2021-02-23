@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface SpuService {
-
     /***
      * 查询所有
      * @return
@@ -98,5 +97,4 @@ public interface SpuService {
      * @param id
      */
     void realDel(String id);
-
 }

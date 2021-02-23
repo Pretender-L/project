@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_order_config")
 public class OrderConfig implements Serializable {
-
     @Id
     private Integer id;//ID
     private Integer orderTimeout;//正常订单超时时间（分）
@@ -65,5 +64,4 @@ public class OrderConfig implements Serializable {
     public void setCommentTimeout(Integer commentTimeout) {
         this.commentTimeout = commentTimeout;
     }
-
 }

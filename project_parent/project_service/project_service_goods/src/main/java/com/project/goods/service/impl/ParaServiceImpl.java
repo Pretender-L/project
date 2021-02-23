@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class ParaServiceImpl implements ParaService {
-
     @Autowired
     private ParaMapper paraMapper;
 
@@ -133,5 +132,4 @@ public class ParaServiceImpl implements ParaService {
         }
         return example;
     }
-
 }

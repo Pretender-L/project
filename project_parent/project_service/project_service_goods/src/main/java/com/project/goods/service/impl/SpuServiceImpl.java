@@ -19,22 +19,16 @@ import java.util.Map;
 
 @Service
 public class SpuServiceImpl implements SpuService {
-
     @Autowired
     private SpuMapper spuMapper;
-
     @Autowired
     private IdWorker idWorker;
-
     @Autowired
     private CategoryMapper categoryMapper;
-
     @Autowired
     private BrandMapper brandMapper;
-
     @Autowired
     private SkuMapper skuMapper;
-
     @Autowired
     private CategoryBrandMapper categoryBrandMapper;
 
@@ -128,7 +122,6 @@ public class SpuServiceImpl implements SpuService {
                 sku.setBrandName(brand.getName());
                 //sku添加数据库
                 skuMapper.insertSelective(sku);
-
             }
         }
     }
@@ -151,7 +144,6 @@ public class SpuServiceImpl implements SpuService {
         skuMapper.deleteByExample(example);
         //重新添加sku
         this.saveSkuList(goods);
-
     }
 
     /***
@@ -407,5 +399,4 @@ public class SpuServiceImpl implements SpuService {
         }
         spuMapper.deleteByPrimaryKey(id);
     }
-
 }

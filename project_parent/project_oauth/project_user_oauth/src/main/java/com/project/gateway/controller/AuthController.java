@@ -18,21 +18,15 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping("/oauth")
 public class AuthController {
-
     public static final String REDIRECT_URL_PREFIX = "http://localhost:9000";
-
     @Autowired
     private AuthService authService;
-
     @Value("${auth.clientId}")
     private String clientId;
-
     @Value("${auth.clientSecret}")
     private String clientSecret;
-
     @Value("${auth.cookieDomain}")
     private String cookieDomain;
-
     @Value("${auth.cookieMaxAge}")
     private int cookieMaxAge;
 

@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/category")
 public class CategoryController {
-
     @Autowired
     private CategoryService categoryService;
 
@@ -99,5 +98,4 @@ public class CategoryController {
         PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
         return Result.success("查询成功", pageResult);
     }
-
 }

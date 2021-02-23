@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/template")
 public class TemplateController {
-
     @Autowired
     private TemplateService templateService;
 
@@ -99,5 +98,4 @@ public class TemplateController {
         PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
         return Result.success("查询成功", pageResult);
     }
-
 }

@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class PrefServiceImpl implements PrefService {
-
     @Autowired
     private PrefMapper prefMapper;
 
@@ -137,5 +136,4 @@ public class PrefServiceImpl implements PrefService {
         }
         return example;
     }
-
 }

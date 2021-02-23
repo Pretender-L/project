@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_order_log")
 public class OrderLog implements Serializable {
-
     @Id
     private String id;//ID
     private String operater;//操作员
@@ -83,5 +82,4 @@ public class OrderLog implements Serializable {
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
-
 }

@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_return_order_item")
 public class ReturnOrderItem implements Serializable {
-
     @Id
     private String id;//ID
     private Integer categoryId;//分类ID
@@ -137,5 +136,4 @@ public class ReturnOrderItem implements Serializable {
     public void setWeight(Integer weight) {
         this.weight = weight;
     }
-
 }

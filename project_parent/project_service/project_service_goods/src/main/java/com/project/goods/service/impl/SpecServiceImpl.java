@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class SpecServiceImpl implements SpecService {
-
     @Autowired
     private SpecMapper specMapper;
 
@@ -148,5 +147,4 @@ public class SpecServiceImpl implements SpecService {
         }
         return specList;
     }
-
 }

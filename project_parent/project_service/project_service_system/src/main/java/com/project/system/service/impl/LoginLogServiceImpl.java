@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class LoginLogServiceImpl implements LoginLogService {
-
     @Autowired
     private LoginLogMapper loginLogMapper;
 
@@ -133,5 +132,4 @@ public class LoginLogServiceImpl implements LoginLogService {
         }
         return example;
     }
-
 }

@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_cities")
 public class Cities implements Serializable {
-
     @Id
     private String cityid;//城市ID
     private String city;//城市名称
@@ -38,5 +37,4 @@ public class Cities implements Serializable {
     public void setProvinceid(String provinceid) {
         this.provinceid = provinceid;
     }
-
 }

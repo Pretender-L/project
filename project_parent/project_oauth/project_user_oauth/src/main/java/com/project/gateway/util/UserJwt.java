@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.User;
 import java.util.Collection;
 
 public class UserJwt extends User {
-
     private String id;    //用户ID
     private String name;  //用户名字
 

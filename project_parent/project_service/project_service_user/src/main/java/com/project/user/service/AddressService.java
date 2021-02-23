@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface AddressService {
-
     /***
      * 查询所有
      * @return
@@ -69,5 +68,4 @@ public interface AddressService {
      * @return
      */
     List<Address> list(String username);
-
 }

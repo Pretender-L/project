@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_role")
 public class Role implements Serializable {
-
     @Id
     private Integer id;//ID
     private String name;//角色名称
@@ -29,5 +28,4 @@ public class Role implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
 }

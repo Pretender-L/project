@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/pref")
 public class PrefController {
-
     @Autowired
     private PrefService prefService;
 
@@ -99,5 +98,4 @@ public class PrefController {
         PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
         return Result.success("查询成功", pageResult);
     }
-
 }

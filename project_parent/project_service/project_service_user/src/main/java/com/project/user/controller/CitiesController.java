@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/cities")
 public class CitiesController {
-
     @Autowired
     private CitiesService citiesService;
 
@@ -99,5 +98,4 @@ public class CitiesController {
         PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
         return Result.success("查询成功", pageResult);
     }
-
 }

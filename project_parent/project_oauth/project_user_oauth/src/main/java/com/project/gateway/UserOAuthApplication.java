@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 @EnableFeignClients(basePackages = {"com.project.user.feign"})
 public class UserOAuthApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(UserOAuthApplication.class, args);
     }
@@ -20,5 +19,4 @@ public class UserOAuthApplication {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
-
 }

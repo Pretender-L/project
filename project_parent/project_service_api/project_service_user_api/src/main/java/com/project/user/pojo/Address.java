@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_address")
 public class Address implements Serializable {
-
     @Id
     private Integer id;//id
     private String username;//用户名
@@ -101,5 +100,4 @@ public class Address implements Serializable {
     public void setAlias(String alias) {
         this.alias = alias;
     }
-
 }

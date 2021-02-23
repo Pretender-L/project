@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface BrandService {
-
     /***
      * 查询所有
      * @return
@@ -70,5 +69,4 @@ public interface BrandService {
      * @return
      */
     List<Map> findBrandListByCategoryName(String categoryName);
-
 }

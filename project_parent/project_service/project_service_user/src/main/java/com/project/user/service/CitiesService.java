@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface CitiesService {
-
     /***
      * 查询所有
      * @return
@@ -62,5 +61,4 @@ public interface CitiesService {
      * @return
      */
     Page<Cities> findPage(Map<String, Object> searchMap, int page, int size);
-
 }

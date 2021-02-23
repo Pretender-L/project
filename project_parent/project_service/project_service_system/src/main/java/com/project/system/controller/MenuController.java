@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/menu")
 public class MenuController {
-
     @Autowired
     private MenuService menuService;
 
@@ -99,5 +98,4 @@ public class MenuController {
         PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
         return Result.success("查询成功", pageResult);
     }
-
 }

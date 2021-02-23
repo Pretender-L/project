@@ -4,7 +4,6 @@ import javax.persistence.Table;
 
 @Table(name = "tb_point_log")
 public class PointLog {
-
     private String orderId;
     private String userId;
     private Integer point;
@@ -32,5 +31,4 @@ public class PointLog {
     public void setPoint(Integer point) {
         this.point = point;
     }
-
 }

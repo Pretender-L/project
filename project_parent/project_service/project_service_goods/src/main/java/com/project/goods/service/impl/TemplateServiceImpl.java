@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class TemplateServiceImpl implements TemplateService {
-
     @Autowired
     private TemplateMapper templateMapper;
 
@@ -129,5 +128,4 @@ public class TemplateServiceImpl implements TemplateService {
         }
         return example;
     }
-
 }

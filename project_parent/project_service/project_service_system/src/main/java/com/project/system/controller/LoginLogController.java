@@ -15,7 +15,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/loginLog")
 public class LoginLogController {
-
     @Autowired
     private LoginLogService loginLogService;
 
@@ -99,5 +98,4 @@ public class LoginLogController {
         PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
         return Result.success("查询成功", pageResult);
     }
-
 }

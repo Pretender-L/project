@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)//激活方法上的PreAuthorize注解
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
     /***
      * 忽略哪些资源不用security来管理
      * 忽略安全拦截的URL（不会走过滤器）
@@ -38,5 +37,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().
                 authenticated();    //其他地址需要认证授权
     }
-
 }

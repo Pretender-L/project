@@ -16,7 +16,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/spu")
 public class SpuController {
-
     @Autowired
     private SpuService spuService;
 
@@ -152,5 +151,4 @@ public class SpuController {
         spuService.realDel(id);
         return Result.success("商品永久删除成功");
     }
-
 }

@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_category")
 public class Category implements Serializable {
-
     @Id
     private Integer id;//分类ID
     private String name;//分类名称
@@ -83,5 +82,4 @@ public class Category implements Serializable {
     public void setTemplateId(Integer templateId) {
         this.templateId = templateId;
     }
-
 }

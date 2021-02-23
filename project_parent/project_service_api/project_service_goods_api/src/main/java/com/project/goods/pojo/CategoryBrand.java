@@ -5,7 +5,6 @@ import javax.persistence.Table;
 
 @Table(name = "tb_category_brand")
 public class CategoryBrand {
-
     //分类id
     @Id
     private Integer categoryId;
@@ -28,5 +27,4 @@ public class CategoryBrand {
     public void setBrandId(Integer brandId) {
         this.brandId = brandId;
     }
-
 }

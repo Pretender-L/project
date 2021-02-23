@@ -10,7 +10,6 @@ import java.util.Objects;
  */
 @Table(name = "tb_resource")
 public class Resource implements Serializable {
-
     @Id
     private Integer id;//id
     private String resKey;//res_key
@@ -61,5 +60,4 @@ public class Resource implements Serializable {
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
-
 }

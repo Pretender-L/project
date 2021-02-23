@@ -16,7 +16,6 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/sku")
 public class SkuController {
-
     @Autowired
     private SkuService skuService;
 
@@ -129,5 +128,4 @@ public class SkuController {
         skuService.resumeStockNum(skuId, num);
         return Result.success("库存回滚成功");
     }
-
 }

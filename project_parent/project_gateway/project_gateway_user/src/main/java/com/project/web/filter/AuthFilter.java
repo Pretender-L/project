@@ -17,7 +17,6 @@ import reactor.core.publisher.Mono;
 public class AuthFilter implements GlobalFilter, Ordered {
     @Autowired
     private AuthService authService;
-
     public static final String Authorization = "Authorization";
     public static final String LOGIN_URL = "http://localhost:9000/oauth/toLogin";
 

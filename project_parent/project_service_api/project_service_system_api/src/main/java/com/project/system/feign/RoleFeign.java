@@ -10,8 +10,6 @@ import java.util.List;
 
 @FeignClient(name = "system")
 public interface RoleFeign {
-
     @GetMapping(value = "/system/role/findByAdminId/{adminId}")
     Result<List<Role>> findByAdminId(@PathVariable Integer adminId);
-
 }

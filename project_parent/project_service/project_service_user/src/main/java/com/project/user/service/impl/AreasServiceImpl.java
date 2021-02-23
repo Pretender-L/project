@@ -14,7 +14,6 @@ import java.util.Map;
 
 @Service
 public class AreasServiceImpl implements AreasService {
-
     @Autowired
     private AreasMapper areasMapper;
 
@@ -125,5 +124,4 @@ public class AreasServiceImpl implements AreasService {
         }
         return example;
     }
-
 }

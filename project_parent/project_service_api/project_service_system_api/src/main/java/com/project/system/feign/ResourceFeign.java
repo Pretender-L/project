@@ -10,8 +10,6 @@ import java.util.Set;
 
 @FeignClient(name = "system")
 public interface ResourceFeign {
-
     @GetMapping(value = "/system/resource/findByAdminId/{adminId}")
     Result<Set<Resource>> findByAdminId(@PathVariable Integer adminId);
-
 }

@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface RoleService {
-
     /***
      * 查询所有
      * @return
@@ -64,5 +63,4 @@ public interface RoleService {
     Page<Role> findPage(Map<String, Object> searchMap, int page, int size);
 
     List<Role> findByAdminId(Integer adminId);
-
 }

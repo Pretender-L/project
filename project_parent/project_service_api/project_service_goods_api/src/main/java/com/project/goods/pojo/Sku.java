@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 @Table(name = "tb_sku")
 public class Sku implements Serializable {
-
     @Id
     private String id;//商品id
     private String sn;//商品条码
@@ -182,5 +181,4 @@ public class Sku implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-
 }
