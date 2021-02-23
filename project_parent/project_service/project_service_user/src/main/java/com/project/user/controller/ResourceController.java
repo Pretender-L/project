@@ -110,5 +110,4 @@ public class ResourceController {
         List<Resource> resourceList = resourceService.findByUsername(username);
         return Result.success("查询成功", resourceList);
     }
-
 }

@@ -88,5 +88,4 @@ public class JwtUtil {
             String jwt = createJWT(UUID.randomUUID().toString(), claims.getSubject(), null);
         }
     }
-
 }

@@ -69,5 +69,4 @@ public interface ResourceService {
      * @return
      */
     List<Resource> findByUsername(String username);
-
 }

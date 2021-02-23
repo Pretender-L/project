@@ -66,5 +66,4 @@ public interface SkuService {
     void decrCount(String username);
 
     void resumeStockNum(String skuId, Integer num);
-
 }
