@@ -1,9 +1,9 @@
 package com.project.jpa.service.impl;
 
+import com.project.entity.PageInfo;
 import com.project.excetion.BadException;
 import com.project.jpa.repository.UserRepository;
 import com.project.jpa.service.UserService;
-import com.project.pojo.PageInfo;
 import com.project.pojo.User;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +16,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;

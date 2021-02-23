@@ -1,6 +1,9 @@
 package com.project.controller
 
-import com.project.pojo.*
+import com.project.entity.PageResult
+import com.project.pojo.Admin
+import com.project.pojo.JpaPageInfo
+import com.project.entity.Result
 import com.project.service.AdminService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.redis.core.RedisTemplate
@@ -18,11 +21,11 @@ class AdminController {
     private lateinit var redisTemplate: RedisTemplate<Any, Any>
 
     @GetMapping("/findAll")
-    fun findAll(): Result<*>? {
+    fun findAll(): Result<*>{
         if (redisTemplate.hasKey("findAll")) {
             val adminList = redisTemplate.opsForValue().get("findAll")
             redisTemplate.opsForValue().set("findAll", adminList, 60, TimeUnit.SECONDS)
-            return Result.success(adminList)
+            return com.project.entity.Result.success(adminList)
         }
         val adminList = adminService.findAll()
         return Result.success(adminList)

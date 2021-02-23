@@ -1,10 +1,10 @@
 package com.project.jpa.controller;
 
+import com.project.entity.PageInfo;
+import com.project.entity.PageResult;
+import com.project.entity.Result;
 import com.project.excetion.BadException;
 import com.project.jpa.service.UserService;
-import com.project.pojo.PageInfo;
-import com.project.pojo.PageResult;
-import com.project.pojo.Result;
 import com.project.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

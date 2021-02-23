@@ -1,8 +1,8 @@
 package com.project.jpa.service;
 
 
+import com.project.entity.PageInfo;
 import com.project.excetion.BadException;
-import com.project.pojo.PageInfo;
 import com.project.pojo.User;
 import org.springframework.data.domain.Page;
 

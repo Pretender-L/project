@@ -1,8 +1,8 @@
 package com.project.cache.controller;
 
 import com.project.cache.service.AdminCacheService;
+import com.project.entity.Result;
 import com.project.pojo.Admin;
-import com.project.pojo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
