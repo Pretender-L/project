@@ -2,7 +2,6 @@ package com.project.goods.service;
 
 import com.github.pagehelper.Page;
 import com.project.goods.pojo.Sku;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;

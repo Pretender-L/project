@@ -7,8 +7,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
 import java.util.UUID;
