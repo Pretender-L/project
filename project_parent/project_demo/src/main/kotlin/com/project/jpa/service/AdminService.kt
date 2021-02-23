@@ -1,4 +1,4 @@
-package com.project.service
+package com.project.jpa.service
 
 import com.project.pojo.Admin
 import com.project.pojo.JpaPageInfo

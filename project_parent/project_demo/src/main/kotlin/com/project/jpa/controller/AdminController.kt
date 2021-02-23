@@ -1,10 +1,9 @@
-package com.project.controller
+package com.project.jpa.controller
 
 import com.project.entity.PageResult
-import com.project.pojo.Admin
-import com.project.pojo.JpaPageInfo
+import com.project.pojo.*
+import com.project.jpa.service.AdminService
 import com.project.entity.Result
-import com.project.service.AdminService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.web.bind.annotation.*
@@ -12,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 @RestController
 @RequestMapping("/admin")
-class AdminController {
+open class AdminController {
 
     @Autowired
     private lateinit var adminService: AdminService
@@ -21,7 +20,7 @@ class AdminController {
     private lateinit var redisTemplate: RedisTemplate<Any, Any>
 
     @GetMapping("/findAll")
-    fun findAll(): Result<*> {
+    fun findAll(): Result<*>? {
         if (redisTemplate.hasKey("findAll")) {
             val adminList = redisTemplate.opsForValue().get("findAll")
             redisTemplate.opsForValue().set("findAll", adminList, 60, TimeUnit.SECONDS)
@@ -61,7 +60,7 @@ class AdminController {
      * 添加
      */
     @PostMapping("/add")
-    fun add(@RequestBody admin: Admin): Result<*> {
+    fun add(@RequestBody admin: Admin): Result<*>{
         adminService.add(admin)
         return Result.success()
     }
@@ -70,7 +69,7 @@ class AdminController {
      * 删除
      */
     @DeleteMapping("/delete/{adminId}")
-    fun delete(@PathVariable adminId: String): Result<*> {
+    fun delete(@PathVariable adminId:String):Result<*>{
         adminService.delete(adminId)
         return Result.success()
     }
@@ -79,7 +78,7 @@ class AdminController {
      * 修改
      */
     @PutMapping("/update")
-    fun update(@RequestBody admin: Admin) {
+    fun update(@RequestBody admin: Admin){
         adminService.update(admin)
     }
 }

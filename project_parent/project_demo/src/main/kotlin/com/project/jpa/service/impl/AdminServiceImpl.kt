@@ -1,10 +1,10 @@
-package com.project.service.impl
+package com.project.jpa.service.impl
 
 import com.project.excetion.BadException
 import com.project.pojo.Admin
 import com.project.pojo.JpaPageInfo
-import com.project.repository.AdminRepository
-import com.project.service.AdminService
+import com.project.jpa.repository.AdminRepository
+import com.project.jpa.service.AdminService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Example
 import org.springframework.data.domain.ExampleMatcher
