@@ -1,0 +1,32 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: system-auth
+  redis:
+    host: http://192.168.200.128
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.200.128:3306/project_system?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=UTC
+    username: root
+    password: root
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    consul:
+      host: http://192.168.200.128
+      port: 8500
+      discovery:
+        prefer-ip-address: true #注册ip地址
+        enabled: true
+        register: true # 注册自身到consul
+        deregister: true # 服务停止时取消注册
+        service-name: ${spring.application.name} # 注册到 Consul 的服务名，默认为 `spring.application.name` 配置项
+        health-check-path: /actuator/health # 健康检查的接口，默认为 /actuator/health，由 Spring Boot Actuator 提供

@@ -1,0 +1,5 @@
+spring:
+  profiles:
+    active: dev #激活dev配置文件
+#虚拟机参数配置：-Dspring.profiles.active=dev
+#命令行参数配置：--spring.profiles.active=dev

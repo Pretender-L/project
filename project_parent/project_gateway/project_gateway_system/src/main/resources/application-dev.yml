@@ -1,0 +1,56 @@
+#开发环境
+server:
+  port: 8000
+spring:
+  application:
+    name: gateway-system
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+      routes:
+        #认证微服务
+        - id: system-oauth
+          uri: lb://system-auth
+          predicates:
+            - Path=/oauth/**
+        - id: goods
+          uri: lb://goods
+          predicates:
+            - Path=/goods/**
+          filters:
+            #- StripPrefix= 1 #去除第一个级前缀
+            - name: RequestRateLimiter #请求数限流 名字不能随便写
+              args:
+                key-resolver: "#{@ipKeyResolver}"
+                redis-rate-limiter.replenishRate: 1 #令牌桶每秒填充平均速率
+                redis-rate-limiter.burstCapacity: 1 #令牌桶总容量
+        - id: system
+          uri: lb://system #lb动态路由
+          predicates:
+            - Path=/system/**
+          #用户微服务
+        - id: user
+          uri: lb://user
+          predicates:
+            - Path=/user/**,/address/**,/areas/**,/cities/**,/provinces/**
+    consul:
+        host: localhost
+        port: 8500
+        discovery:
+          prefer-ip-address: true #注册ip地址
+          enabled: true
+          register: true # 注册自身到consul
+          deregister: true # 服务停止时取消注册
+          service-name: ${spring.application.name} # 注册到 Consul 的服务名，默认为 `spring.application.name` 配置项
+          health-check-path: /actuator/health # 健康检查的接口，默认为 /actuator/health，由 Spring Boot Actuator 提供
+  redis:
+    host: localhost
+

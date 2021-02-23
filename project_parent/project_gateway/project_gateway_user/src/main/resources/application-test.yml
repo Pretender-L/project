@@ -1,0 +1,63 @@
+spring:
+  application:
+    name: gateway-user
+  cloud:
+    consul:
+      host: http://192.168.200.128
+      port: 8500
+      discovery:
+        prefer-ip-address: true #注册ip地址
+        enabled: true
+        register: true # 注册自身到consul
+        deregister: true # 服务停止时取消注册
+        service-name: ${spring.application.name} # 注册到 Consul 的服务名，默认为 `spring.application.name` 配置项
+        health-check-path: /actuator/health # 健康检查的接口，默认为 /actuator/health，由 Spring Boot Actuator 提供
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+      routes:
+        - id: goods_route
+          uri: lb://goods
+          predicates:
+            - Path=/album/**,/brand/**,/cache/**,/categoryBrand/**,/category/**,/para/**,/pref/**,/sku/**,/spec/**,/spu/**,/stockBack/**,/template/**
+          #filters:
+            #- PrefixPath=/brand #让真实请求地址增加前缀
+            #- StripPrefix=1
+          #用户微服务
+        - id: user_route
+          uri: lb://user
+          predicates:
+            - Path=/user/**,/address/**,/areas/**,/cities/**,/provinces/**
+          #认证微服务
+        - id: user_oauth
+          uri: lb://user-auth
+          predicates:
+            - Path=/oauth/**
+            #订单微服务
+        - id: order_route
+          uri: lb://order
+          predicates:
+            - Path=/cart/**,/categoryReport/**,/orderConfig/**,/order/**,/orderItem/**,/orderLog/**,/preferential/**,/returnCause/**,/returnOrder/**,/returnOrderItem/**
+        #购物车订单渲染微服务
+        - id: order_web_route
+          uri: lb://order-web
+          predicates:
+            - Path=/wcart/**,/worder/**,/wxpay/**
+  redis:
+    host: http://192.168.200.128
+server:
+  port: 9000
+management:
+  endpoint:
+    gateway:
+      enabled: true
+    web:
+      exposure:
+        include: true
