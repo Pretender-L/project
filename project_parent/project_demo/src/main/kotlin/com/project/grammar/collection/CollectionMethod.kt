@@ -1,6 +1,6 @@
 package com.project.grammar.collection
 
-/*
+/**
 元素操作符
   contains(元素) : 检查集合中是否包含指定的元素，若存在则返回true，反之返回false
   elementAt(index) : 获取对应下标的元素。若下标越界，会抛出IndexOutOfBoundsException（下标越界）异常，同get(index)一样
@@ -27,7 +27,8 @@ package com.project.grammar.collection
   forEachIndexed{index,value} : 遍历元素，可获得集合中元素的下标。一般用作元素以及下标的打印
   componentX() ： 这个函数在前面的章节中提过多次了。用于获取元素。其中的X只能代表1..5。详情可看下面的例子
 */
-/*
+
+/**
 顺序操作符
   reversed() : 反序。即和初始化的顺序反过来。
   sorted() : 自然升序。
@@ -35,7 +36,8 @@ package com.project.grammar.collection
   sortedDescending() : 自然降序。
   sortedByDescending{} : 根据条件降序。和sortedBy{}相反
 */
-/*
+
+/**
 映射操作符
   map{…} : 把每个元素按照特定的方法进行转换，组成一个新的集合。
   mapNotNull{…} : 同map{}函数的作用相同，只是过滤掉转换之后为null的元素
@@ -44,7 +46,8 @@ package com.project.grammar.collection
   flatMap{…} : 根据条件合并两个集合，组成一个新的集合。
   groupBy{…} : 分组。即根据条件把集合拆分为为一个Map&gt;类型的集合。具体看实例
 */
-/*
+
+/**
 过滤操作符
   filter{…} : 把不满足条件的元素过滤掉
   filterIndexed{…} : 和filter{}函数作用类似，只是可以操作集合中元素的下标（index）
@@ -62,14 +65,16 @@ package com.project.grammar.collection
   distinctBy{…} : 根据操作元素后的结果去除重复元素
   slice : 过滤掉所有不满足执行下标的元素。
 */
-/*
+
+/**
 生产操作符
   plus() : 合并两个集合中的元素，组成一个新的集合。也可以使用符号+
   zip : 由两个集合按照相同的下标组成一个新集合。该新集合的类型是：List
   unzip : 和zip的作用相反。把一个类型为List的集合拆分为两个集合。看下面的例子
   partition : 判断元素是否满足条件把集合拆分为由两个Pair组成的新集合。
 */
-/*
+
+/**
 统计操作符
   any() : 判断是不是一个集合，若是，则在判断集合是否为空，若为空则返回false,反之返回true,若不是集合，则返回hasNext
   any{…} : 判断集合中是否存在满足条件的元素。若存在则返回true,反之返回false
@@ -93,5 +98,6 @@ package com.project.grammar.collection
   foldRight{…} : 和reduceRight{}类似，但是foldRight{}有一个初始值
   foldRightIndexed{…} : 和reduceRightIndexed{}类似，但是foldRightIndexed{}有一个初始值
 */
+
 class CollectionMethod {
 }
