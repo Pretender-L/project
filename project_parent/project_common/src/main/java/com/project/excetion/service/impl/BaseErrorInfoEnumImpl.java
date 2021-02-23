@@ -3,7 +3,6 @@ package com.project.excetion.service.impl;
 import com.project.excetion.service.BaseErrorInfo;
 
 public enum BaseErrorInfoEnumImpl implements BaseErrorInfo {
-
     /**
      *数据操作错误定义
      */
@@ -42,5 +41,4 @@ public enum BaseErrorInfoEnumImpl implements BaseErrorInfo {
     public String getResultMsg() {
         return resultMsg;
     }
-
 }

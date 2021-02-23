@@ -10,7 +10,6 @@ import reactor.core.publisher.Mono;
 
 @Component
 public class UrlFilter implements GlobalFilter, Ordered {
-
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
@@ -23,5 +22,4 @@ public class UrlFilter implements GlobalFilter, Ordered {
     public int getOrder() {
         return 2;
     }
-
 }

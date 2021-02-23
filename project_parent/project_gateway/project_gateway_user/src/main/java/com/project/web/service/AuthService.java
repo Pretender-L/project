@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
-
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
@@ -25,5 +24,4 @@ public class AuthService {
         String jwt = stringRedisTemplate.boundValueOps(jti).get();
         return jwt;
     }
-
 }

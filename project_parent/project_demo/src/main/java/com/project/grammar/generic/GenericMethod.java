@@ -43,13 +43,11 @@ public class GenericMethod {
 
     //这也不是一个泛型方法，这就是一个普通的方法，只是使用了Generic<Number>这个泛型类做形参而已。
     public void showKeyValue1(Generic<Number> obj) {
-
     }
 
     //这也不是一个泛型方法，这也是一个普通的方法，只不过使用了泛型通配符?
     //同时这也印证了泛型通配符章节所描述的，?是一种类型实参，可以看做为Number等所有类的父类
     public void showKeyValue2(Generic<?> obj) {
-
     }
 
     /**
@@ -69,9 +67,4 @@ public class GenericMethod {
      * <p>
      * }
      */
-
-    public static void main(String[] args) {
-
-
-    }
 }

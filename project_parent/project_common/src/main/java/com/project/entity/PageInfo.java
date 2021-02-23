@@ -9,10 +9,8 @@ import java.util.List;
  * @param <T>
  */
 public class PageInfo<T> implements Serializable {
-
     //当前默认为第一页
     public static final Integer pageNum = 1;
-
     //默认每页显示条件
     public static final Integer pageSize = 20;
 
@@ -26,22 +24,16 @@ public class PageInfo<T> implements Serializable {
 
     // 页数（第几页）
     private long currentpage;
-
     // 查询数据库里面对应的数据有多少条
     private long total;// 从数据库查处的总记录数
-
     // 每页显示多少分页标签
     private int size;
-
     // 下页
     private int next;
-
     private List<T> list;
     // 最后一页
     private int last;
-
     private int lpage;
-
     private int rpage;
     //从哪条开始查
     private long start;
@@ -226,5 +218,4 @@ public class PageInfo<T> implements Serializable {
     public void setList(List<T> list) {
         this.list = list;
     }
-
 }

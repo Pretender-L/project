@@ -4,7 +4,6 @@ class MapTest {
 }
 
 fun main() {
-
     val map1 = mapOf("key1" to 2, "key2" to 3)
     val map2 = mapOf<Int, String>(1 to "value1", 2 to "value2")
     val mutableMap = mutableMapOf("key1" to 2, "key1" to 3)
@@ -27,7 +26,6 @@ fun main() {
     val intArray = mutableListInt.toIntArray()
     intArray.forEach { print("$it ") }
 }
-
 
 open class Person(val name: String, val age: Int) {
     override fun toString(): String {

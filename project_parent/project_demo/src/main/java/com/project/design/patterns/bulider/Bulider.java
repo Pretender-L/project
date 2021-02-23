@@ -1,7 +1,6 @@
 package com.project.design.patterns.bulider;
 
 public class Bulider {
-
     public static void main(String[] args) {
         Bulider bulider = new Bulider();
         bulider.test();
@@ -15,6 +14,7 @@ public class Bulider {
         Product result = director.getResult();
         System.out.println(result.toString());
     }
+
     //项目
     class Product {
         //项目组件
@@ -46,6 +46,7 @@ public class Bulider {
         }
     }
 
+    //构造者抽象
     abstract class BuilderTest {
         protected Product product = new Product();
 
@@ -60,7 +61,6 @@ public class Bulider {
 
     //施工员
     class ConcreteBuilder extends BuilderTest {
-
         @Override
         void partABulider() {
             product.setPartA("内部组件A构造成功");
@@ -86,5 +86,4 @@ public class Bulider {
             return builderTest.getProduct();
         }
     }
-
 }

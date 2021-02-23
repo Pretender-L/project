@@ -3,14 +3,11 @@ package com.project.excetion;
 import com.project.excetion.service.BaseErrorInfo;
 
 public class BadException extends Exception {
-
     private static final long serialVersionUID = 1L;
-
     /**
      * 错误码
      */
     protected String errorCode;
-
     /**
      * 错误信息
      */
@@ -73,5 +70,4 @@ public class BadException extends Exception {
     public Throwable fillInStackTrace() {
         return this;
     }
-
 }

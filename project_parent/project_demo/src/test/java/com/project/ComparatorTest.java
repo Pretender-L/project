@@ -8,7 +8,6 @@ import java.util.*;
 
 @SpringBootTest
 public class ComparatorTest {
-
     @Test
     public void comparatorTest() {
         List<User> userList = new ArrayList<>();

@@ -24,13 +24,10 @@ import java.util.Set;
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-
     @Autowired
     private AdminFeign adminFeign;
-
     @Autowired
     private ResourceFeign resourceFeign;
-
     @Autowired
     private RoleFeign roleFeign;
 
@@ -67,5 +64,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User userDetails = new User(username, admin.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList(permissions));
         return userDetails;
     }
-
 }

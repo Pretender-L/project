@@ -19,7 +19,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @Order(-1)
 class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
     /***
      * 忽略哪些资源不用security来管理
      * 忽略安全拦截的URL（不会走过滤器）
@@ -78,6 +77,5 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable();
     }
-
 }
 

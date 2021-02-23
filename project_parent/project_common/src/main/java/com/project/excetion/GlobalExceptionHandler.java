@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /***
@@ -72,5 +71,4 @@ public class GlobalExceptionHandler {
         logger.error("未知异常！请求是：{" + req.getRequestURL() + "}", e);
         return Result.error(BaseErrorInfoEnumImpl.INTERNAL_SERVER_ERROR);
     }
-
 }

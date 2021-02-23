@@ -17,7 +17,6 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
     @Autowired
     private UserService userService;
 
@@ -207,5 +206,4 @@ public class UserController {
         User user = userService.findOne(userInfo);
         return Result.success(user);
     }
-
 }

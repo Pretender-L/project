@@ -24,7 +24,6 @@ import java.util.concurrent.TimeUnit;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private RedisTemplate redisTemplate;
 
@@ -181,5 +180,4 @@ public class UserServiceImpl implements UserService {
         };
         return userRepository.findAll(specification, pageable);
     }
-
 }

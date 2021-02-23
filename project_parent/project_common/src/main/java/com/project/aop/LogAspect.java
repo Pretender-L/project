@@ -17,9 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 @Aspect
 @Component
 public class LogAspect {
-
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
-
     private StopWatch stopWatch;
 
     /***
@@ -28,7 +26,6 @@ public class LogAspect {
      */
     @Pointcut("@within(org.springframework.web.bind.annotation.RestController)")
     private void logPrinter() {
-
     }
 
     /**
@@ -55,5 +52,4 @@ public class LogAspect {
             logger.info(stopWatch.prettyPrint());
         }
     }
-
 }

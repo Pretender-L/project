@@ -16,7 +16,6 @@ import reactor.core.publisher.Mono;
 
 @Component
 public class AuthorizeFilter implements GlobalFilter, Ordered {
-
     public static final String LOGIN_URL = "http://localhost:8000/oauth/toLogin";
 
     @Override
@@ -74,5 +73,4 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
     public int getOrder() {
         return 3;
     }
-
 }

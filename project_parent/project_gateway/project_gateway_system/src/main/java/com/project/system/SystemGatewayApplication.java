@@ -11,7 +11,6 @@ import reactor.core.publisher.Mono;
 @SpringBootApplication
 @EnableDiscoveryClient
 public class SystemGatewayApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(SystemGatewayApplication.class);
     }
@@ -28,5 +27,4 @@ public class SystemGatewayApplication {
             }
         };
     }
-
 }

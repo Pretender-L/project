@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 @SpringBootTest
 public class ArithmeticTest {
-
-
     /**
      * 选择排序
      * 9 5 8 3 7
@@ -94,5 +92,4 @@ public class ArithmeticTest {
             }
         }
     }
-
 }

@@ -8,7 +8,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @Configuration
 public class TaskExecutorPoolConfig {
-
     /**
      * 提交任务
      * 无返回值的任务使用execute(Runnable)
@@ -34,5 +33,4 @@ public class TaskExecutorPoolConfig {
         executor.initialize();
         return executor;
     }
-
 }

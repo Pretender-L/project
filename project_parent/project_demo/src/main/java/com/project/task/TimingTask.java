@@ -40,6 +40,5 @@ public class TimingTask {
             hour += 1;
             minute = 0;
         }
-
     }
 }

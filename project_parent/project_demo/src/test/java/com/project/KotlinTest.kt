@@ -6,7 +6,6 @@ import org.springframework.data.redis.core.RedisTemplate
 
 @SpringBootTest
 class KotlinTest {
-
     /**
      * 常量
      * const val NUM_A = 6
@@ -18,7 +17,6 @@ class KotlinTest {
      *         println("我是三重引号引用的字符串，我可以包含任意字符")
      *     } """
      */
-
 
     /**
      * 字符串模板
@@ -149,10 +147,5 @@ class KotlinTest {
         //val testStr: String? = null
         val testStr: String? = "null"
         println(testStr!!.length)
-    }
-
-    @Test
-    fun demo03() {
-
     }
 }

@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit
 @RestController
 @RequestMapping("/admin")
 open class AdminController {
-
     @Autowired
     private lateinit var adminService: AdminService
 

@@ -15,7 +15,6 @@ import java.net.InetSocketAddress;
  */
 @Component
 public class IpFilter implements GlobalFilter, Ordered {
-
     /***
      * 具体业务逻辑
      * @param exchange
@@ -38,5 +37,4 @@ public class IpFilter implements GlobalFilter, Ordered {
     public int getOrder() {
         return 1;
     }
-
 }

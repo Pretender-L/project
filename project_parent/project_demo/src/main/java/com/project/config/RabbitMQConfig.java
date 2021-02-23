@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQConfig {
-
     public static final String TEST_EXCHANGE = "test_exchange";
     public static final String TEST_QUEUE = "test_queue";
 
@@ -34,5 +33,4 @@ public class RabbitMQConfig {
     public Binding testExBinding(@Qualifier(TEST_QUEUE) Queue queue, @Qualifier(TEST_EXCHANGE) Exchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with("").noargs();
     }
-
 }

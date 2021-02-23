@@ -5,7 +5,6 @@ import com.project.pojo.JpaPageInfo
 import org.springframework.data.domain.Page
 
 interface AdminService {
-
     fun findAll(): List<Admin>
 
     fun search(loginName: String, status: String): List<Admin>
@@ -19,5 +18,4 @@ interface AdminService {
     fun delete(adminId: String)
 
     fun update(admin: Admin)
-
 }

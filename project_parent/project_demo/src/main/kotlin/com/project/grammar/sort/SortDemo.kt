@@ -2,7 +2,6 @@ package com.project.grammar.sort
 
 import com.project.pojo.People
 
-
 class SortDemo {
 }
 

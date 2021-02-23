@@ -15,10 +15,8 @@ import java.util.UUID;
  * JWT工具类
  */
 public class JwtUtil {
-
     //有效期为
     public static final Long JWT_TTL = 3600000L;// 60 * 60 *1000  一个小时
-
     //设置秘钥明文
     public static final String JWT_KEY = "project";
 

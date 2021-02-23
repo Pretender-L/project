@@ -4,7 +4,6 @@ package com.project.design.patterns.factory;
  * 工厂方法
  */
 public class FactoryMethod {
-
     /**
      * 抽象工厂,强制实现抽象方法获得机器,成员方法获得机器后开始制造
      */
@@ -28,7 +27,6 @@ public class FactoryMethod {
     public interface MachineApi {
         //process：加工      material:材料
         public void process(String material);
-
     }
 
     /**
@@ -66,7 +64,6 @@ public class FactoryMethod {
             MachineApi machine = getMachine();
             machine.process(material);
         }
-
     }
 
     //馒头工厂
@@ -86,5 +83,4 @@ public class FactoryMethod {
             return new NoodleMachine();
         }
     }
-
 }

@@ -13,7 +13,6 @@ import java.util.stream.Stream;
 
 @SpringBootTest
 public class StreamTest {
-
     /**
      * 排序
      * list遍历转map
@@ -141,5 +140,4 @@ public class StreamTest {
         System.out.println("处理前的集合"+list);
         System.out.println("处理后的集合"+newList);
     }
-
 }

@@ -12,7 +12,6 @@ public class AdminCacheController {
     @Autowired
     private AdminCacheService adminCacheService;
 
-
     @GetMapping("/findById/{adminId}")
     public Result findById(@PathVariable String adminId) {
         Admin admin = adminCacheService.findById(adminId);

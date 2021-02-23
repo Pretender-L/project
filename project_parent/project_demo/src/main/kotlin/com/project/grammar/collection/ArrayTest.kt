@@ -11,6 +11,4 @@ fun main() {
     println(array.component5())
     array.reverse()
     array.forEach { println(it) }
-
-
 }

@@ -7,17 +7,14 @@ import com.project.excetion.service.impl.BaseErrorInfoEnumImpl;
  * 返回结果实体类
  */
 public class Result<T> {
-
     /**
      * 响应代码
      */
     private String code;
-
     /**
      * 响应消息
      */
     private String message;
-
     /**
      * 响应结果
      */
@@ -132,5 +129,4 @@ public class Result<T> {
         rb.setResult(null);
         return rb;
     }
-
 }

@@ -20,7 +20,6 @@ import javax.persistence.criteria.Root
 
 @Service
 class AdminServiceImpl : AdminService {
-
     @Autowired
     private lateinit var adminRepository: AdminRepository
 

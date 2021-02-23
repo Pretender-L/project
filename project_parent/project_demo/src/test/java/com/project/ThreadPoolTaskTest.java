@@ -14,7 +14,6 @@ import java.util.concurrent.Future;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class ThreadPoolTaskTest {
-
     @Autowired
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 

@@ -23,7 +23,6 @@ import java.net.NetworkInterface;
  * @author Polim
  */
 public class IdWorker {
-
     // 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）
     private final static long twepoch = 1288834974657L;
     // 机器标识位数
@@ -42,13 +41,11 @@ public class IdWorker {
     private final static long datacenterIdShift = sequenceBits + workerIdBits;
     // 时间毫秒左移22位
     private final static long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
-
     private final static long sequenceMask = -1L ^ (-1L << sequenceBits);
     /* 上次生产id时间戳 */
     private static long lastTimestamp = -1L;
     // 0，并发控制
     private long sequence = 0L;
-
     private final long workerId;
     // 数据标识id部分
     private final long datacenterId;
@@ -165,5 +162,4 @@ public class IdWorker {
             System.out.println(nextId);
         }
     }
-
 }

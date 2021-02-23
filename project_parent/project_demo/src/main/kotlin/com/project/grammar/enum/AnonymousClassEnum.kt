@@ -12,6 +12,7 @@ enum class AnonymousClassEnum {
             println("我是枚举常量apple")
         }
     },
+
     banana {
         override fun println() {
             println("我是枚举常量banana")

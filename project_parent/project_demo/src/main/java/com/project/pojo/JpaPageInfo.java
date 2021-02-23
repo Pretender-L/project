@@ -4,12 +4,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 public class JpaPageInfo {
-
     /**
      * 当前页
      */
     private int page;
-
     /**
      * 每页显示条数
      */

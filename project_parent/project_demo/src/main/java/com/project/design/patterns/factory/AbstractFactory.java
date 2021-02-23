@@ -5,7 +5,6 @@ package com.project.design.patterns.factory;
  * 抽象工厂模式是工厂方法模式的升级版本，工厂方法模式只生产一个等级的产品，而抽象工厂模式可生产多个等级的产品。
  */
 public class AbstractFactory {
-
     public static void main(String[] args) {
         AbstractFactory abstractFactory = new AbstractFactory();
         abstractFactory.test();
@@ -48,7 +47,6 @@ public class AbstractFactory {
 
     //具体工厂：韶关农场类
     class SGFarm implements Farm {
-
         @Override
         public Animal newAnimal() {
             System.out.println("新马出生");

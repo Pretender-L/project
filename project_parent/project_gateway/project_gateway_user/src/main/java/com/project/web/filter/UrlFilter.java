@@ -4,7 +4,6 @@ package com.project.web.filter;
  * 所有需要传递令牌的地址(受保护)
  */
 public class UrlFilter {
-
     /**
      * /user：保护整个服务
      * /worder/**这种格式：api/worder请求无法保护；
@@ -23,5 +22,4 @@ public class UrlFilter {
         }
         return false;//当前访问地址是不需要访问令牌的
     }
-
 }

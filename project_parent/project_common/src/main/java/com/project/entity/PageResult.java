@@ -3,9 +3,7 @@ package com.project.entity;
 import java.util.List;
 
 public class PageResult<T> {
-
     private Long total;//总记录数
-
     private List<T> rows;//记录
 
     public PageResult(Long total, List<T> rows) {
@@ -31,5 +29,4 @@ public class PageResult<T> {
     public void setRows(List<T> rows) {
         this.rows = rows;
     }
-
 }

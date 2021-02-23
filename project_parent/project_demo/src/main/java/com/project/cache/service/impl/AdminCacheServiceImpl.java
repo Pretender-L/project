@@ -63,5 +63,4 @@ public class AdminCacheServiceImpl implements AdminCacheService {
     public Admin update(Admin admin) {
         return adminRepository.save(admin);
     }
-
 }

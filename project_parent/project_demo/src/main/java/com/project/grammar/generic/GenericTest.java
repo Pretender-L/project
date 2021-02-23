@@ -2,7 +2,6 @@ package com.project.grammar.generic;
 
 //类泛型指定了类中存放什么类型的数据
 public class GenericTest<T> {
-
     //成员变量类型和类泛型一致
     private T key;
 
@@ -13,10 +12,8 @@ public class GenericTest<T> {
     public static void main(String[] args) {
         //指定泛型的类型
         GenericTest<String> stringGenericTest = new GenericTest<>("1");
-
         //不指定泛型可以传入任意类型实参
         GenericTest booleanGenericTest = new GenericTest(false);
-
         stringGenericTest.genericTest(booleanGenericTest);
     }
 
