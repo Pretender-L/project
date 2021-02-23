@@ -21,11 +21,11 @@ class AdminController {
     private lateinit var redisTemplate: RedisTemplate<Any, Any>
 
     @GetMapping("/findAll")
-    fun findAll(): Result<*>{
+    fun findAll(): Result<*> {
         if (redisTemplate.hasKey("findAll")) {
             val adminList = redisTemplate.opsForValue().get("findAll")
             redisTemplate.opsForValue().set("findAll", adminList, 60, TimeUnit.SECONDS)
-            return com.project.entity.Result.success(adminList)
+            return Result.success(adminList)
         }
         val adminList = adminService.findAll()
         return Result.success(adminList)
@@ -61,7 +61,7 @@ class AdminController {
      * 添加
      */
     @PostMapping("/add")
-    fun add(@RequestBody admin: Admin): Result<*>{
+    fun add(@RequestBody admin: Admin): Result<*> {
         adminService.add(admin)
         return Result.success()
     }
@@ -70,7 +70,7 @@ class AdminController {
      * 删除
      */
     @DeleteMapping("/delete/{adminId}")
-    fun delete(@PathVariable adminId:String):Result<*>{
+    fun delete(@PathVariable adminId: String): Result<*> {
         adminService.delete(adminId)
         return Result.success()
     }
@@ -79,7 +79,7 @@ class AdminController {
      * 修改
      */
     @PutMapping("/update")
-    fun update(@RequestBody admin: Admin){
+    fun update(@RequestBody admin: Admin) {
         adminService.update(admin)
     }
 }
