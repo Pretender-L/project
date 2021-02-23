@@ -1,4 +1,4 @@
-package com.project.grammar.design.patterns.factory;
+package com.project.design.patterns.factory;
 
 /**
  * 简单工厂模式
