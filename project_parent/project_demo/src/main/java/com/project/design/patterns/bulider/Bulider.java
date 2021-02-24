@@ -1,5 +1,5 @@
 package com.project.design.patterns.bulider;
-
+//建造者模式
 public class Bulider {
     public static void main(String[] args) {
         Bulider bulider = new Bulider();
