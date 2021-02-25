@@ -43,7 +43,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
             return response.setComplete();*/
             return toLoginPage(LOGIN_URL + "?FROM=" + request.getURI().getPath(), exchange);
         }
-        //对请求头进行增强
+        //增加请求头
         request.mutate().header(Authorization, "Bearer " + jwt);
         return chain.filter(exchange);
     }

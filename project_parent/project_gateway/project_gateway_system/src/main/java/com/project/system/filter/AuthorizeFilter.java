@@ -30,7 +30,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
             //放行
             return chain.filter(exchange);
         }
-        //方案1：做请求增强（请求头添加token:jwt）
+        //方案1：增加请求头（请求头添加token:jwt）
         /*HttpHeaders headers = request.getHeaders();
         String jwtToken = headers.getFirst("token");*/
         //方案2：读取cookie中的令牌
@@ -56,7 +56,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
             return response.setComplete();*/
             return toLoginPage(LOGIN_URL + "?FROM=" + request.getURI().getPath(), exchange);
         }
-        //请求头增强
+        //增加请求头
         request.mutate().header("Token", jwtToken);
         return chain.filter(exchange);
     }

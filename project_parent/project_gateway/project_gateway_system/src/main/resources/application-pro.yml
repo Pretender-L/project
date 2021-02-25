@@ -21,10 +21,6 @@ spring:
           uri: lb://system-auth
           predicates:
             - Path=/oauth/**
-        - id: goods
-          uri: lb://goods
-          predicates:
-            - Path=/goods/**
           filters:
             #- StripPrefix= 1 #去除第一个级前缀
             - name: RequestRateLimiter #请求数限流 名字不能随便写

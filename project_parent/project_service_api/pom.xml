@@ -12,8 +12,6 @@
     <artifactId>project_service_api</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>project_service_goods_api</module>
-        <module>project_service_order_api</module>
         <module>project_service_user_api</module>
         <module>project_service_system_api</module>
     </modules>

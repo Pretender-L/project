@@ -48,7 +48,7 @@ public class AuthController {
         userMap.put("Authority", authentication.getAuthorities().toString());
         //用工具类生成令牌,工具类默认1小时过期
         String jwt = JwtUtil.createJWT(UUID.randomUUID().toString(), JSON.toJSONString(userMap), null);
-        //方案1：前端获取做请求增强（请求头 token:jwt）
+        //方案1：前端获取增加请求头（请求头 token:jwt）
         /*info.put("token", jwt);*/
         //方案2：写入cookie
         CookieUtil.addCookie(response, "localhost", "/", "token", jwt, 60 * 60, false);
