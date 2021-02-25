@@ -13,10 +13,8 @@
 
     <packaging>pom</packaging>
     <modules>
-        <module>project_service_order</module>
         <module>project_service_user</module>
         <module>project_service_system</module>
-        <module>project_service_file</module>
     </modules>
 
     <properties>
