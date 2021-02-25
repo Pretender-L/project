@@ -1,6 +1,5 @@
 package com.project.user.dao;
 
-import com.project.user.pojo.PointLog;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import tk.mybatis.mapper.common.Mapper;

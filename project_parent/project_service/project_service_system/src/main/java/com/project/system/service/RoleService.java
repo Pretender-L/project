@@ -62,5 +62,10 @@ public interface RoleService {
      */
     Page<Role> findPage(Map<String, Object> searchMap, int page, int size);
 
+    /***
+     * 根据adminId查询资源权限
+     * @param adminId
+     * @return
+     */
     List<Role> findByAdminId(Integer adminId);
 }

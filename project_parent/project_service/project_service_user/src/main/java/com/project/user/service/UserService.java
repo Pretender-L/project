@@ -62,6 +62,4 @@ public interface UserService {
      * @return
      */
     Page<User> findPage(Map<String, Object> searchMap, int page, int size);
-
-    int updateUserPoint(Task task);
 }

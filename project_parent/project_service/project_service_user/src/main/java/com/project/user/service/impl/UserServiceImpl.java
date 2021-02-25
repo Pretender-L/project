@@ -1,10 +1,7 @@
 package com.project.user.service.impl;
 
-import com.alibaba.fastjson.JSON;
-import com.project.order.pojo.Task;
 import com.project.user.dao.PointLogMapper;
 import com.project.user.dao.UserMapper;
-import com.project.user.pojo.PointLog;
 import com.project.user.service.UserService;
 import com.project.user.pojo.User;
 import com.github.pagehelper.Page;
@@ -12,12 +9,10 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -27,37 +22,6 @@ public class UserServiceImpl implements UserService {
     private PointLogMapper pointLogMapper;
     @Autowired
     private RedisTemplate redisTemplate;
-
-    @Transactional
-    @Override
-    public int updateUserPoint(Task task) {
-        Map map = JSON.parseObject(task.getRequestBody(), Map.class);
-        String username = map.get("username").toString();
-        String orderId = map.get("orderId").toString();
-        String point = map.get("point").toString();
-        //判断当前的任务是否操作过
-        PointLog pointLog = pointLogMapper.findPointLogByOrderId(orderId);
-        if (pointLog != null) {
-            return 0;
-        }
-        redisTemplate.boundValueOps(task.getId()).set("exist", 30, TimeUnit.SECONDS);
-        //修改用户积分
-        int result = userMapper.updateUserPoint(username, point);
-        if (result <= 0) {
-            return 0;
-        }
-        //记录积分日志信息
-        pointLog = new PointLog();
-        pointLog.setOrderId(orderId);
-        pointLog.setPoint(Integer.parseInt(point));
-        pointLog.setUserId(username);
-        result = pointLogMapper.insertSelective(pointLog);
-        if (result <= 0) {
-            return 0;
-        }
-        redisTemplate.delete(task.getId());
-        return 1;
-    }
 
     /***
      * 查询全部列表

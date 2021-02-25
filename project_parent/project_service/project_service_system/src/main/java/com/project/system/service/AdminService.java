@@ -63,9 +63,8 @@ public interface AdminService {
      */
     Page<Admin> findPage(Map<String, Object> searchMap, int page, int size);
 
-    /**
+    /***
      * 根据登录名查询admin
-     *
      * @param loginName
      * @return
      */
