@@ -1,10 +1,8 @@
-package com.project.excetion.service.impl;
+package com.project.enums;
 
-import com.project.excetion.service.BaseErrorInfo;
-
-public enum BaseErrorInfoEnumImpl implements BaseErrorInfo {
+public enum BaseErrorInfoEnum {
     /**
-     *数据操作错误定义
+     * 数据操作错误定义
      */
     SUCCESS("200", "成功!"),
     ERROR("400", "失败"),
@@ -27,17 +25,15 @@ public enum BaseErrorInfoEnumImpl implements BaseErrorInfo {
      */
     private String resultMsg;
 
-    BaseErrorInfoEnumImpl(String resultCode, String resultMsg) {
+    BaseErrorInfoEnum(String resultCode, String resultMsg) {
         this.resultCode = resultCode;
         this.resultMsg = resultMsg;
     }
 
-    @Override
     public String getResultCode() {
         return resultCode;
     }
 
-    @Override
     public String getResultMsg() {
         return resultMsg;
     }

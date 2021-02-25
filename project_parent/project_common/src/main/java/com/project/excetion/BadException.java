@@ -1,6 +1,6 @@
 package com.project.excetion;
 
-import com.project.constant.enums.BaseErrorInfoEnum;
+import com.project.enums.BaseErrorInfoEnum;
 
 public class BadException extends Exception {
     private static final long serialVersionUID = 1L;

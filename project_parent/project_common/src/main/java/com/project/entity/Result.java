@@ -1,7 +1,7 @@
 package com.project.entity;
 
 
-import com.project.constant.enums.BaseErrorInfoEnum;
+import com.project.enums.BaseErrorInfoEnum;
 
 /**
  * 返回结果实体类

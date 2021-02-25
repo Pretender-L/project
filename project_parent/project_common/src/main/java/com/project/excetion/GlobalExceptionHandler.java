@@ -1,6 +1,6 @@
 package com.project.excetion;
 
-import com.project.constant.enums.BaseErrorInfoEnum;
+import com.project.enums.BaseErrorInfoEnum;
 import com.project.entity.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
