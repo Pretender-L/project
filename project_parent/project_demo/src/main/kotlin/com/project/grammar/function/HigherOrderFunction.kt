@@ -55,7 +55,7 @@ fun main(args: Array<String>) {
     }.loginName //可以继续用对象操作
     println("admin:${admin.id},${admin.loginName}")
 
-    //作用同apply(必须用it指向调用者(不可省略),apply用this指向调用者(可以省略))
+    //also作用同apply(必须用it指向调用者(不可省略),apply用this指向调用者(可以省略))
     admin.also {
         it.id = "3"
         it.loginName = "also"
