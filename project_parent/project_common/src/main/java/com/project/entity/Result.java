@@ -1,7 +1,7 @@
 package com.project.entity;
 
-import com.project.excetion.service.BaseErrorInfo;
-import com.project.excetion.service.impl.BaseErrorInfoEnumImpl;
+
+import com.project.constant.enums.BaseErrorInfoEnum;
 
 /**
  * 返回结果实体类
@@ -23,9 +23,9 @@ public class Result<T> {
     public Result() {
     }
 
-    public Result(BaseErrorInfo errorInfo) {
-        this.code = errorInfo.getResultCode();
-        this.message = errorInfo.getResultMsg();
+    public Result(BaseErrorInfoEnum baseErrorInfoEnum) {
+        this.code = baseErrorInfoEnum.getResultCode();
+        this.message = baseErrorInfoEnum.getResultMsg();
     }
 
     public String getCode() {
@@ -67,8 +67,8 @@ public class Result<T> {
      */
     public static Result success(Object data) {
         Result rb = new Result();
-        rb.setCode(BaseErrorInfoEnumImpl.SUCCESS.getResultCode());
-        rb.setMessage(BaseErrorInfoEnumImpl.SUCCESS.getResultMsg());
+        rb.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
+        rb.setMessage(BaseErrorInfoEnum.SUCCESS.getResultMsg());
         rb.setResult(data);
         return rb;
     }
@@ -80,7 +80,7 @@ public class Result<T> {
      */
     public static Result success(String message, Object data) {
         Result rb = new Result();
-        rb.setCode(BaseErrorInfoEnumImpl.SUCCESS.getResultCode());
+        rb.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
         rb.setMessage(message);
         rb.setResult(data);
         return rb;
@@ -100,10 +100,10 @@ public class Result<T> {
     /**
      * 失败
      */
-    public static Result error(BaseErrorInfo errorInfo) {
+    public static Result error(BaseErrorInfoEnum baseErrorInfoEnum) {
         Result rb = new Result();
-        rb.setCode(errorInfo.getResultCode());
-        rb.setMessage(errorInfo.getResultMsg());
+        rb.setCode(baseErrorInfoEnum.getResultCode());
+        rb.setMessage(baseErrorInfoEnum.getResultMsg());
         rb.setResult(null);
         return rb;
     }

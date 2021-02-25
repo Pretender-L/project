@@ -1,6 +1,6 @@
 package com.project.excetion;
 
-import com.project.excetion.service.BaseErrorInfo;
+import com.project.constant.enums.BaseErrorInfoEnum;
 
 public class BadException extends Exception {
     private static final long serialVersionUID = 1L;
@@ -16,16 +16,16 @@ public class BadException extends Exception {
     public BadException() {
     }
 
-    public BadException(BaseErrorInfo errorInfoInterface) {
-        super(errorInfoInterface.getResultCode());
-        this.errorCode = errorInfoInterface.getResultCode();
-        this.errorMsg = errorInfoInterface.getResultMsg();
+    public BadException(BaseErrorInfoEnum baseErrorInfoEnum) {
+        super(baseErrorInfoEnum.getResultCode());
+        this.errorCode = baseErrorInfoEnum.getResultCode();
+        this.errorMsg = baseErrorInfoEnum.getResultMsg();
     }
 
-    public BadException(BaseErrorInfo errorInfoInterface, Throwable cause) {
-        super(errorInfoInterface.getResultCode(), cause);
-        this.errorCode = errorInfoInterface.getResultCode();
-        this.errorMsg = errorInfoInterface.getResultMsg();
+    public BadException(BaseErrorInfoEnum baseErrorInfoEnum, Throwable cause) {
+        super(baseErrorInfoEnum.getResultCode(), cause);
+        this.errorCode = baseErrorInfoEnum.getResultCode();
+        this.errorMsg = baseErrorInfoEnum.getResultMsg();
     }
 
     public BadException(String errorMsg) {

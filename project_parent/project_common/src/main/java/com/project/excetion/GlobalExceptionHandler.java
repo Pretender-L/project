@@ -1,5 +1,6 @@
 package com.project.excetion;
 
+import com.project.constant.enums.BaseErrorInfoEnum;
 import com.project.entity.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
-import com.project.excetion.service.impl.BaseErrorInfoEnumImpl;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public Result exceptionHandler(HttpServletRequest req, NullPointerException e) {
         logger.error("发生空指针异常！请求是：{" + req.getRequestURL() + "}", e);
-        return Result.error(BaseErrorInfoEnumImpl.BODY_NOT_MATCH);
+        return Result.error(BaseErrorInfoEnum.BODY_NOT_MATCH);
     }
 
     /***
@@ -53,7 +53,7 @@ public class GlobalExceptionHandler {
     public Result runtimeExceptionHandler(HttpServletRequest req, Exception e) {
         logger.error("发生运行时异常！请求是：{" + req.getRequestURL() + "}", e);
         if (e.getClass().getName().equals("org.springframework.security.access.AccessDeniedException")){
-            return Result.error(BaseErrorInfoEnumImpl.ACCESSERROR);
+            return Result.error(BaseErrorInfoEnum.ACCESSERROR);
         }
         return Result.error(e.getMessage());
     }
@@ -69,6 +69,6 @@ public class GlobalExceptionHandler {
     public Result exceptionHandler(HttpServletRequest req, Exception e) {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         logger.error("未知异常！请求是：{" + req.getRequestURL() + "}", e);
-        return Result.error(BaseErrorInfoEnumImpl.INTERNAL_SERVER_ERROR);
+        return Result.error(BaseErrorInfoEnum.INTERNAL_SERVER_ERROR);
     }
 }
