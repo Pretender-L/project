@@ -35,6 +35,7 @@ public class AdminController {
      * @param id
      * @return
      */
+    @PreAuthorize("hasRole('超级管理员')")
     @GetMapping("/{id}")
     public Result findById(@PathVariable Integer id) {
         Admin admin = adminService.findById(id);
@@ -46,6 +47,7 @@ public class AdminController {
      * @param admin
      * @return
      */
+    @PreAuthorize("hasRole('超级管理员')")
     @PostMapping
     public Result add(@RequestBody Admin admin) {
         adminService.add(admin);
@@ -58,6 +60,7 @@ public class AdminController {
      * @param id
      * @return
      */
+    @PreAuthorize("hasRole('超级管理员')")
     @PutMapping(value = "/{id}")
     public Result update(@RequestBody Admin admin, @PathVariable Integer id) {
         admin.setId(id);
@@ -70,6 +73,7 @@ public class AdminController {
      * @param id
      * @return
      */
+    @PreAuthorize("hasRole('超级管理员')")
     @DeleteMapping(value = "/{id}")
     public Result delete(@PathVariable Integer id) {
         adminService.delete(id);
@@ -81,6 +85,7 @@ public class AdminController {
      * @param searchMap
      * @return
      */
+    @PreAuthorize("hasRole('超级管理员')")
     @GetMapping(value = "/search")
     public Result findList(@RequestParam Map searchMap) {
         List<Admin> list = adminService.findList(searchMap);
@@ -94,6 +99,7 @@ public class AdminController {
      * @param size
      * @return
      */
+    @PreAuthorize("hasRole('超级管理员')")
     @GetMapping(value = "/search/{page}/{size}")
     public Result findPage(@RequestParam Map searchMap, @PathVariable int page, @PathVariable int size) {
         Page<Admin> pageList = adminService.findPage(searchMap, page, size);
