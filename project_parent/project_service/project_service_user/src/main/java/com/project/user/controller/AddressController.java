@@ -67,7 +67,7 @@ public class AddressController {
     }
 
     /***
-     * 根据ID删除品牌数据
+     * 根据ID删除
      * @param id
      * @return
      */
@@ -78,7 +78,7 @@ public class AddressController {
     }
 
     /***
-     * 多条件搜索品牌数据
+     * 多条件搜索
      * @param searchMap
      * @return
      */

@@ -64,7 +64,7 @@ public class ProvincesController {
     }
 
     /***
-     * 根据ID删除品牌数据
+     * 根据ID删除
      * @param provinceid
      * @return
      */
@@ -75,7 +75,7 @@ public class ProvincesController {
     }
 
     /***
-     * 多条件搜索品牌数据
+     * 多条件搜索
      * @param searchMap
      * @return
      */

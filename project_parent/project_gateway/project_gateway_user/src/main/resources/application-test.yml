@@ -3,7 +3,7 @@ spring:
     name: gateway-user
   cloud:
     consul:
-      host: http://192.168.200.128
+      host: localhost
       port: 8500
       discovery:
         prefer-ip-address: true #注册ip地址
@@ -23,35 +23,21 @@ spring:
               - PUT
               - DELETE
       routes:
-        - id: goods_route
-          uri: lb://goods
-          predicates:
-            - Path=/album/**,/brand/**,/cache/**,/categoryBrand/**,/category/**,/para/**,/pref/**,/sku/**,/spec/**,/spu/**,/stockBack/**,/template/**
-          #filters:
-            #- PrefixPath=/brand #让真实请求地址增加前缀
-            #- StripPrefix=1
-          #用户微服务
+        #用户微服务
         - id: user_route
           uri: lb://user
           predicates:
             - Path=/user/**,/address/**,/areas/**,/cities/**,/provinces/**
+            #filters:
+            #- PrefixPath=/brand #让真实请求地址增加前缀
+            #- StripPrefix=1
           #认证微服务
         - id: user_oauth
           uri: lb://user-auth
           predicates:
             - Path=/oauth/**
-            #订单微服务
-        - id: order_route
-          uri: lb://order
-          predicates:
-            - Path=/cart/**,/categoryReport/**,/orderConfig/**,/order/**,/orderItem/**,/orderLog/**,/preferential/**,/returnCause/**,/returnOrder/**,/returnOrderItem/**
-        #购物车订单渲染微服务
-        - id: order_web_route
-          uri: lb://order-web
-          predicates:
-            - Path=/wcart/**,/worder/**,/wxpay/**
   redis:
-    host: http://192.168.200.128
+    host: localhost
 server:
   port: 9000
 management:

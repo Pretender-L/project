@@ -64,7 +64,7 @@ public class CitiesController {
     }
 
     /***
-     * 根据ID删除品牌数据
+     * 根据ID删除
      * @param cityid
      * @return
      */
@@ -75,7 +75,7 @@ public class CitiesController {
     }
 
     /***
-     * 多条件搜索品牌数据
+     * 多条件搜索
      * @param searchMap
      * @return
      */
