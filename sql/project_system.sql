@@ -33,7 +33,7 @@ CREATE TABLE `tb_admin`  (
 -- Records of tb_admin
 -- ----------------------------
 INSERT INTO `tb_admin` VALUES (1, 'project', '$2a$10$bQtRgxtFRtfR/0PYNeKW1OllTfUkoKKigy/yMgKUCAb4xqPAECd56', '1');
-INSERT INTO `tb_admin` VALUES (2, 'Doom', '$2a$10$bQtRgxtFRtfR/0PYNeKW1OllTfUkoKKigy/yMgKUCAb4xqPAECd56', '1');
+INSERT INTO `tb_admin` VALUES (2, 'Pretender', '$2a$10$bQtRgxtFRtfR/0PYNeKW1OllTfUkoKKigy/yMgKUCAb4xqPAECd56', '1');
 
 -- ----------------------------
 -- Table structure for tb_admin_role
