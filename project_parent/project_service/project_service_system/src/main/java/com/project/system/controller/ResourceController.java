@@ -1,9 +1,9 @@
-package com.project.system.controller;
+package com.project.oauth.controller;
 
 import com.project.common.entity.PageResult;
 import com.project.common.entity.Result;
-import com.project.system.pojo.Resource;
-import com.project.system.service.ResourceService;
+import com.project.oauth.pojo.Resource;
+import com.project.oauth.service.ResourceService;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

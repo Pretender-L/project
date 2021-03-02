@@ -1,7 +1,7 @@
-package com.project.system.filter;
+package com.project.oauth.filter;
 
 import com.alibaba.fastjson.JSON;
-import com.project.system.util.JwtUtil;
+import com.project.oauth.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Configuration;

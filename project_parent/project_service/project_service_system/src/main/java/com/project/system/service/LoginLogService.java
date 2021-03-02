@@ -1,7 +1,7 @@
-package com.project.system.service;
+package com.project.oauth.service;
 
 
-import com.project.system.pojo.LoginLog;
+import com.project.oauth.pojo.LoginLog;
 import com.github.pagehelper.Page;
 
 import java.util.List;

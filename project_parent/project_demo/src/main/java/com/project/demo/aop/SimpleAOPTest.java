@@ -1,4 +1,4 @@
-package com.project.common.aop;
+package com.project.demo.aop;
 
 public class SimpleAOPTest {
     public static void main(String[] args) {

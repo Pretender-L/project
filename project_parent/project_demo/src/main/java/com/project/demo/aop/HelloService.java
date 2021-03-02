@@ -1,4 +1,4 @@
-package com.project.common.aop;
+package com.project.demo.aop;
 
 public interface HelloService {
     void hello(String message);

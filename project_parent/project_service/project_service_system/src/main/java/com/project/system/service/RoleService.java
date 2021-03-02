@@ -1,6 +1,6 @@
-package com.project.system.service;
+package com.project.oauth.service;
 
-import com.project.system.pojo.Role;
+import com.project.oauth.pojo.Role;
 import com.github.pagehelper.Page;
 
 import java.util.List;

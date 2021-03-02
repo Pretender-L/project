@@ -1,7 +1,7 @@
-package com.project.system.feign;
+package com.project.oauth.feign;
 
 import com.project.common.entity.Result;
-import com.project.system.pojo.Role;
+import com.project.oauth.pojo.Role;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

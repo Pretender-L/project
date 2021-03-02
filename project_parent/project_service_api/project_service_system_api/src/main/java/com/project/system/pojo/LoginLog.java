@@ -1,4 +1,4 @@
-package com.project.system.pojo;
+package com.project.oauth.pojo;
 
 import javax.persistence.Id;
 import javax.persistence.Table;

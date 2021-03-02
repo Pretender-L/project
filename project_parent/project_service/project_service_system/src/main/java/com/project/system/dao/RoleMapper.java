@@ -1,6 +1,6 @@
-package com.project.system.dao;
+package com.project.oauth.dao;
 
-import com.project.system.pojo.Role;
+import com.project.oauth.pojo.Role;
 import org.apache.ibatis.annotations.Select;
 import tk.mybatis.mapper.common.Mapper;
 
