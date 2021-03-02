@@ -57,7 +57,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             return null;
         }
         //根据用户名查询用户信息
-        com.project.user.pojo.User user = (com.project.user.pojo.User) userFeign.findUserInfo(username).getResult();
+        com.project.user.pojo.User user = userFeign.findUserInfo(username).getResult();
         //根据用户名查询资源权限
         List<Resource> resourceList = resourceFeign.findByUsername(username).getResult();
         StringBuffer stringBuffer = new StringBuffer();
@@ -65,7 +65,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             stringBuffer.append(resource.getResKey()).append(",");
         }
         //逗号分割的权限列表
-        String permissions = stringBuffer.substring(0, stringBuffer.length() - 1).toString();
+        String permissions = stringBuffer.substring(0, stringBuffer.length() - 1);
         //创建User对象
         UserJwt userDetails = new UserJwt(username, user.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList(permissions));
         return userDetails;
