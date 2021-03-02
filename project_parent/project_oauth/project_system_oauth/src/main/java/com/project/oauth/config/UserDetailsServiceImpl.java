@@ -51,7 +51,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             stringBuilder.append("ROLE_" + role.getName() + ",");
         }
         //根据用户id查询资源权限
-        Set<Resource> resourceSet = (Set<Resource>) resourceFeign.findByAdminId(admin.getId()).getResult();
+        Set<Resource> resourceSet = resourceFeign.findByAdminId(admin.getId()).getResult();
         for (Resource resource : resourceSet) {
             stringBuilder.append(resource.getResKey() + ",");
         }
