@@ -1,4 +1,4 @@
-package com.project.oauth;
+package com.project.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

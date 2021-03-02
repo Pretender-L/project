@@ -1,4 +1,4 @@
-package com.project.oauth.controller;
+package com.project.system.controller;
 
 import com.project.common.entity.PageResult;
 import com.project.common.entity.Result;

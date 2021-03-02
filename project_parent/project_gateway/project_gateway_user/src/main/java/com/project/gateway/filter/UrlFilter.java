@@ -1,4 +1,4 @@
-package com.project.oauth.filter;
+package com.project.gateway.filter;
 
 /**
  * 所有需要传递令牌的地址(受保护)

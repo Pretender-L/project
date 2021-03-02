@@ -1,4 +1,4 @@
-package com.project.oauth.feign;
+package com.project.system.feign;
 
 import com.project.common.entity.Result;
 import com.project.oauth.pojo.Resource;

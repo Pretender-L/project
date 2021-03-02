@@ -1,4 +1,4 @@
-package com.project.oauth.filter;
+package com.project.gateway.filter;
 
 import com.project.oauth.service.AuthService;
 import org.apache.commons.lang.StringUtils;

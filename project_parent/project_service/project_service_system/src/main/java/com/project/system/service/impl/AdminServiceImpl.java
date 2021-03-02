@@ -1,6 +1,6 @@
-package com.project.oauth.service.impl;
+package com.project.system.service.impl;
 
-import com.project.oauth.dao.AdminMapper;
+import com.project.system.dao.AdminMapper;
 import com.project.oauth.pojo.Admin;
 import com.project.oauth.service.AdminService;
 import com.github.pagehelper.Page;

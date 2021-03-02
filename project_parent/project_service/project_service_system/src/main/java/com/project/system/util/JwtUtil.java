@@ -1,4 +1,4 @@
-package com.project.oauth.util;
+package com.project.system.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;

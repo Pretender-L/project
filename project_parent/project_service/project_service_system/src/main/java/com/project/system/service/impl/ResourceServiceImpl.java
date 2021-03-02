@@ -1,9 +1,9 @@
-package com.project.oauth.service.impl;
+package com.project.system.service.impl;
 
 import com.project.oauth.pojo.Resource;
 import com.project.oauth.pojo.Role;
 import com.project.oauth.service.ResourceService;
-import com.project.oauth.dao.ResourceMapper;
+import com.project.system.dao.ResourceMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.project.oauth.service.RoleService;

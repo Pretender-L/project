@@ -1,4 +1,4 @@
-package com.project.oauth.dao;
+package com.project.system.dao;
 
 import com.project.oauth.pojo.Role;
 import org.apache.ibatis.annotations.Select;

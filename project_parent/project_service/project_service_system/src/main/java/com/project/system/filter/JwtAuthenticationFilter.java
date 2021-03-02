@@ -1,4 +1,4 @@
-package com.project.oauth.filter;
+package com.project.system.filter;
 
 import com.alibaba.fastjson.JSON;
 import com.project.oauth.util.JwtUtil;

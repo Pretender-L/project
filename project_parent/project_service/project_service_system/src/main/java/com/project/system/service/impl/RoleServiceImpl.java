@@ -1,6 +1,6 @@
-package com.project.oauth.service.impl;
+package com.project.system.service.impl;
 
-import com.project.oauth.dao.RoleMapper;
+import com.project.system.dao.RoleMapper;
 import com.project.oauth.pojo.Role;
 import com.project.oauth.service.RoleService;
 import com.github.pagehelper.Page;

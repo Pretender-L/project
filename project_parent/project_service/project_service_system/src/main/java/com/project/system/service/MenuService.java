@@ -1,4 +1,4 @@
-package com.project.oauth.service;
+package com.project.system.service;
 
 import com.project.oauth.pojo.Menu;
 import com.github.pagehelper.Page;

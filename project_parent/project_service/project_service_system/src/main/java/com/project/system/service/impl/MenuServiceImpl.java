@@ -1,8 +1,8 @@
-package com.project.oauth.service.impl;
+package com.project.system.service.impl;
 
 import com.project.oauth.pojo.Menu;
 import com.project.oauth.service.MenuService;
-import com.project.oauth.dao.MenuMapper;
+import com.project.system.dao.MenuMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

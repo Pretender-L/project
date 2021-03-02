@@ -1,6 +1,6 @@
-package com.project.oauth.service.impl;
+package com.project.system.service.impl;
 
-import com.project.oauth.dao.LoginLogMapper;
+import com.project.system.dao.LoginLogMapper;
 import com.project.oauth.pojo.LoginLog;
 import com.project.oauth.service.LoginLogService;
 import com.github.pagehelper.Page;
