@@ -1,4 +1,4 @@
-package com.project.aop;
+package com.project.common.aop;
 
 import java.lang.reflect.InvocationHandler;
 
