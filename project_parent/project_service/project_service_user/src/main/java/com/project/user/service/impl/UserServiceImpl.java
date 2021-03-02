@@ -1,6 +1,5 @@
 package com.project.user.service.impl;
 
-import com.project.user.dao.PointLogMapper;
 import com.project.user.dao.UserMapper;
 import com.project.user.service.UserService;
 import com.project.user.pojo.User;
@@ -18,8 +17,6 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
-    @Autowired
-    private PointLogMapper pointLogMapper;
     @Autowired
     private RedisTemplate redisTemplate;
 
