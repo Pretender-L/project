@@ -1,8 +1,8 @@
 package com.project.user.controller;
 
 import com.github.pagehelper.Page;
-import com.project.entity.PageResult;
-import com.project.entity.Result;
+import com.project.common.entity.PageResult;
+import com.project.common.entity.Result;
 import com.project.user.config.TokenDecode;
 import com.project.user.pojo.Address;
 import com.project.user.service.AddressService;

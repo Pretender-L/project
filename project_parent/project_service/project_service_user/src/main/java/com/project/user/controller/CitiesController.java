@@ -1,8 +1,8 @@
 package com.project.user.controller;
 
 import com.github.pagehelper.Page;
-import com.project.entity.PageResult;
-import com.project.entity.Result;
+import com.project.common.entity.PageResult;
+import com.project.common.entity.Result;
 import com.project.user.pojo.Cities;
 import com.project.user.service.CitiesService;
 import org.springframework.beans.factory.annotation.Autowired;

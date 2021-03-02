@@ -1,6 +1,6 @@
 package com.project;
 
-import com.project.task.TreadTasks;
+import com.project.demo.task.TreadTasks;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

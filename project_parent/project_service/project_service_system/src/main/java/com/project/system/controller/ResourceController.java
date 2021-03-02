@@ -1,7 +1,7 @@
 package com.project.system.controller;
 
-import com.project.entity.PageResult;
-import com.project.entity.Result;
+import com.project.common.entity.PageResult;
+import com.project.common.entity.Result;
 import com.project.system.pojo.Resource;
 import com.project.system.service.ResourceService;
 import com.github.pagehelper.Page;

@@ -1,6 +1,6 @@
 package com.project;
 
-import com.project.pojo.Person;
+import com.project.demo.pojo.Person;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
