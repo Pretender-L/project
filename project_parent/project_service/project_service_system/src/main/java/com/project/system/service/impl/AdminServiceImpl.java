@@ -1,8 +1,8 @@
 package com.project.system.service.impl;
 
 import com.project.system.dao.AdminMapper;
-import com.project.oauth.pojo.Admin;
-import com.project.oauth.service.AdminService;
+import com.project.system.pojo.Admin;
+import com.project.system.service.AdminService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

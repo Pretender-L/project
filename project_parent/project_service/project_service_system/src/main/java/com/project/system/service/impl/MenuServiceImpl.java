@@ -1,7 +1,7 @@
 package com.project.system.service.impl;
 
-import com.project.oauth.pojo.Menu;
-import com.project.oauth.service.MenuService;
+import com.project.system.pojo.Menu;
+import com.project.system.service.MenuService;
 import com.project.system.dao.MenuMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;

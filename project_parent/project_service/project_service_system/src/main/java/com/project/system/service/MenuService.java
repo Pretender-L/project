@@ -1,6 +1,6 @@
 package com.project.system.service;
 
-import com.project.oauth.pojo.Menu;
+import com.project.system.pojo.Menu;
 import com.github.pagehelper.Page;
 
 import java.util.List;

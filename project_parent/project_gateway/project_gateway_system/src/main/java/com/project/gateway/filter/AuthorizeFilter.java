@@ -1,6 +1,6 @@
 package com.project.gateway.filter;
 
-import com.project.oauth.util.JwtUtil;
+import com.project.gateway.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;

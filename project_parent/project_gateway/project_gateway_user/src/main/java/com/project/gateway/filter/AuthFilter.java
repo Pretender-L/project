@@ -1,6 +1,6 @@
 package com.project.gateway.filter;
 
-import com.project.oauth.service.AuthService;
+import com.project.gateway.service.AuthService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;

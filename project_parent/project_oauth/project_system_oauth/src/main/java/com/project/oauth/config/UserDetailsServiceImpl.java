@@ -1,11 +1,11 @@
 package com.project.oauth.config;
 
-import com.project.oauth.feign.AdminFeign;
-import com.project.oauth.feign.ResourceFeign;
-import com.project.oauth.feign.RoleFeign;
-import com.project.oauth.pojo.Admin;
-import com.project.oauth.pojo.Resource;
-import com.project.oauth.pojo.Role;
+import com.project.system.feign.AdminFeign;
+import com.project.system.feign.ResourceFeign;
+import com.project.system.feign.RoleFeign;
+import com.project.system.pojo.Admin;
+import com.project.system.pojo.Resource;
+import com.project.system.pojo.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;

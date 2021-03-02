@@ -1,7 +1,7 @@
 package com.project.system.feign;
 
 import com.project.common.entity.Result;
-import com.project.oauth.pojo.Admin;
+import com.project.system.pojo.Admin;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

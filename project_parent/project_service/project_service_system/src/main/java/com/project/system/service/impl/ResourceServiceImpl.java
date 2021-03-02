@@ -1,12 +1,12 @@
 package com.project.system.service.impl;
 
-import com.project.oauth.pojo.Resource;
-import com.project.oauth.pojo.Role;
-import com.project.oauth.service.ResourceService;
+import com.project.system.pojo.Resource;
+import com.project.system.pojo.Role;
+import com.project.system.service.ResourceService;
 import com.project.system.dao.ResourceMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.project.oauth.service.RoleService;
+import com.project.system.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;

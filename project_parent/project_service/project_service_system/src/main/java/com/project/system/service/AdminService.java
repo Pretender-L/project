@@ -1,7 +1,6 @@
 package com.project.system.service;
 
-
-import com.project.oauth.pojo.Admin;
+import com.project.system.pojo.Admin;
 import com.github.pagehelper.Page;
 
 import java.util.List;

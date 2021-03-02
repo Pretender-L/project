@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"com.project.oauth.feign"})
+@EnableFeignClients(basePackages = {"com.project.system.feign"})
 public class SystemOAuthApplication {
     public static void main(String[] args) {
         SpringApplication.run(SystemOAuthApplication.class, args);

@@ -1,6 +1,6 @@
 package com.project.system.dao;
 
-import com.project.oauth.pojo.Admin;
+import com.project.system.pojo.Admin;
 import org.apache.ibatis.annotations.Select;
 import tk.mybatis.mapper.common.Mapper;
 

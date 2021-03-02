@@ -2,8 +2,8 @@ package com.project.system.controller;
 
 import com.project.common.entity.PageResult;
 import com.project.common.entity.Result;
-import com.project.oauth.pojo.Admin;
-import com.project.oauth.service.AdminService;
+import com.project.system.pojo.Admin;
+import com.project.system.service.AdminService;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

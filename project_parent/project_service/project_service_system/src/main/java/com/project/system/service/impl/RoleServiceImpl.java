@@ -1,8 +1,8 @@
 package com.project.system.service.impl;
 
 import com.project.system.dao.RoleMapper;
-import com.project.oauth.pojo.Role;
-import com.project.oauth.service.RoleService;
+import com.project.system.pojo.Role;
+import com.project.system.service.RoleService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

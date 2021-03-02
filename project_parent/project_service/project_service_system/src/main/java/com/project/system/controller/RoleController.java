@@ -2,8 +2,8 @@ package com.project.system.controller;
 
 import com.project.common.entity.PageResult;
 import com.project.common.entity.Result;
-import com.project.oauth.pojo.Role;
-import com.project.oauth.service.RoleService;
+import com.project.system.pojo.Role;
+import com.project.system.service.RoleService;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

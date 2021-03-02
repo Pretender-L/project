@@ -2,8 +2,8 @@ package com.project.system.controller;
 
 import com.project.common.entity.PageResult;
 import com.project.common.entity.Result;
-import com.project.oauth.pojo.LoginLog;
-import com.project.oauth.service.LoginLogService;
+import com.project.system.pojo.LoginLog;
+import com.project.system.service.LoginLogService;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
