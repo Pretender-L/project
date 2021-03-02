@@ -14,7 +14,7 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/user")
+@RequestMapping("/userInfo")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -35,6 +35,7 @@ public class UserController {
      * @param username
      * @return
      */
+    @PreAuthorize("hasAuthority('user')")
     @GetMapping("/{username}")
     public Result findById(@PathVariable String username) {
         User user = userService.findById(username);
@@ -57,6 +58,7 @@ public class UserController {
      * @param user
      * @return
      */
+    @PreAuthorize("hasAuthority('user')")
     @PostMapping
     public Result add(@RequestBody User user) {
         userService.add(user);
@@ -69,6 +71,7 @@ public class UserController {
      * @param username
      * @return
      */
+    @PreAuthorize("hasAuthority('user')")
     @PutMapping(value = "/{username}")
     public Result update(@RequestBody User user, @PathVariable String username) {
         user.setUsername(username);
@@ -77,10 +80,11 @@ public class UserController {
     }
 
     /***
-     * 根据ID删除品牌数据
+     * 根据ID删除
      * @param username
      * @return
      */
+    @PreAuthorize("hasAuthority('user')")
     @DeleteMapping(value = "/{username}")
     public Result delete(@PathVariable String username) {
         userService.delete(username);
@@ -88,10 +92,11 @@ public class UserController {
     }
 
     /***
-     * 多条件搜索品牌数据
+     * 多条件搜索
      * @param searchMap
      * @return
      */
+    @PreAuthorize("hasAuthority('user')")
     @GetMapping(value = "/search")
     public Result findList(@RequestParam Map searchMap) {
         List<User> list = userService.findList(searchMap);
@@ -105,6 +110,7 @@ public class UserController {
      * @param size
      * @return
      */
+    @PreAuthorize("hasAuthority('user')")
     @GetMapping(value = "/search/{page}/{size}")
     public Result findPage(@RequestParam Map searchMap, @PathVariable int page, @PathVariable int size) {
         Page<User> pageList = userService.findPage(searchMap, page, size);
