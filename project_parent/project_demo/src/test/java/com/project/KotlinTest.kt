@@ -144,8 +144,15 @@ class KotlinTest {
      */
     @Test
     fun demo02() {
-        //val testStr: String? = null
-        val testStr: String? = "null"
-        println(testStr!!.length)
+        val list:MutableList<Int> = mutableListOf<Int>(1,2,3,4,5,6,7,8)
+
+        list.map {
+            it*5+10
+            val list:Array<Int> = arrayOf(1,2,3,4)
+            list
+        }
+
+        list.forEach(::println)
+
     }
 }
