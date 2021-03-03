@@ -1,5 +1,6 @@
 package com.project.demo.mq.rabbit;
 
+import com.project.demo.config.RabbitConfig;
 import com.rabbitmq.client.Channel;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -7,7 +8,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = "confirm_queue_B")
+@RabbitListener(queues = RabbitConfig.FANOUT_QUEUE)
 public class AckTempalte {
     enum Action{
         ACCEPT, // 处理成功
