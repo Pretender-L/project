@@ -1,12 +1,70 @@
 package com.project.demo.config;
 
+import com.project.demo.mq.rabbit.ConfirmCallBackHandler;
+import com.project.demo.mq.rabbit.ReturnCallBackHandler;
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+
 @Configuration
-public class RabbitMQConfig {
+public class RabbitConfig {
+    @Resource
+    private RabbitTemplate rabbitTemplate;
+
+    //RabbitMQ监听容器
+    @Bean
+    public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory){
+        SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
+        factory.setConnectionFactory(connectionFactory);
+        //设置并发
+        factory.setConcurrentConsumers(1);
+        SimpleMessageListenerContainer s=new SimpleMessageListenerContainer();
+        //最大并发
+        factory.setMaxConcurrentConsumers(1);
+        /*确认模式
+        AcknowledgeMode.NONE：不确认
+        AcknowledgeMode.AUTO：自动确认
+        AcknowledgeMode.MANUAL：手动确认*/
+        //消息接收——手动确认
+        factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
+        //设置超时
+        factory.setReceiveTimeout(2000L);
+        //设置重试间隔
+        factory.setFailedDeclarationRetryInterval(3000L);
+        //监听自定义格式转换
+        //factory.setMessageConverter(jsonMessageConverter);
+        return factory;
+    }
+
+    //Json格式转换
+    //private static final MessageConverter jsonMessageConverter=new Jackson2JsonMessageConverter();
+
+    /**
+     * Java中该注解的说明：@PostConstruct该注解被用来修饰一个非静态的void（）方法。
+     * 被@PostConstruct修饰的方法会在服务器加载Servlet的时候运行，并且只会被服务器执行一次。PostConstruct在构造函数之后执行，init（）方法之前执行。
+     *
+     * 通常我们会是在Spring框架中使用到@PostConstruct注解 该注解的方法在整个Bean初始化中的执行顺序：
+     * Constructor(构造方法)->@Autowired(依赖注入)->@PostConstruct(注释的方法)
+     */
+    //初始化加载方法，对RabbitTemplate进行配置
+    @PostConstruct
+    void rabbitTemplate(){
+        //消息发送确认，发送到交换器Exchange后触发回调
+        rabbitTemplate.setConfirmCallback(new ConfirmCallBackHandler());
+        //消息发送确认，如果消息从交换器发送到对应队列失败时触发（比如根据发送消息时指定的routingKey找不到队列时会触发）
+        rabbitTemplate.setReturnCallback(new ReturnCallBackHandler());
+        //自定义格式转换
+        //rabbitTemplate.setMessageConverter(jsonMessageConverter);
+    }
+
     public static final String FANOUT_EXCHANGE = "fanout_exchange";
     public static final String DIRECT_EXCHANGE = "direct_exchange";
     public static final String TOPIC_EXCHANGE = "topic_exchange";
@@ -15,7 +73,6 @@ public class RabbitMQConfig {
     public static final String DIRECT_QUEUE = "direct_queue";
     public static final String TOPIC_QUEUE001 = "topic_queue001";
     public static final String TOPIC_QUEUE002 = "topic_queue002";
-
 
     /**
      * 队列

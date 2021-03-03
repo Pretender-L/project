@@ -1,6 +1,6 @@
 package com.project.demo;
 
-import com.project.demo.config.RabbitMQConfig;
+import com.project.demo.config.RabbitConfig;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,21 +16,21 @@ public class RabbitMQTest {
 
     @Test
     public void rabbitMQTest1() {
-        rabbitTemplate.convertAndSend(RabbitMQConfig.FANOUT_EXCHANGE, "", "广播交换机测试");
+        rabbitTemplate.convertAndSend(RabbitConfig.FANOUT_EXCHANGE, "", "广播交换机测试");
     }
 
     @Test
     public void rabbitMQTest2() {
-        rabbitTemplate.convertAndSend(RabbitMQConfig.DIRECT_EXCHANGE, "direct", "直连交换机测试");
+        rabbitTemplate.convertAndSend(RabbitConfig.DIRECT_EXCHANGE, "direct", "直连交换机测试");
     }
 
     @Test
     public void rabbitMQTest3() {
-        rabbitTemplate.convertAndSend(RabbitMQConfig.TOPIC_EXCHANGE, "topics.test.mes", "通配符交换机测试001");
+        rabbitTemplate.convertAndSend(RabbitConfig.TOPIC_EXCHANGE, "topics.test.mes", "通配符交换机测试001");
     }
 
     @Test
     public void rabbitMQTest4() {
-        rabbitTemplate.convertAndSend(RabbitMQConfig.TOPIC_EXCHANGE, "topic.test", "通配符交换机测试002");
+        rabbitTemplate.convertAndSend(RabbitConfig.TOPIC_EXCHANGE, "topic.test", "通配符交换机测试002");
     }
 }

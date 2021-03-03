@@ -1,12 +1,12 @@
 package com.project.demo.listener;
 
-import com.project.demo.config.RabbitMQConfig;
+import com.project.demo.config.RabbitConfig;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = {RabbitMQConfig.FANOUT_QUEUE,RabbitMQConfig.DIRECT_QUEUE,RabbitMQConfig.TOPIC_QUEUE001,RabbitMQConfig.TOPIC_QUEUE002})
+@RabbitListener(queues = {RabbitConfig.FANOUT_QUEUE, RabbitConfig.DIRECT_QUEUE, RabbitConfig.TOPIC_QUEUE001, RabbitConfig.TOPIC_QUEUE002})
 public class RabbitMQListener {
     @RabbitHandler
     public void process(String mes) {

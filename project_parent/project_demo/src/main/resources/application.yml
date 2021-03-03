@@ -33,6 +33,12 @@ spring:
     port: 5672
     username: guest
     password: guest
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 2
+          initial-interval: 5000
   #RabbitMQ可选配置
   # broker端没有收到消费者的ACK(即:消费者异常时)时,是否再次向消费者投递消息(默认为false)
   # 为false时，如果没有收到消费者的ACK，那么会无限投递;设置为true时,默认投递时次数为3此
@@ -40,6 +46,17 @@ spring:
 
   # 设置向消费者投递消息的最大次数
   #spring.rabbitmq.listener.simple.retry.max-attempts=2
+
+  #消息发送交换机确认
+  #spring.rabbitmq.publisher-confirms = true
+  #消息发送队列回调
+  #spring.rabbitmq.publisher-returns = true
+
+  #确认模式
+      #AcknowledgeMode.NONE：不确认
+      #AcknowledgeMode.AUTO：自动确认
+      #AcknowledgeMode.MANUAL：手动确认
+  #spring.rabbitmq.listener.simple.acknowledge-mode = manual
 
   # 投递消息的间隔(单位ms)
   #spring.rabbitmq.listener.simple.retry.initial-interval=2000
