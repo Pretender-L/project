@@ -9,7 +9,6 @@
     <!-- 定义日志存储的路径，不要配置相对路径 -->
     <property name="FILE_PATH"
               value="D:/IdeaProjects/project/project_parent/log/project-log.%d{yyyy-MM-dd}.%i.log"/>
-    <!--C:/Users/Administrator/IdeaProjects/project/project_parent/log/project-log.%d{yyyy-MM-dd}.%i.log-->
     <!--D:/IdeaProjects/project/project_parent/log/project-log.%d{yyyy-MM-dd}.%i.log-->
     <!-- 控制台输出日志 -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
