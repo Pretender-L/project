@@ -39,6 +39,7 @@ public class LogAspect {
         HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
 
         StringBuilder sb = new StringBuilder();
+        sb.append("\r\n");
         sb.append(request.getMethod()).append("-->").append(request.getRequestURL());
         sb.append("\r\n<<<------------ REQUEST HEADER ------------>>>");
         //令牌
@@ -53,16 +54,20 @@ public class LogAspect {
         sb.append("\r\nReferer        :").append(request.getHeader("Referer"));
         //User-Agent是叫做用户代理，一个特殊字符串头，是一种向访问网站提供你所使用的浏览器类型及版本、操作系统及版本、浏览器内核、等信息的标识
         sb.append("\r\nAgent          :").append(request.getHeader("User-Agent"));
+
         sb.append("\r\n<<<------------ REQUEST PARAMS ------------>>>");
         //请求参数map
         Map<String, String[]> parameterMap = request.getParameterMap();
-        for (Map.Entry<String, String[]> stringEntry : parameterMap.entrySet()) {
-            for (String s : stringEntry.getValue()) {
-                sb.append("\r\n").append(stringEntry.getKey()).append(" = ").append(s);
+        if (parameterMap.isEmpty()) {
+            sb.append("\r\nParams         :null");
+        } else {
+            for (Map.Entry<String, String[]> stringEntry : parameterMap.entrySet()) {
+                for (String s : stringEntry.getValue()) {
+                    sb.append("\r\n").append(stringEntry.getKey()).append(" = ").append(s);
+                }
             }
         }
         logger.info(sb.toString());
-        System.out.println(sb);
         //程序执行时长计时器
         stopWatch = new StopWatch(request.getRequestURI());
         stopWatch.start();
@@ -75,8 +80,7 @@ public class LogAspect {
     private void afterLog() {
         if (stopWatch != null) {
             stopWatch.stop();
-            System.out.println(stopWatch.prettyPrint());
-            logger.info(stopWatch.prettyPrint());
+            logger.info("\r\n" + stopWatch.prettyPrint());
         }
     }
 }
