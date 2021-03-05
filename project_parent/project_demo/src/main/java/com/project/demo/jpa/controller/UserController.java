@@ -12,6 +12,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -204,5 +205,14 @@ public class UserController {
     public Result findUserCondition(User userInfo) throws BadException {
         User user = userService.findOne(userInfo);
         return Result.success(user);
+    }
+
+    /***
+     * 查询部分字段
+     */
+    @GetMapping("/findPart/{id}")
+    public Result findPartUser(@PathVariable String id) {
+        Map map = userService.findPartUser(id);
+        return Result.success(map);
     }
 }

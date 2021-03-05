@@ -17,6 +17,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
@@ -179,5 +180,10 @@ public class UserServiceImpl implements UserService {
             }
         };
         return userRepository.findAll(specification, pageable);
+    }
+
+    @Override
+    public Map findPartUser(String id) {
+        return userRepository.findPartUser(id);
     }
 }

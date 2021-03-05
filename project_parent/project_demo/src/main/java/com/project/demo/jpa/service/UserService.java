@@ -7,6 +7,7 @@ import com.project.demo.pojo.User;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
     void add(User user);
@@ -38,4 +39,6 @@ public interface UserService {
     void delDB();
 
     Page search(User user, PageInfo pageInfo);
+
+    Map findPartUser(String id);
 }
