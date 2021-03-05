@@ -3,10 +3,12 @@ package com.project.system;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@ComponentScan(basePackages = "com.project")
 @MapperScan(basePackages = {"com.project.system.dao"})
 /*
 @EnableGlobalMethodSecurity(prePostEnabled = true)
