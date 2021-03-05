@@ -1,4 +1,4 @@
-package com.project;
+package com.project.user;
 
 import com.project.user.config.TokenDecode;
 import org.springframework.boot.SpringApplication;

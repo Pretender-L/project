@@ -1,15 +1,18 @@
-package com.project;
+package com.project.system;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"com.project.system.feign"})
-public class SystemOAuthApplication {
+@MapperScan(basePackages = {"com.project.system.dao"})
+/*
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+*/
+public class SystemApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SystemOAuthApplication.class, args);
+        SpringApplication.run(SystemApplication.class);
     }
 }
