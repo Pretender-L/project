@@ -38,10 +38,12 @@ public class AdminCacheServiceImpl implements AdminCacheService {
 
     /***
      * Cacheable:在调用方法之前，首先应该在缓存中查找方法的返回值，如果这个值能够找到，就会返回缓存的值。否则，这个方法就会被调用，返回值会放到缓存之中
+     * value:用于指定缓存存储的集合名
+     * key：缓存对象存储在Map集合中的key值，非必需，缺省按照函数的所有参数组合作为key值，若自己配置需使用SpEL表达式，比如：@Cacheable(key = "#p0")：使用函数第一个参数作为缓存的key值，更多关于SpEL表达式的详细内容可参考官方文档
      * @param adminId
      * @return
      */
-    @Cacheable(value = "user", key = "#adminId")
+    @Cacheable(value = "admin", key = "#adminId")
     @Override
     public Admin findById(String adminId) {
         Optional<Admin> optional = adminRepository.findById(adminId);
@@ -58,7 +60,7 @@ public class AdminCacheServiceImpl implements AdminCacheService {
      * @param admin
      * @return
      */
-    @CacheEvict(value = "user", key = "#admin.id")
+    @CacheEvict(value = "admin", key = "#admin.id")
     @Override
     public Admin update(Admin admin) {
         return adminRepository.save(admin);
