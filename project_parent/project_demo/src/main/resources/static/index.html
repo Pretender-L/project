@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<h1>文件上传</h1>
+<form action="/upload/image" method="post" enctype="multipart/form-data">
+    用户名：<input type="text" name="username"><br/>
+    文件上传：<input type="file" name="file"><br/>
+    <input type="submit"><br/>
+</form>
+
+<h1>文件下载</h1>
+<a href="/zq/download?filename=1.jpg">下载</a>
+<a href="/zq/download2?filename=1.jpg">下载2</a>
+</body>
+</html>
