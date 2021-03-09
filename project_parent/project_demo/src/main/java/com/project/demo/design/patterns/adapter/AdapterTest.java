@@ -1,5 +1,6 @@
 package com.project.demo.design.patterns.adapter;
 
+//适配器模式
 public class AdapterTest {
     public static void main(String[] args) {
         //类适配器
