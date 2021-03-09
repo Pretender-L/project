@@ -210,9 +210,9 @@ public class UserController {
     /***
      * 查询部分字段
      */
-    @GetMapping("/findPart/{id}")
-    public Result findPartUser(@PathVariable String id) {
-        Map map = userService.findPartUser(id);
-        return Result.success(map);
+    @GetMapping("/findPart")
+    public Result findPartUser(String sex) {
+        List<Map> userList = userService.findPartUser(sex);
+        return Result.success(userList);
     }
 }

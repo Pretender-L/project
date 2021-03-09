@@ -183,7 +183,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map findPartUser(String id) {
-        return userRepository.findPartUser(id);
+    public List<Map> findPartUser(String sex) {
+        return userRepository.findPartUser(sex);
     }
 }

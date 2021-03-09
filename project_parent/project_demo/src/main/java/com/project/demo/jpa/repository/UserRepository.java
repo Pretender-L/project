@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -36,6 +37,6 @@ public interface UserRepository extends JpaRepository<User, String>, JpaSpecific
     @Query(value = "SELECT * FROM tb_user WHERE nickname LIKE CONCAT('%',:condition,'%') or sex=:condition", nativeQuery = true)
     Page<User> findCondition(@Param("condition") String condition, Pageable pageable);
 
-    @Query(value = "select id,nickname from tb_user where id= ?1", nativeQuery = true)
-    Map findPartUser(String id);
+    @Query(value = "select id,nickname,sex from tb_user where sex= ?1", nativeQuery = true)
+    List<Map> findPartUser(String sex);
 }

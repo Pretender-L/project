@@ -40,5 +40,5 @@ public interface UserService {
 
     Page search(User user, PageInfo pageInfo);
 
-    Map findPartUser(String id);
+    List<Map> findPartUser(String sex);
 }
