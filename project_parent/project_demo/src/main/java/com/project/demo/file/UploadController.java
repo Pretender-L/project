@@ -13,6 +13,8 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/upload")
 public class UploadController {
+    private static final String path = "D:\\IdeaProjects\\project\\project_parent\\project_demo\\src\\main\\resources\\upload";
+
     @PostMapping("/image")
     public void upload(String username, @RequestParam(value = "file", required = false) MultipartFile multipartFile, HttpServletRequest req) throws Exception, IOException {
         System.out.println("username数据：" + username);
@@ -29,13 +31,10 @@ public class UploadController {
             return;
         }
 
-        String realPath = this.getClass().getClassLoader().getResource("").getPath();
-        System.out.println(realPath);
-
         String filename = multipartFile.getOriginalFilename();//获取上传时的文件名称
         filename = UUID.randomUUID().toString() + "." + FilenameUtils.getExtension(filename);//创建一个新的文件名称    getExtension(name):获取文件后缀名
 
-        File file = new File(realPath, filename);
+        File file = new File(path, filename);
         multipartFile.transferTo(file);//将上传的文件存储到指定位置
     }
 }
