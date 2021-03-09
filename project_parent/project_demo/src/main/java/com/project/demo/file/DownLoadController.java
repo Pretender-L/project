@@ -44,7 +44,7 @@ public class DownLoadController {
     /*
      * 下载方式二：Spring框架技术
      */
-    @RequestMapping(value = "/download2", method = RequestMethod.GET)
+    @RequestMapping(value = "/txt", method = RequestMethod.GET)
     public ResponseEntity<byte[]> download(HttpServletRequest request, String filename) throws IOException {
         String realPath = request.getServletContext().getRealPath("/download");//获取下载文件的路径
         File file = new File(realPath, filename);//把下载文件构成一个文件处理   filename:前台传过来的文件名称
