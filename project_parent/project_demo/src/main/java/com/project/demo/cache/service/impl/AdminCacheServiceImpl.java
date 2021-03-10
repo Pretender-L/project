@@ -3,11 +3,11 @@ package com.project.demo.cache.service.impl;
 import com.project.demo.cache.repository.AdminCacheRepository;
 import com.project.demo.cache.service.AdminCacheService;
 import com.project.demo.pojo.Admin;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Optional;
 
 /**
@@ -33,15 +33,13 @@ import java.util.Optional;
  */
 @Service
 public class AdminCacheServiceImpl implements AdminCacheService {
-    @Autowired
+    @Resource
     private AdminCacheRepository adminRepository;
 
     /***
      * Cacheable:在调用方法之前，首先应该在缓存中查找方法的返回值，如果这个值能够找到，就会返回缓存的值。否则，这个方法就会被调用，返回值会放到缓存之中
      * value:用于指定缓存存储的集合名
      * key：缓存对象存储在Map集合中的key值，非必需，缺省按照函数的所有参数组合作为key值，若自己配置需使用SpEL表达式，比如：@Cacheable(key = "#p0")：使用函数第一个参数作为缓存的key值，更多关于SpEL表达式的详细内容可参考官方文档
-     * @param adminId
-     * @return
      */
     @Cacheable(value = "admin", key = "#adminId")
     @Override
@@ -56,9 +54,6 @@ public class AdminCacheServiceImpl implements AdminCacheService {
      * 简单来说就是用户更新缓存数据。但需要注意的是该注解的value 和 key 必须与要更新的缓存相同，也就是与@Cacheable 相同
      *
      * CacheEvict的使用:数据库数据修改，删除缓存
-     *
-     * @param admin
-     * @return
      */
     @CacheEvict(value = "admin", key = "#admin.id")
     @Override

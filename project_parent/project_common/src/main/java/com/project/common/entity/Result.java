@@ -55,15 +55,15 @@ public class Result<T> {
     /***
      * 成功
      */
-    public static Result success() {
+    public static Result<?> success() {
         return success(null);
     }
 
     /***
      * 成功
      */
-    public static Result success(Object data) {
-        Result rb = new Result();
+    public static <T> Result<T> success(T data) {
+        Result<T> rb = new Result<>();
         rb.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
         rb.setMessage(BaseErrorInfoEnum.SUCCESS.getResultMsg());
         rb.setResult(data);
@@ -73,8 +73,8 @@ public class Result<T> {
     /***
      * 成功
      */
-    public static Result success(String message, Object data) {
-        Result rb = new Result();
+    public static <T> Result<T> success(String message, T data) {
+        Result<T> rb = new Result<>();
         rb.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
         rb.setMessage(message);
         rb.setResult(data);
@@ -84,8 +84,8 @@ public class Result<T> {
     /**
      * 成功
      */
-    public static Result success(String message) {
-        Result rb = new Result();
+    public static Result<?> success(String message) {
+        Result<?> rb = new Result<>();
         rb.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
         rb.setMessage(message);
         rb.setResult(null);
@@ -95,8 +95,8 @@ public class Result<T> {
     /**
      * 失败
      */
-    public static Result error(BaseErrorInfoEnum baseErrorInfoEnum) {
-        Result rb = new Result();
+    public static Result<?> error(BaseErrorInfoEnum baseErrorInfoEnum) {
+        Result<?> rb = new Result<>();
         rb.setCode(baseErrorInfoEnum.getResultCode());
         rb.setMessage(baseErrorInfoEnum.getResultMsg());
         rb.setResult(null);
@@ -106,8 +106,8 @@ public class Result<T> {
     /**
      * 失败
      */
-    public static Result error(String code, String message) {
-        Result rb = new Result();
+    public static Result<?> error(String code, String message) {
+        Result<?> rb = new Result<>();
         rb.setCode(code);
         rb.setMessage(message);
         rb.setResult(null);
@@ -117,8 +117,8 @@ public class Result<T> {
     /**
      * 失败
      */
-    public static Result error(String message) {
-        Result rb = new Result();
+    public static Result<?> error(String message) {
+        Result<?> rb = new Result<>();
         rb.setCode("-1");
         rb.setMessage(message);
         rb.setResult(null);

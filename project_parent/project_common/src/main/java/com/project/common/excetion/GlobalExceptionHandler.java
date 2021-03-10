@@ -7,8 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,7 +19,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = BadException.class)
     @ResponseBody
-    public Result bizExceptionHandler(HttpServletRequest req, BadException e) {
+    public Result<?> bizExceptionHandler(HttpServletRequest req, BadException e) {
         logger.error("发生业务异常！请求是：{" + req.getRequestURL() + "}", e.getErrorMsg());
         return Result.error(e.getErrorCode(), e.getErrorMsg());
     }
@@ -31,7 +29,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = NullPointerException.class)
     @ResponseBody
-    public Result exceptionHandler(HttpServletRequest req, NullPointerException e) {
+    public Result<?>  exceptionHandler(HttpServletRequest req, NullPointerException e) {
         logger.error("发生空指针异常！请求是：{" + req.getRequestURL() + "}", e.getMessage());
         return Result.error(BaseErrorInfoEnum.BODY_NOT_MATCH);
     }
@@ -41,7 +39,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(RuntimeException.class)
     @ResponseBody
-    public Result runtimeExceptionHandler(HttpServletRequest req, Exception e) {
+    public Result<?>  runtimeExceptionHandler(HttpServletRequest req, Exception e) {
         logger.error("发生运行时异常！请求是：{" + req.getRequestURL() + "}", e.getMessage());
         if (e.getClass().getName().equals("org.springframework.security.access.AccessDeniedException")) {
             return Result.error(BaseErrorInfoEnum.ACCESS_ERROR);
@@ -54,8 +52,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Result exceptionHandler(HttpServletRequest req, Exception e) {
-        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+    public Result<?>  exceptionHandler(HttpServletRequest req, Exception e) {
         logger.error("未知异常！请求是：{" + req.getRequestURL() + "}", e.getMessage());
         return Result.error(BaseErrorInfoEnum.INTERNAL_SERVER_ERROR);
     }

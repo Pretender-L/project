@@ -16,11 +16,6 @@ public class BeforeAdvice implements Advice{
 
     /**
      * 逻辑:实现被代理对象接口,接口中调用invoke方法,invoke方法调用代理对象方法,在利用反射调用被代理对象的方法
-     * @param proxy
-     * @param method
-     * @param args
-     * @return
-     * @throws Throwable
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
