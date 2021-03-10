@@ -2,7 +2,6 @@ package com.project.demo.file;
 
 import com.project.common.entity.Result;
 import com.project.common.enums.BaseErrorInfoEnum;
-import com.project.common.excetion.BadException;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,7 +23,7 @@ public class UploadController {
         if (contentType == null) {
             return Result.error(BaseErrorInfoEnum.FILE_TYPE_ERROR);
         }
-        File f = null;
+        File f;
         if (contentType.equals("image/jpeg")) {
             f = new File(path + "\\image");
         } else {
