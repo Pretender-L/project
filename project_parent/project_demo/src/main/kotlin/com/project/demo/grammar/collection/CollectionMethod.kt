@@ -26,6 +26,7 @@ package com.project.demo.grammar.collection
   forEach{…} : 遍历元素。一般用作元素的打印
   forEachIndexed{index,value} : 遍历元素，可获得集合中元素的下标。一般用作元素以及下标的打印
   componentX() ： 这个函数在前面的章节中提过多次了。用于获取元素。其中的X只能代表1..5。详情可看下面的例子
+  find{…} : 找到集合中第一个满足条件的元素，返回值是集合元素类型，可能为null
 */
 
 /**
