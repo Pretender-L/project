@@ -12,6 +12,7 @@ public enum BaseErrorInfoEnum {
     NOT_FOUND("404", "未找到该资源!"),
     ACCESSERROR("405", "权限不足"),
     REPERROR("406", "重复操作"),
+    FILE_TYPE_ERROR("407","文件类型错误"),
     INTERNAL_SERVER_ERROR("500", "服务器内部错误!"),
     SERVER_BUSY("501", "服务器正忙，请稍后再试!"),
     REMOTEERROR("502", "远程调用失败");

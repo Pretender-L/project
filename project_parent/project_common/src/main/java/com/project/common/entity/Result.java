@@ -91,7 +91,7 @@ public class Result<T> {
      */
     public static Result success(String message) {
         Result rb = new Result();
-        rb.setCode("BaseErrorInfoEnumImpl.SUCCESS.getResultCode()");
+        rb.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
         rb.setMessage(message);
         rb.setResult(null);
         return rb;

@@ -1,13 +1,13 @@
 package com.project.demo.file;
 
+import com.project.common.entity.Result;
+import com.project.common.enums.BaseErrorInfoEnum;
+import com.project.common.excetion.BadException;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.io.IOException;
 import java.util.UUID;
 
 @RestController
@@ -16,25 +16,24 @@ public class UploadController {
     private static final String path = "D:\\IdeaProjects\\project\\project_parent\\project_demo\\src\\main\\resources\\upload";
 
     @PostMapping("/image")
-    public void upload(String username, @RequestParam(value = "file", required = false) MultipartFile multipartFile, HttpServletRequest req) throws Exception, IOException {
-        System.out.println("username数据：" + username);
-        //接收文件数据
-        System.out.println(multipartFile.getContentType());//  image/jpeg   获取上传文件的类型
-        System.out.println(multipartFile.getName());//image  获取file标签的name属性  <input type="file" name="image" >
-        System.out.println(multipartFile.getOriginalFilename());//1.jpg   获取上传文件的名称
-
-        //获取到上传的文件数据
+    public Result upload(@RequestParam(value = "file", required = false) MultipartFile multipartFile) throws Exception {
+        //获取到上传的文件类型 image/jpeg
         String contentType = multipartFile.getContentType();
         //判断上传文件是否为图片
-        if (contentType == null || !contentType.startsWith("image/")) {
-            System.out.println("===不属于图片类型...===");
-            return;
+        if (contentType == null || !contentType.equals("image/jpeg")) {
+            return Result.error(BaseErrorInfoEnum.FILE_TYPE_ERROR);
         }
-
-        String filename = multipartFile.getOriginalFilename();//获取上传时的文件名称
+        String filename = multipartFile.getOriginalFilename();//获取上传时的文件名称  下载.jpg
         filename = UUID.randomUUID().toString() + "." + FilenameUtils.getExtension(filename);//创建一个新的文件名称    getExtension(name):获取文件后缀名
-
-        File file = new File(path, filename);
-        multipartFile.transferTo(file);//将上传的文件存储到指定位置
+        File f = new File(path + "\\image");
+        File file = new File(f, filename);
+        if (!f.exists()) {
+            if (f.mkdirs()) {
+                multipartFile.transferTo(file);//将上传的文件存储到指定位置
+            }
+        } else {
+            multipartFile.transferTo(file);//将上传的文件存储到指定位置
+        }
+        return Result.success("上传成功");
     }
 }
