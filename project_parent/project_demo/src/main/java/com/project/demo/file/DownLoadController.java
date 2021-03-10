@@ -73,7 +73,7 @@ public class DownLoadController {
         File file = new File(path);
         if (file.exists()) {
             String fileStr = getAllFile(file);
-            return fileStr.replace("\r\n", "<br/>");
+            return fileStr.replace(",", "<br/>");
         }
         return "无文件";
     }
@@ -100,6 +100,7 @@ public class DownLoadController {
         return null;
     }
 
+    //获得所有文件名字符串
     public String getAllFile(File file) {
         StringBuilder sb = new StringBuilder();
         if (file.isDirectory()) {
@@ -111,7 +112,7 @@ public class DownLoadController {
                 }
             }
         } else {
-            sb.append(file.getName()).append("\r\n");
+            sb.append(file.getName()).append(",");
         }
         return sb.toString();
     }
