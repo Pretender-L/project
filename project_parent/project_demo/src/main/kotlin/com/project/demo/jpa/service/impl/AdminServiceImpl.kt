@@ -13,10 +13,6 @@ import org.springframework.data.jpa.domain.Specification
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.stereotype.Service
 import java.util.concurrent.TimeUnit
-import javax.persistence.criteria.CriteriaBuilder
-import javax.persistence.criteria.CriteriaQuery
-import javax.persistence.criteria.Predicate
-import javax.persistence.criteria.Root
 
 @Service
 class AdminServiceImpl : AdminService {
@@ -39,13 +35,13 @@ class AdminServiceImpl : AdminService {
     override fun findBySearch(loginName: String, status: String, jpaPageInfo: JpaPageInfo): Page<Admin> {
         var matcher = ExampleMatcher.matching()
         val admin = Admin()
-        if (!loginName.isNullOrEmpty()) {
+        if (loginName.isNotEmpty()) {
             admin.loginName = loginName
             matcher = matcher.withMatcher("loginName", ExampleMatcher.GenericPropertyMatchers.contains())
         }
-        if (!status.isNullOrEmpty()) {
+        if (status.isNotEmpty()) {
             admin.status = status
-            matcher = matcher.withMatcher("ststus", ExampleMatcher.GenericPropertyMatchers.exact())
+            matcher = matcher.withMatcher("status", ExampleMatcher.GenericPropertyMatchers.exact())
         }
         matcher = matcher.withIgnorePaths("id")
         val example = Example.of(admin, matcher)
@@ -54,22 +50,17 @@ class AdminServiceImpl : AdminService {
 
 
     override fun search(loginName: String, status: String): List<Admin> {
-        val specification: Specification<Admin> = object : Specification<Admin> {
-            override fun toPredicate(
-                root: Root<Admin>,
-                criteriaQuery: CriteriaQuery<*>,
-                criteriaBuilder: CriteriaBuilder
-            ): Predicate? {
+        val specification: Specification<Admin> =
+            Specification<Admin> { root, _, criteriaBuilder ->
                 val predicate = criteriaBuilder.conjunction()
-                if (!loginName.isNullOrEmpty()) {
+                if (loginName.isNotEmpty()) {
                     predicate.expressions.add(criteriaBuilder.like(root.get("loginName"), "%${loginName}%"))
                 }
-                if (!status.isNullOrEmpty()) {
+                if (status.isNotEmpty()) {
                     predicate.expressions.add(criteriaBuilder.equal(root.get<String>("status"), status))
                 }
-                return predicate
+                predicate
             }
-        }
         return adminRepository.findAll(specification)
     }
 

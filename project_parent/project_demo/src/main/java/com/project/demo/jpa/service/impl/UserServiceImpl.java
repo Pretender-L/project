@@ -158,9 +158,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Page search(User user, PageInfo pageInfo) {
+    public Page<User> search(User user, PageInfo pageInfo) {
         PageRequest pageable = PageRequest.of(pageInfo.getCurrentPage() - 1, pageInfo.getPageSize());
-        Specification specification = new Specification() {
+        Specification<User> specification = new Specification() {
             @Override
             public Predicate toPredicate(Root root, CriteriaQuery query, CriteriaBuilder criteriaBuilder) {
                 //增加筛选的条件
@@ -183,7 +183,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Map> findPartUser(String sex) {
+    public List<Map<String,String>> findPartUser(String sex) {
         return userRepository.findPartUser(sex);
     }
 }

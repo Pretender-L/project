@@ -38,7 +38,7 @@ public interface UserService {
 
     void delDB();
 
-    Page search(User user, PageInfo pageInfo);
+    Page<User> search(User user, PageInfo pageInfo);
 
-    List<Map> findPartUser(String sex);
+    List<Map<String,String>> findPartUser(String sex);
 }

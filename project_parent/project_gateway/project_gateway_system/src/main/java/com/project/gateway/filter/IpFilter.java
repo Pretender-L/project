@@ -17,9 +17,6 @@ import java.net.InetSocketAddress;
 public class IpFilter implements GlobalFilter, Ordered {
     /***
      * 具体业务逻辑
-     * @param exchange
-     * @param chain
-     * @return
      */
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -31,7 +28,6 @@ public class IpFilter implements GlobalFilter, Ordered {
 
     /***
      * 过滤器执行优先级
-     * @return
      */
     @Override
     public int getOrder() {

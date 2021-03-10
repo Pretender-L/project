@@ -23,16 +23,18 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
         //获取请求对象
         ServerHttpRequest request = exchange.getRequest();
         //获得响应对象
-        ServerHttpResponse response = exchange.getResponse();
+        //ServerHttpResponse response = exchange.getResponse();
         //判断是否是登录请求
         String path = request.getURI().getPath();
         if (path.contains("/oauth/login") || path.contains("/oauth/toLogin")) {
             //放行
             return chain.filter(exchange);
         }
+
         //方案1：增加请求头（请求头添加token:jwt）
         /*HttpHeaders headers = request.getHeaders();
-        String jwtToken = headers.getFirst("token");*/
+        String jwtToken = headers.getFirst("token"); */
+
         //方案2：读取cookie中的令牌
         HttpCookie httpCookie = request.getCookies().getFirst("token");
         String jwtToken = null;
@@ -46,7 +48,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
             return toLoginPage(LOGIN_URL + "?FROM=" + request.getURI().getPath(), exchange);
         }
         //解析令牌
-        Claims claims = null;
+        Claims claims;
         try {
             claims = JwtUtil.parseJWT(jwtToken);
             System.out.println("claims = " + claims);

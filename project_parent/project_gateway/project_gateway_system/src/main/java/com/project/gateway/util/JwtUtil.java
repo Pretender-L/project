@@ -22,10 +22,6 @@ public class JwtUtil {
 
     /***
      * 创建token
-     * @param id
-     * @param subject
-     * @param ttlMillis
-     * @return
      */
     public static String createJWT(String id, String subject, Long ttlMillis) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -49,21 +45,16 @@ public class JwtUtil {
 
     /***
      * 生成加密后的秘钥 secretKey
-     * @return
      */
     public static SecretKey generalKey() {
         byte[] encodedKey = Base64.getDecoder().decode(JwtUtil.JWT_KEY);
-        SecretKey key = new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
-        return key;
+        return new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
     }
 
     /***
      * 解析
-     * @param jwt
-     * @return
-     * @throws Exception
      */
-    public static Claims parseJWT(String jwt) throws Exception {
+    public static Claims parseJWT(String jwt) {
         SecretKey secretKey = generalKey();
         return Jwts.parser()
                 .setSigningKey(secretKey)
@@ -73,7 +64,6 @@ public class JwtUtil {
 
     /***
      * 计算时间差刷新token(未完成)
-     * @param claims
      */
     public static void refreshToken(Claims claims) {
         Date currentDate = new Date();
@@ -82,7 +72,7 @@ public class JwtUtil {
         long hours = (diff - days * (1000 * 60 * 60 * 24)) / (1000 * 60 * 60);
         long minutes = (diff - days * (1000 * 60 * 60 * 24) - hours * (1000 * 60 * 60)) / (1000 * 60);
         System.out.println("当前令牌还有" + days + "天" + hours + "小时" + minutes + "分" + "过期");
-        if (days == 0 && hours == 0 && minutes<=15) {
+        if (days == 0 && hours == 0 && minutes <= 15) {
             String jwt = createJWT(UUID.randomUUID().toString(), claims.getSubject(), null);
         }
     }

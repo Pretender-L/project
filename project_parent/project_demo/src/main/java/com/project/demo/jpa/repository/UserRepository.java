@@ -38,5 +38,5 @@ public interface UserRepository extends JpaRepository<User, String>, JpaSpecific
     Page<User> findCondition(@Param("condition") String condition, Pageable pageable);
 
     @Query(value = "select id,nickname,sex from tb_user where sex= ?1", nativeQuery = true)
-    List<Map> findPartUser(String sex);
+    List<Map<String,String>> findPartUser(String sex);
 }

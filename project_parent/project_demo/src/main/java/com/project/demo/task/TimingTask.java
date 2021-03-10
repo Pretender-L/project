@@ -4,7 +4,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -17,7 +16,7 @@ public class TimingTask {
     private int second = 0;
 
     @Scheduled(cron = "0/1 * * * * ?")//1秒执行一次
-    public void runFirst() throws ParseException {
+    public void runFirst() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
         String dt = simpleDateFormat.format(date);

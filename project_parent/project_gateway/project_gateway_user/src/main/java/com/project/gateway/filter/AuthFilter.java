@@ -2,7 +2,6 @@ package com.project.gateway.filter;
 
 import com.project.gateway.service.AuthService;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -13,17 +12,20 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import javax.annotation.Resource;
+
 @Component
 public class AuthFilter implements GlobalFilter, Ordered {
-    @Autowired
+    @Resource
     private AuthService authService;
+
     public static final String Authorization = "Authorization";
     public static final String LOGIN_URL = "http://localhost:9000/oauth/toLogin";
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
-        ServerHttpResponse response = exchange.getResponse();
+        //ServerHttpResponse response = exchange.getResponse();
         String path = request.getURI().getPath();
         //判断访问的是否是需要校验令牌的url
         if (!UrlFilter.hasAuthorize(path)) {

@@ -22,7 +22,7 @@ open class AdminController {
     fun findAll(): Result<*>? {
         if (redisTemplate.hasKey("findAll")) {
             val adminList = redisTemplate.opsForValue().get("findAll")
-            redisTemplate.opsForValue().set("findAll", adminList, 60, TimeUnit.SECONDS)
+            redisTemplate.opsForValue().set("findAll", adminList!!, 60, TimeUnit.SECONDS)
             return Result.success(adminList)
         }
         val adminList = adminService.findAll()
@@ -32,7 +32,7 @@ open class AdminController {
     @GetMapping("/findPage")
     fun findPage(jpaPageInfo: JpaPageInfo): Result<*> {
         val page = adminService.findPage(jpaPageInfo)
-        val pageResult = PageResult<Admin>(page.totalPages.toLong(), page.content)
+        val pageResult = PageResult(page.totalPages.toLong(), page.content)
         return Result.success(pageResult)
     }
 
@@ -51,7 +51,7 @@ open class AdminController {
     @GetMapping("/findBySearch")
     fun findBySearch(loginName: String, status: String, jpaPageInfo: JpaPageInfo): Result<*> {
         val page = adminService.findBySearch(loginName, status, jpaPageInfo)
-        val pageResult = PageResult<Admin>(page.totalPages.toLong(), page.content)
+        val pageResult = PageResult(page.totalPages.toLong(), page.content)
         return Result.success(pageResult)
     }
 

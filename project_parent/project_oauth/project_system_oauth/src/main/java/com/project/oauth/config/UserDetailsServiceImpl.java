@@ -33,9 +33,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     /****
      * 自定义授权认证
-     * @param username
-     * @return
-     * @throws UsernameNotFoundException
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
