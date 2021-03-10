@@ -9,10 +9,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 @RestController
@@ -36,7 +36,7 @@ public class DownLoadController {
             return Result.error("文件不存在");
         }
         //设置响应类型  ==》 告诉浏览器当前是下载操作，我要下载东西
-        resp.setContentType("application/x-msdownload");
+        resp.setContentType("application/x-download");
         //设置下载时文件的显示类型(即文件名称-后缀)   ex：txt为文本类型
         resp.setHeader("Content-Disposition", "attachment;filename=" + fileName);
         //下载文件：将一个路径下的文件数据转到一个输出流中，也就是把服务器文件通过流写(复制)到浏览器端
@@ -48,7 +48,7 @@ public class DownLoadController {
      * 下载方式二：Spring框架技术
      */
     @GetMapping("/spring")
-    public ResponseEntity<byte[]> download(HttpServletRequest request, String fileName) throws IOException, BadException {
+    public ResponseEntity<byte[]> download(String fileName) throws IOException, BadException {
         File file = new File(path);
         File f = getFile(file, fileName);
         if (f == null) {
@@ -56,7 +56,7 @@ public class DownLoadController {
         }
 
         HttpHeaders headers = new HttpHeaders();//设置头信息
-        String downloadFileName = new String(fileName.getBytes("UTF-8"), "iso-8859-1");//设置响应的文件名
+        String downloadFileName = new String(fileName.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);//设置响应的文件名
 
         headers.setContentDispositionFormData("attachment", downloadFileName);
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
