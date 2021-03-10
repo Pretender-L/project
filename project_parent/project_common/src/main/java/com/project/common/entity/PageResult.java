@@ -3,10 +3,8 @@ package com.project.common.entity;
 import java.util.List;
 
 public class PageResult<T> {
-    //总记录数
-    private Long total;
-    //记录
-    private List<T> rows;
+    private Long total;//总记录数
+    private List<T> rows;//记录
 
     public PageResult(Long total, List<T> rows) {
         this.total = total;
