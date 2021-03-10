@@ -29,7 +29,7 @@ public class DownLoadController {
      * ⑤将文件复制到浏览器
      */
     @GetMapping("/java")
-    public Result download(HttpServletResponse resp, String fileName) throws Exception {
+    public Result<?> download(HttpServletResponse resp, String fileName) throws Exception {
         File file = new File(path);
         File f = getFile(file, fileName);
         if (f == null) {

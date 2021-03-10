@@ -21,12 +21,12 @@ public class RabbitConfig {
 
     //RabbitMQ监听容器
     @Bean
-    public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory){
+    public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory) {
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
         //设置并发
         factory.setConcurrentConsumers(1);
-        SimpleMessageListenerContainer s=new SimpleMessageListenerContainer();
+        new SimpleMessageListenerContainer();
         //最大并发
         factory.setMaxConcurrentConsumers(1);
         /*确认模式
@@ -50,13 +50,13 @@ public class RabbitConfig {
     /**
      * Java中该注解的说明：@PostConstruct该注解被用来修饰一个非静态的void（）方法。
      * 被@PostConstruct修饰的方法会在服务器加载Servlet的时候运行，并且只会被服务器执行一次。PostConstruct在构造函数之后执行，init（）方法之前执行。
-     *
+     * <p>
      * 通常我们会是在Spring框架中使用到@PostConstruct注解 该注解的方法在整个Bean初始化中的执行顺序：
      * Constructor(构造方法)->@Autowired(依赖注入)->@PostConstruct(注释的方法)
      */
     //初始化加载方法，对RabbitTemplate进行配置
     @PostConstruct
-    void rabbitTemplate(){
+    void rabbitTemplate() {
         //消息发送确认，发送到交换器Exchange后触发回调
         rabbitTemplate.setConfirmCallback(new ConfirmCallBackHandler());
         //消息发送确认，如果消息从交换器发送到对应队列失败时触发（比如根据发送消息时指定的routingKey找不到队列时会触发）

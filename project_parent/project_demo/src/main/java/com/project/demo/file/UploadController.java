@@ -14,7 +14,7 @@ public class UploadController {
     private static final String path = "D:\\IdeaProjects\\project\\project_parent\\project_demo\\src\\main\\resources\\upload";
 
     @PostMapping("/upload")
-    public Result upload(@RequestParam(value = "file", required = false) MultipartFile multipartFile) throws Exception {
+    public Result<?> upload(@RequestParam(value = "file", required = false) MultipartFile multipartFile) throws Exception {
         String filename = multipartFile.getOriginalFilename();//获取上传时的文件名称  下载.jpg
         filename = UUID.randomUUID().toString() + "." + FilenameUtils.getExtension(filename);//创建一个新的文件名称    getExtension(name):获取文件后缀名
 
