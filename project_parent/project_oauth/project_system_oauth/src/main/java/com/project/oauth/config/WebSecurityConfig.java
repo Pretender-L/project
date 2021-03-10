@@ -23,19 +23,15 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * 忽略哪些资源不用security来管理
      * 忽略安全拦截的URL（不会走过滤器）
      * WebSecurity 主要针对的全局的忽略规则
-     * @param web
-     * @throws Exception
      */
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web) {
         web.ignoring().antMatchers("/actuator/**", "/oauth/toLogin",
                 "/oauth/logout", "/login.html", "/css/**", "/data/**", "/fonts/**", "/img/**", "/js/**");
     }
 
     /***
      * 创建授权管理认证对象
-     * @return
-     * @throws Exception
      */
     @Bean
     @Override
@@ -56,8 +52,6 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /***
      * 配置策略,比如防止csrf攻击
      * HttpSecurity主要是权限控制规则
-     * @param http
-     * @throws Exception
      */
     @Override
     public void configure(HttpSecurity http) throws Exception {

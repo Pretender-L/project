@@ -65,7 +65,7 @@ public class JwtUtil {
     /***
      * 计算时间差刷新token(未完成)
      */
-    public static void refreshToken(Claims claims) {
+    public static String refreshToken(Claims claims) {
         Date currentDate = new Date();
         long diff = currentDate.getTime() - claims.getExpiration().getTime();//这样得到的差值是毫秒级别
         long days = diff / (1000 * 60 * 60 * 24);
@@ -73,7 +73,8 @@ public class JwtUtil {
         long minutes = (diff - days * (1000 * 60 * 60 * 24) - hours * (1000 * 60 * 60)) / (1000 * 60);
         System.out.println("当前令牌还有" + days + "天" + hours + "小时" + minutes + "分" + "过期");
         if (days == 0 && hours == 0 && minutes <= 15) {
-            String jwt = createJWT(UUID.randomUUID().toString(), claims.getSubject(), null);
+            return createJWT(UUID.randomUUID().toString(), claims.getSubject(), null);
         }
+        return null;
     }
 }
