@@ -54,79 +54,68 @@ public class Result<T> {
 
     /***
      * 成功
-     * @return
      */
-    public static Result success() {
-        return success(null);
+    public Result<T> success() {
+        return success((T) null);
     }
 
     /***
      * 成功
-     * @param data
-     * @return
      */
-    public static Result success(Object data) {
-        Result rb = new Result();
-        rb.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
-        rb.setMessage(BaseErrorInfoEnum.SUCCESS.getResultMsg());
-        rb.setResult(data);
-        return rb;
+    public Result<T> success(T data) {
+        this.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
+        this.setMessage(BaseErrorInfoEnum.SUCCESS.getResultMsg());
+        this.setResult(data);
+        return this;
     }
 
     /***
      * 成功
-     * @param data
-     * @return
      */
-    public static Result success(String message, Object data) {
-        Result rb = new Result();
-        rb.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
-        rb.setMessage(message);
-        rb.setResult(data);
-        return rb;
+    public Result<T> success(String message, T data) {
+        this.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
+        this.setMessage(message);
+        this.setResult(data);
+        return this;
     }
 
     /**
      * 成功
      */
-    public static Result success(String message) {
-        Result rb = new Result();
-        rb.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
-        rb.setMessage(message);
-        rb.setResult(null);
-        return rb;
+    public Result<T> success(String message) {
+        this.setCode(BaseErrorInfoEnum.SUCCESS.getResultCode());
+        this.setMessage(message);
+        this.setResult(null);
+        return this;
     }
 
     /**
      * 失败
      */
-    public static Result error(BaseErrorInfoEnum baseErrorInfoEnum) {
-        Result rb = new Result();
-        rb.setCode(baseErrorInfoEnum.getResultCode());
-        rb.setMessage(baseErrorInfoEnum.getResultMsg());
-        rb.setResult(null);
-        return rb;
+    public Result<T> error(BaseErrorInfoEnum baseErrorInfoEnum) {
+        this.setCode(baseErrorInfoEnum.getResultCode());
+        this.setMessage(baseErrorInfoEnum.getResultMsg());
+        this.setResult(null);
+        return this;
     }
 
     /**
      * 失败
      */
-    public static Result error(String code, String message) {
-        Result rb = new Result();
-        rb.setCode(code);
-        rb.setMessage(message);
-        rb.setResult(null);
-        return rb;
+    public Result<T> error(String code, String message) {
+        this.setCode(code);
+        this.setMessage(message);
+        this.setResult(null);
+        return this;
     }
 
     /**
      * 失败
      */
-    public static Result error(String message) {
-        Result rb = new Result();
-        rb.setCode("-1");
-        rb.setMessage(message);
-        rb.setResult(null);
-        return rb;
+    public Result<T> error(String message) {
+        this.setCode("-1");
+        this.setMessage(message);
+        this.setResult(null);
+        return this;
     }
 }

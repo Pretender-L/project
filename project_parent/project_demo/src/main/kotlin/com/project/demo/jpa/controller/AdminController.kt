@@ -4,55 +4,55 @@ import com.project.common.entity.PageResult
 import com.project.demo.pojo.*
 import com.project.demo.jpa.service.AdminService
 import com.project.common.entity.Result
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.web.bind.annotation.*
 import java.util.concurrent.TimeUnit
+import javax.annotation.Resource
 
 @RestController
 @RequestMapping("/admin")
 open class AdminController {
-    @Autowired
+    @Resource
     private lateinit var adminService: AdminService
 
-    @Autowired
-    private lateinit var redisTemplate: RedisTemplate<Any, Any>
+    @Resource
+    private lateinit var redisTemplate: RedisTemplate<String, Any>
 
     @GetMapping("/findAll")
-    fun findAll(): Result<*>? {
+    fun findAll(): Result<Any>? {
         if (redisTemplate.hasKey("findAll")) {
             val adminList = redisTemplate.opsForValue().get("findAll")
-            redisTemplate.opsForValue().set("findAll", adminList, 60, TimeUnit.SECONDS)
-            return Result.success(adminList)
+            redisTemplate.opsForValue().set("findAll", adminList!!, 60, TimeUnit.SECONDS)
+            return Result<Any>().success(adminList)
         }
         val adminList = adminService.findAll()
-        return Result.success(adminList)
+        return Result<Any>().success(adminList)
     }
 
     @GetMapping("/findPage")
-    fun findPage(jpaPageInfo: JpaPageInfo): Result<*> {
+    fun findPage(jpaPageInfo: JpaPageInfo): Result<Any> {
         val page = adminService.findPage(jpaPageInfo)
-        val pageResult = PageResult<Admin>(page.totalPages.toLong(), page.content)
-        return Result.success(pageResult)
+        val pageResult = PageResult(page.totalPages.toLong(), page.content)
+        return Result<Any>().success(pageResult)
     }
 
     /**
      * 搜索第一种实现
      */
     @GetMapping("/search")
-    fun search(loginName: String, status: String): Result<*> {
+    fun search(loginName: String, status: String): Result<Any> {
         val adminList = adminService.search(loginName, status)
-        return Result.success(adminList)
+        return Result<Any>().success(adminList)
     }
 
     /**
      * 搜索的第二种实现
      */
     @GetMapping("/findBySearch")
-    fun findBySearch(loginName: String, status: String, jpaPageInfo: JpaPageInfo): Result<*> {
+    fun findBySearch(loginName: String, status: String, jpaPageInfo: JpaPageInfo): Result<Any> {
         val page = adminService.findBySearch(loginName, status, jpaPageInfo)
-        val pageResult = PageResult<Admin>(page.totalPages.toLong(), page.content)
-        return Result.success(pageResult)
+        val pageResult = PageResult(page.totalPages.toLong(), page.content)
+        return Result<Any>().success(pageResult)
     }
 
     /**
@@ -61,7 +61,7 @@ open class AdminController {
     @PostMapping("/add")
     fun add(@RequestBody admin: Admin): Result<*>{
         adminService.add(admin)
-        return Result.success()
+        return Result<Any>().success()
     }
 
     /**
@@ -70,7 +70,7 @@ open class AdminController {
     @DeleteMapping("/delete/{adminId}")
     fun delete(@PathVariable adminId:String):Result<*>{
         adminService.delete(adminId)
-        return Result.success()
+        return Result<Any>().success()
     }
 
     /**

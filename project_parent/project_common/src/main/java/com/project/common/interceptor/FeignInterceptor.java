@@ -21,16 +21,14 @@ public class FeignInterceptor implements RequestInterceptor {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         if (requestAttributes != null) {
             HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
-            if (request != null) {
-                Enumeration<String> headerNames = request.getHeaderNames();
-                while (headerNames.hasMoreElements()) {
-                    String headName = headerNames.nextElement();
-                    if ("AUTHORIZATION".equals(headName)) {
-                        String headerValue = request.getHeader(headName);
-                        System.out.println("feign拦截器传递令牌成功");
-                        //传递令牌
-                        requestTemplate.header(headName, headerValue);
-                    }
+            Enumeration<String> headerNames = request.getHeaderNames();
+            while (headerNames.hasMoreElements()) {
+                String headName = headerNames.nextElement();
+                if ("AUTHORIZATION".equals(headName)) {
+                    String headerValue = request.getHeader(headName);
+                    System.out.println("feign拦截器传递令牌成功");
+                    //传递令牌
+                    requestTemplate.header(headName, headerValue);
                 }
             }
         }

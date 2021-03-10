@@ -26,7 +26,7 @@ public class RabbitConfig {
         factory.setConnectionFactory(connectionFactory);
         //设置并发
         factory.setConcurrentConsumers(1);
-        SimpleMessageListenerContainer s=new SimpleMessageListenerContainer();
+        new SimpleMessageListenerContainer();
         //最大并发
         factory.setMaxConcurrentConsumers(1);
         /*确认模式
