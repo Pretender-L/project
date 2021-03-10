@@ -14,20 +14,20 @@ public class UploadController {
     private static final String path = "D:\\IdeaProjects\\project\\project_parent\\project_demo\\src\\main\\resources\\upload";
 
     @PostMapping("/upload")
-    public Result<String> upload(@RequestParam(value = "file", required = false) MultipartFile multipartFile) throws Exception {
+    public Result upload(@RequestParam(value = "file", required = false) MultipartFile multipartFile) throws Exception {
         String filename = multipartFile.getOriginalFilename();//获取上传时的文件名称  下载.jpg
         filename = UUID.randomUUID().toString() + "." + FilenameUtils.getExtension(filename);//创建一个新的文件名称    getExtension(name):获取文件后缀名
 
         //获取到上传的文件类型 image/jpeg
         String contentType = multipartFile.getContentType();
         if (contentType == null) {
-            return new Result<String>().error(BaseErrorInfoEnum.FILE_TYPE_ERROR);
+            return Result.error(BaseErrorInfoEnum.FILE_TYPE_ERROR);
         }
         File f;
         if (contentType.equals("image/jpeg")) {
             f = new File(path + "\\image");
         } else {
-            return new Result().error(BaseErrorInfoEnum.FILE_TYPE_ERROR);
+            return Result.error(BaseErrorInfoEnum.FILE_TYPE_ERROR);
         }
 
         File file = new File(f, filename);
@@ -38,6 +38,6 @@ public class UploadController {
         } else {
             multipartFile.transferTo(file);//将上传的文件存储到指定位置
         }
-        return new Result().success("上传成功");
+        return Result.success("上传成功");
     }
 }

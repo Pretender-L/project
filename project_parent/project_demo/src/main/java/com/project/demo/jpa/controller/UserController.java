@@ -6,11 +6,11 @@ import com.project.common.entity.Result;
 import com.project.common.excetion.BadException;
 import com.project.demo.jpa.service.UserService;
 import com.project.demo.pojo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -18,36 +18,42 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    @Resource
+    @Autowired
     private UserService userService;
-    @Resource
-    private RedisTemplate<String,Object> redisTemplate;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     /***
      * 单个添加
+     * @param user
+     * @return
      */
     @PostMapping("/add")
-    public Result<Object> add(@RequestBody User user) {
+    public Result add(@RequestBody User user) {
         userService.add(user);
-        return new Result<>().success();
+        return Result.success();
     }
 
     /***
      * 批量添加
+     * @param userList
+     * @return
      */
     @PostMapping("/addAll")
-    public Result<Object> addAll(@RequestBody List<User> userList) {
+    public Result addAll(@RequestBody List<User> userList) {
         userService.addAll(userList);
-        return new Result<>().success();
+        return Result.success();
     }
 
     /***
      * 单个删除
+     * @param userId
+     * @return
      */
     @DeleteMapping("/del/{userId}")
-    public Result<Object> del(@PathVariable("userId") String userId) {
+    public Result del(@PathVariable("userId") String userId) {
         userService.del(userId);
-        return new Result<>().success();
+        return Result.success();
     }
 
     /***
@@ -56,9 +62,9 @@ public class UserController {
      * @return
      */
     @DeleteMapping("/delAll")
-    public Result<Object> delAll(@RequestBody String[] userIds) {
+    public Result delAll(@RequestBody String[] userIds) {
         userService.delAll(userIds);
-        return new Result<>().success();
+        return Result.success();
     }
 
     /***
@@ -66,9 +72,9 @@ public class UserController {
      * @return
      */
     @DeleteMapping("/delDB")
-    public Result<Object> delDB() {
+    public Result delDB() {
         userService.delDB();
-        return new Result<>().success();
+        return Result.success();
     }
 
     /***
@@ -77,33 +83,36 @@ public class UserController {
      * @return
      */
     @PutMapping("/update")
-    public Result<Object> update(@RequestBody User user) {
+    public Result update(@RequestBody User user) {
         userService.update(user);
-        return new Result<>().success();
+        return Result.success();
     }
 
     /***
      * 查询全部(存入redis)
+     * @return
      */
     @GetMapping("/findAll")
-    public Result<List<User>> findAll() throws BadException {
+    public Result findAll() throws BadException {
         if (redisTemplate.hasKey("findAll")) {
             //字符串key value
             List<User> userList = (List<User>) redisTemplate.opsForValue().get("findAll");
             redisTemplate.expire("findAll", 60, TimeUnit.SECONDS);
-            return new Result<List<User>>().success(userList);
+            return Result.success(userList);
         }
         List<User> userList = userService.findAll();
-        return new Result<List<User>>().success(userList);
+        return Result.success(userList);
     }
 
     /***
      * 查询单个
+     * @param id
+     * @return
      */
     @GetMapping("/find/{id}")
-    public Result<User> find(@PathVariable("id") String id) throws BadException {
+    public Result find(@PathVariable("id") String id) throws BadException {
         User user = userService.find(id);
-        return new Result<User>().success(user);
+        return Result.success(user);
     }
 
     /***
@@ -113,18 +122,19 @@ public class UserController {
      */
     @GetMapping("/batchQuery")
     //接收数组需要加@RequestParam 前端参数：?ids=1,2,3
-    public Result<List<User>> batchQuery(@RequestParam List<String> ids) throws BadException {
+    public Result batchQuery(@RequestParam List<String> ids) throws BadException {
         List<User> list = userService.batchQuery(ids);
-        return new Result<List<User>>().success(list);
+        return Result.success(list);
     }
 
     /***
      * 根据生日排序(升序)
+     * @return
      */
     @GetMapping("/findAllSortAsc")
-    public Result<List<User>> findAllBySort() throws BadException {
+    public Result findAllBySort() throws BadException {
         List<User> list = userService.findAllSortAsc();
-        return new Result<List<User>>().success(list);
+        return Result.success(list);
     }
 
     /***
@@ -132,22 +142,27 @@ public class UserController {
      * @return
      */
     @GetMapping("/findAllPageSortDesc/{page}/{size}")
-    public Result<PageResult<List<User>>> findAllPageSortDesc(PageInfo pageInfo) throws BadException {
+    public Result findAllPageSortDesc(PageInfo pageInfo) throws BadException {
         Page<User> page = userService.findAllPageSortDesc(pageInfo);
-        PageResult<Page<User>> pageResult = new PageResult<List<User>>((long) page.getTotalPages(), page.getContent());
-        return new Result<PageResult<List<User>>>().success(pageResult);
+        PageResult<User> pageResult = new PageResult<>((long) page.getTotalPages(), page.getContent());
+        return Result.success(pageResult);
     }
 
     /***
      * 分页 多个条件模糊查询所有
+     * @param currentPage
+     * @param size
      * @param user 查询条件
      * @return
      */
-    @GetMapping("/findListByConditions")
-    public Result findListByConditions(PageInfo pageInfo, User user) {
+    @GetMapping("/findListByConditions/{page}/{size}")
+    public Result findListByConditions(@PathVariable("page") int currentPage, @PathVariable("size") int size, User user) {
+        PageInfo<Object> pageInfo = new PageInfo<>();
+        pageInfo.setCurrentpage(currentPage);
+        pageInfo.setSize(size);
         Page<User> page = userService.findListByConditions(pageInfo, user);
         PageResult<User> pageResult = new PageResult<>((long) page.getTotalPages(), page.getContent());
-        return new Result().success(pageResult);
+        return Result.success(pageResult);
     }
 
     /***
@@ -160,17 +175,24 @@ public class UserController {
     public Result search(User user, PageInfo pageInfo) {
         Page page = userService.search(user, pageInfo);
         PageResult<User> pageResult = new PageResult<>((long) page.getTotalPages(), page.getContent());
-        return new Result().success(pageResult);
+        return Result.success(pageResult);
     }
 
     /***
      * 分页 单个条件模糊查询所有（查询条件不确定，后端限制为昵称，性别）
+     * @param currentPage
+     * @param size
+     * @param condition
+     * @return
      */
-    @GetMapping("/findListByCondition/{condition}")
-    public Result findListByCondition(PageInfo pageInfo, @PathVariable("condition") String condition) {
+    @GetMapping("/findListByCondition/{page}/{size}/{condition}")
+    public Result findListByCondition(@PathVariable("page") int currentPage, @PathVariable("size") int size, @PathVariable("condition") String condition) {
+        PageInfo<Object> pageInfo = new PageInfo();
+        pageInfo.setCurrentpage(currentPage);
+        pageInfo.setSize(size);
         Page<User> page = userService.findListByCondition(pageInfo, condition);
         PageResult<User> pageResult = new PageResult<>((long) page.getTotalPages(), page.getContent());
-        return new Result().success(pageResult);
+        return Result.success(pageResult);
     }
 
     /***
@@ -182,7 +204,7 @@ public class UserController {
     @GetMapping("/findOne")
     public Result findUserCondition(User userInfo) throws BadException {
         User user = userService.findOne(userInfo);
-        return new Result().success(user);
+        return Result.success(user);
     }
 
     /***
@@ -191,6 +213,6 @@ public class UserController {
     @GetMapping("/findPart")
     public Result findPartUser(String sex) {
         List<Map> userList = userService.findPartUser(sex);
-        return new Result().success(userList);
+        return Result.success(userList);
     }
 }
