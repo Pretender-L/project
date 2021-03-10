@@ -21,8 +21,7 @@ public class UploadController {
 
         //获取到上传的文件类型 image/jpeg
         String contentType = multipartFile.getContentType();
-        //判断上传文件是否为图片
-        if (contentType == null || !contentType.equals("image/jpeg")) {
+        if (contentType == null) {
             return Result.error(BaseErrorInfoEnum.FILE_TYPE_ERROR);
         }
         File f = null;
