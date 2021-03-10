@@ -54,7 +54,6 @@ public class Result<T> {
 
     /***
      * 成功
-     * @return
      */
     public static Result success() {
         return success(null);
@@ -62,8 +61,6 @@ public class Result<T> {
 
     /***
      * 成功
-     * @param data
-     * @return
      */
     public static Result success(Object data) {
         Result rb = new Result();
@@ -75,8 +72,6 @@ public class Result<T> {
 
     /***
      * 成功
-     * @param data
-     * @return
      */
     public static Result success(String message, Object data) {
         Result rb = new Result();

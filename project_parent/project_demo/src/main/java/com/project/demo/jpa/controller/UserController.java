@@ -150,16 +150,10 @@ public class UserController {
 
     /***
      * 分页 多个条件模糊查询所有
-     * @param currentPage
-     * @param size
      * @param user 查询条件
-     * @return
      */
-    @GetMapping("/findListByConditions/{page}/{size}")
-    public Result findListByConditions(@PathVariable("page") int currentPage, @PathVariable("size") int size, User user) {
-        PageInfo<Object> pageInfo = new PageInfo<>();
-        pageInfo.setCurrentpage(currentPage);
-        pageInfo.setSize(size);
+    @GetMapping("/findListByConditions")
+    public Result findListByConditions(PageInfo pageInfo, User user) {
         Page<User> page = userService.findListByConditions(pageInfo, user);
         PageResult<User> pageResult = new PageResult<>((long) page.getTotalPages(), page.getContent());
         return Result.success(pageResult);
@@ -180,16 +174,10 @@ public class UserController {
 
     /***
      * 分页 单个条件模糊查询所有（查询条件不确定，后端限制为昵称，性别）
-     * @param currentPage
-     * @param size
-     * @param condition
-     * @return
      */
-    @GetMapping("/findListByCondition/{page}/{size}/{condition}")
-    public Result findListByCondition(@PathVariable("page") int currentPage, @PathVariable("size") int size, @PathVariable("condition") String condition) {
-        PageInfo<Object> pageInfo = new PageInfo();
-        pageInfo.setCurrentpage(currentPage);
-        pageInfo.setSize(size);
+    @GetMapping("/findListByCondition/{condition}")
+    public Result findListByCondition(PageInfo pageInfo, @PathVariable("condition") String condition) {
+
         Page<User> page = userService.findListByCondition(pageInfo, condition);
         PageResult<User> pageResult = new PageResult<>((long) page.getTotalPages(), page.getContent());
         return Result.success(pageResult);

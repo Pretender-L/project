@@ -6,12 +6,12 @@ import com.project.demo.jpa.repository.UserRepository;
 import com.project.demo.jpa.service.UserService;
 import com.project.demo.pojo.User;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -23,9 +23,9 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
+    @Resource
     private UserRepository userRepository;
-    @Autowired
+    @Resource
     private RedisTemplate redisTemplate;
 
     @Override
@@ -95,7 +95,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Page<User> findAllPageSortDesc(PageInfo pageInfo) throws BadException {
         Sort sort = Sort.by(Sort.Direction.DESC, "birthday");
-        PageRequest pageable = PageRequest.of((int) pageInfo.getCurrentpage() - 1, (int) pageInfo.getSize(), sort);
+        PageRequest pageable = PageRequest.of(pageInfo.getCurrentPage() - 1, pageInfo.getPageSize(), sort);
         Page<User> page = userRepository.findAll(pageable);
         if (page.getContent().size() == 0) {
             throw new BadException("暂无数据!");
@@ -105,7 +105,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Page<User> findListByConditions(PageInfo pageInfo, User user) {
-        PageRequest pageable = PageRequest.of((int) pageInfo.getCurrentpage() - 1, (int) pageInfo.getSize());
+        PageRequest pageable = PageRequest.of(pageInfo.getCurrentPage() - 1, pageInfo.getPageSize());
         //前端传空串 数据库该字段如果有数据可以查询到，没有数据查询不到（设置null值后可查询）
         if (StringUtils.isEmpty(user.getSex())) {
             user.setSex(null);
@@ -137,7 +137,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Page<User> findListByCondition(PageInfo pageInfo, String condition) {
-        PageRequest pageable = PageRequest.of((int) pageInfo.getCurrentpage() - 1, (int) pageInfo.getSize());
+        PageRequest pageable = PageRequest.of(pageInfo.getCurrentPage() - 1, pageInfo.getPageSize());
         Page page = userRepository.findCondition(condition, pageable);
         return page;
     }
@@ -159,7 +159,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Page search(User user, PageInfo pageInfo) {
-        PageRequest pageable = PageRequest.of((int) pageInfo.getCurrentpage() - 1, (int) pageInfo.getSize());
+        PageRequest pageable = PageRequest.of(pageInfo.getCurrentPage() - 1, pageInfo.getPageSize());
         Specification specification = new Specification() {
             @Override
             public Predicate toPredicate(Root root, CriteriaQuery query, CriteriaBuilder criteriaBuilder) {
