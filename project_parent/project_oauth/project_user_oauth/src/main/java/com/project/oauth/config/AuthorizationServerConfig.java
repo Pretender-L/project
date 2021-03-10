@@ -42,13 +42,11 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     //令牌持久化存储接口
     @Autowired
     TokenStore tokenStore;
-    @Autowired
-    private CustomUserAuthenticationConverter customUserAuthenticationConverter;
+    /*@Autowired
+    private CustomUserAuthenticationConverter customUserAuthenticationConverter;*/
 
     /***
      * 客户端信息配置
-     * @param clients
-     * @throws Exception
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -57,11 +55,9 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     /***
      * 授权服务器端点配置
-     * @param endpoints
-     * @throws Exception
      */
     @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.accessTokenConverter(jwtAccessTokenConverter) //jwt令牌转换器
                 .authenticationManager(authenticationManager)  //认证管理器
                 .tokenStore(tokenStore)                       //令牌存储
@@ -70,11 +66,9 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     /***
      * 授权服务器的安全配置
-     * @param oauthServer
-     * @throws Exception
      */
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
+    public void configure(AuthorizationServerSecurityConfigurer oauthServer) {
         oauthServer.allowFormAuthenticationForClients()
                 .passwordEncoder(new BCryptPasswordEncoder())
                 .tokenKeyAccess("permitAll()")
@@ -105,8 +99,6 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     /***
      * JWT令牌转换器
-     * @param customUserAuthenticationConverter
-     * @return
      */
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter(CustomUserAuthenticationConverter customUserAuthenticationConverter) {

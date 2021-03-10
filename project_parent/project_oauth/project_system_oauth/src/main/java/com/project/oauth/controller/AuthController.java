@@ -31,10 +31,6 @@ public class AuthController {
     /***
      * security通过过滤器拦截的，请求必须携带username,password才会走过滤器（登陆url需要判断是否携带参数）
      * 登陆请求参数为空不走过滤器，直接走登陆url（配置了登录处理url不会被框架拦截）
-     * @param username
-     * @param password
-     * @param response
-     * @return
      */
     @PostMapping("/login")
     public String login(String username, String password, String from, HttpServletResponse response) {

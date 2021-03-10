@@ -33,9 +33,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     /***
      * 自定义授权认证
-     * @param username
-     * @return
-     * @throws UsernameNotFoundException
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -60,14 +57,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         com.project.user.pojo.User user = userFeign.findUserInfo(username).getResult();
         //根据用户名查询资源权限
         List<Resource> resourceList = resourceFeign.findByUsername(username).getResult();
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         for (Resource resource : resourceList) {
             stringBuffer.append(resource.getResKey()).append(",");
         }
         //逗号分割的权限列表
         String permissions = stringBuffer.substring(0, stringBuffer.length() - 1);
         //创建User对象
-        UserJwt userDetails = new UserJwt(username, user.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList(permissions));
-        return userDetails;
+        return new UserJwt(username, user.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList(permissions));
     }
 }

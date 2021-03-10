@@ -40,25 +40,24 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             return null;
         }
         //根据用户名查询用户信息
-        Admin admin = (Admin) adminFeign.findByLoginName(username).getResult();
+        Admin admin = adminFeign.findByLoginName(username).getResult();
         //根据用户id查询角色
         List<Role> roleList = roleFeign.findByAdminId(admin.getId()).getResult();
         StringBuilder stringBuilder = new StringBuilder();
         for (Role role : roleList) {
-            stringBuilder.append("ROLE_" + role.getName() + ",");
+            stringBuilder.append("ROLE_").append(role.getName()).append(",");
         }
         //根据用户id查询资源权限
         Set<Resource> resourceSet = resourceFeign.findByAdminId(admin.getId()).getResult();
         for (Resource resource : resourceSet) {
-            stringBuilder.append(resource.getResKey() + ",");
+            stringBuilder.append(resource.getResKey()).append(",");
         }
         //逗号分割的权限列表
-        String permissions = stringBuilder.substring(0, stringBuilder.length() - 1).toString();
+        String permissions = stringBuilder.substring(0, stringBuilder.length() - 1);
         System.out.println(username + ":" + permissions);
         //创建User对象
         // 1. commaSeparatedStringToAuthorityList放入角色时需要加前缀ROLE_，而在controller使用时不需要加ROLE_前缀 例：ROLE_USER
         // 2. 放入的是权限时，不能加ROLE_前缀，hasAuthority与放入的权限名称对应即可
-        User userDetails = new User(username, admin.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList(permissions));
-        return userDetails;
+        return new User(username, admin.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList(permissions));
     }
 }

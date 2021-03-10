@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/oauth")
 public class AuthController {
     public static final String REDIRECT_URL_PREFIX = "http://localhost:9000";
-    @Autowired
+    @Resource
     private AuthService authService;
     @Value("${auth.clientId}")
     private String clientId;

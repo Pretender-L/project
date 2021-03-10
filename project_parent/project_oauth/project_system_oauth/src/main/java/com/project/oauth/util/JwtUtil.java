@@ -21,10 +21,6 @@ public class JwtUtil {
 
     /***
      * 创建token
-     * @param id
-     * @param subject
-     * @param ttlMillis
-     * @return
      */
     public static String createJWT(String id, String subject, Long ttlMillis) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -48,21 +44,16 @@ public class JwtUtil {
 
     /***
      * 生成加密后的秘钥 secretKey
-     * @return
      */
     public static SecretKey generalKey() {
         byte[] encodedKey = Base64.getDecoder().decode(JwtUtil.JWT_KEY);
-        SecretKey key = new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
-        return key;
+        return new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
     }
 
     /***
      * 解析
-     * @param jwt
-     * @return
-     * @throws Exception
      */
-    public static Claims parseJWT(String jwt) throws Exception {
+    public static Claims parseJWT(String jwt) {
         SecretKey secretKey = generalKey();
         return Jwts.parser()
                 .setSigningKey(secretKey)

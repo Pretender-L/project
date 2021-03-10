@@ -36,13 +36,11 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
-        AuthenticationManager manager = super.authenticationManagerBean();
-        return manager;
+        return super.authenticationManagerBean();
     }
 
     /***
      * 采用BCryptPasswordEncoder对密码进行编码
-     * @return
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
