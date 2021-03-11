@@ -21,7 +21,7 @@ public class UserController {
     @Resource
     private UserService userService;
     @Resource
-    private RedisTemplate<String,?> redisTemplate;
+    private RedisTemplate redisTemplate;
 
     /***
      * 单个添加
@@ -176,8 +176,8 @@ public class UserController {
      * 查询部分字段
      */
     @GetMapping("/findPart")
-    public Result<List<Map<String,String>>> findPartUser(String sex) {
-        List<Map<String,String>> userList = userService.findPartUser(sex);
+    public Result<List<Map<String, String>>> findPartUser(String sex) {
+        List<Map<String, String>> userList = userService.findPartUser(sex);
         return Result.success(userList);
     }
 }
