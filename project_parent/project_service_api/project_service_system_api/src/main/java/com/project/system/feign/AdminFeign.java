@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 public interface AdminFeign {
     /***
      * feign返回不确定类型需要加泛型
-     * @param loginName
-     * @return
      */
     @PostMapping(value = "/system/admin/findByLoginName/{loginName}")
     Result<Admin> findByLoginName(@PathVariable("loginName") String loginName);

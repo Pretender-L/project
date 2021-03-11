@@ -19,7 +19,6 @@ public class AddressServiceImpl implements AddressService {
 
     /***
      * 查询全部列表
-     * @return
      */
     @Override
     public List<Address> findAll() {
@@ -28,8 +27,6 @@ public class AddressServiceImpl implements AddressService {
 
     /***
      * 根据ID查询
-     * @param id
-     * @return
      */
     @Override
     public Address findById(Integer id) {
@@ -38,7 +35,6 @@ public class AddressServiceImpl implements AddressService {
 
     /***
      * 增加
-     * @param address
      */
     @Override
     public void add(Address address) {
@@ -47,7 +43,6 @@ public class AddressServiceImpl implements AddressService {
 
     /***
      * 修改
-     * @param address
      */
     @Override
     public void update(Address address) {
@@ -56,7 +51,6 @@ public class AddressServiceImpl implements AddressService {
 
     /***
      * 删除
-     * @param id
      */
     @Override
     public void delete(Integer id) {
@@ -65,8 +59,6 @@ public class AddressServiceImpl implements AddressService {
 
     /***
      * 条件查询
-     * @param searchMap
-     * @return
      */
     @Override
     public List<Address> findList(Map<String, Object> searchMap) {
@@ -76,9 +68,6 @@ public class AddressServiceImpl implements AddressService {
 
     /***
      * 分页查询
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public Page<Address> findPage(int page, int size) {
@@ -102,8 +91,6 @@ public class AddressServiceImpl implements AddressService {
 
     /***
      * 构建查询对象
-     * @param searchMap
-     * @return
      */
     private Example createExample(Map<String, Object> searchMap) {
         Example example = new Example(Address.class);

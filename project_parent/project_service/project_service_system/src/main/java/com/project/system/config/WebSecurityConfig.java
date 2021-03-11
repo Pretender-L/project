@@ -13,18 +13,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * 忽略哪些资源不用security来管理
      * 忽略安全拦截的URL（不会走过滤器）
      * WebSecurity 主要针对的全局的忽略规则
-     * @param web
-     * @throws Exception
      */
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web) {
         web.ignoring().antMatchers("/**");
     }
 
     /***
      * Http安全配置，对每个到达系统的http请求链接进行校验
-     * @param http
-     * @throws Exception
      */
     @Override
     public void configure(HttpSecurity http) throws Exception {

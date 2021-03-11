@@ -26,8 +26,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     /***
      * 定义JwtTokenStore
-     * @param jwtAccessTokenConverter
-     * @return
      */
     @Bean
     public TokenStore tokenStore(JwtAccessTokenConverter jwtAccessTokenConverter) {
@@ -36,7 +34,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     /***
      * 定义JJwtAccessTokenConverter
-     * @return
      */
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
@@ -62,8 +59,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     /***
      * Http安全配置，对每个到达系统的http请求链接进行校验
-     * @param http
-     * @throws Exception
      */
     @Override
     public void configure(HttpSecurity http) throws Exception {

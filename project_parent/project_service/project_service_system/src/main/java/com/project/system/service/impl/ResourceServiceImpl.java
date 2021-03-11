@@ -7,7 +7,6 @@ import com.project.system.dao.ResourceMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.project.system.service.RoleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -15,14 +14,13 @@ import java.util.*;
 
 @Service
 public class ResourceServiceImpl implements ResourceService {
-    @Autowired
+    @javax.annotation.Resource
     private ResourceMapper resourceMapper;
-    @Autowired
+    @javax.annotation.Resource
     private RoleService roleService;
 
     /***
      * 查询全部列表
-     * @return
      */
     @Override
     public List<Resource> findAll() {
@@ -31,8 +29,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 根据ID查询
-     * @param id
-     * @return
      */
     @Override
     public Resource findById(Integer id) {
@@ -41,7 +37,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 增加
-     * @param resource
      */
     @Override
     public void add(Resource resource) {
@@ -50,7 +45,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 修改
-     * @param resource
      */
     @Override
     public void update(Resource resource) {
@@ -59,7 +53,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 删除
-     * @param id
      */
     @Override
     public void delete(Integer id) {
@@ -68,8 +61,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 条件查询
-     * @param searchMap
-     * @return
      */
     @Override
     public List<Resource> findList(Map<String, Object> searchMap) {
@@ -79,9 +70,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 分页查询
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public Page<Resource> findPage(int page, int size) {
@@ -105,8 +93,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 构建查询对象
-     * @param searchMap
-     * @return
      */
     private Example createExample(Map<String, Object> searchMap) {
         Example example = new Example(Resource.class);
@@ -134,8 +120,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 根据roleId查询资源权限
-     * @param roleId
-     * @return
      */
     @Override
     public List<Resource> findByRoleId(Integer roleId) {
@@ -144,8 +128,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 根据adminId查询资源权限
-     * @param adminId
-     * @return
      */
     @Override
     public Set<Resource> findByAdminId(Integer adminId) {

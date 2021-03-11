@@ -5,9 +5,9 @@ import com.project.common.entity.Result;
 import com.project.system.pojo.Menu;
 import com.project.system.service.MenuService;
 import com.github.pagehelper.Page;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -15,49 +15,41 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/menu")
 public class MenuController {
-    @Autowired
+    @Resource
     private MenuService menuService;
 
     /***
      * 查询全部数据
-     * @return
      */
     @GetMapping
-    public Result findAll() {
+    public Result<List<Menu>> findAll() {
         List<Menu> menuList = menuService.findAll();
         return Result.success("查询成功", menuList);
     }
 
     /***
      * 根据ID查询数据
-     * @param id
-     * @return
      */
     @GetMapping("/{id}")
-    public Result findById(@PathVariable String id) {
+    public Result<Menu> findById(@PathVariable String id) {
         Menu menu = menuService.findById(id);
         return Result.success("查询成功", menu);
     }
 
     /***
      * 新增数据
-     * @param menu
-     * @return
      */
     @PostMapping
-    public Result add(@RequestBody Menu menu) {
+    public Result<?> add(@RequestBody Menu menu) {
         menuService.add(menu);
         return Result.success("添加成功");
     }
 
     /***
      * 修改数据
-     * @param menu
-     * @param id
-     * @return
      */
     @PutMapping(value = "/{id}")
-    public Result update(@RequestBody Menu menu, @PathVariable String id) {
+    public Result<?> update(@RequestBody Menu menu, @PathVariable String id) {
         menu.setId(id);
         menuService.update(menu);
         return Result.success("修改成功");
@@ -65,37 +57,29 @@ public class MenuController {
 
     /***
      * 根据ID删除数据
-     * @param id
-     * @return
      */
     @DeleteMapping(value = "/{id}")
-    public Result delete(@PathVariable String id) {
+    public Result<?> delete(@PathVariable String id) {
         menuService.delete(id);
         return Result.success("删除成功");
     }
 
     /***
      * 多条件搜索数据
-     * @param searchMap
-     * @return
      */
     @GetMapping(value = "/search")
-    public Result findList(@RequestParam Map searchMap) {
+    public Result<List<Menu>> findList(@RequestParam Map<String,Object> searchMap) {
         List<Menu> list = menuService.findList(searchMap);
         return Result.success("查询成功", list);
     }
 
     /***
      * 分页搜索实现
-     * @param searchMap
-     * @param page
-     * @param size
-     * @return
      */
     @GetMapping(value = "/search/{page}/{size}")
-    public Result findPage(@RequestParam Map searchMap, @PathVariable int page, @PathVariable int size) {
+    public Result<PageResult<Menu>> findPage(@RequestParam Map<String,Object> searchMap, @PathVariable int page, @PathVariable int size) {
         Page<Menu> pageList = menuService.findPage(searchMap, page, size);
-        PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
+        PageResult<Menu> pageResult = new PageResult<>(pageList.getTotal(), pageList.getResult());
         return Result.success("查询成功", pageResult);
     }
 }

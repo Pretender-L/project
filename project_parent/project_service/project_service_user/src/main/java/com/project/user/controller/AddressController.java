@@ -23,44 +23,36 @@ public class AddressController {
 
     /***
      * 查询全部数据
-     * @return
      */
     @GetMapping
-    public Result findAll() {
+    public Result<List<Address>> findAll() {
         List<Address> addressList = addressService.findAll();
         return Result.success("查询成功", addressList);
     }
 
     /***
      * 根据ID查询数据
-     * @param id
-     * @return
      */
     @GetMapping("/{id}")
-    public Result findById(@PathVariable Integer id) {
+    public Result<Address> findById(@PathVariable Integer id) {
         Address address = addressService.findById(id);
         return Result.success("查询成功", address);
     }
 
     /***
      * 新增数据
-     * @param address
-     * @return
      */
     @PostMapping
-    public Result add(@RequestBody Address address) {
+    public Result<?> add(@RequestBody Address address) {
         addressService.add(address);
         return Result.success("添加成功");
     }
 
     /***
      * 修改数据
-     * @param address
-     * @param id
-     * @return
      */
     @PutMapping(value = "/{id}")
-    public Result update(@RequestBody Address address, @PathVariable Integer id) {
+    public Result<?> update(@RequestBody Address address, @PathVariable Integer id) {
         address.setId(id);
         addressService.update(address);
         return Result.success("修改成功");
@@ -68,37 +60,29 @@ public class AddressController {
 
     /***
      * 根据ID删除
-     * @param id
-     * @return
      */
     @DeleteMapping(value = "/{id}")
-    public Result delete(@PathVariable Integer id) {
+    public Result<?> delete(@PathVariable Integer id) {
         addressService.delete(id);
         return Result.success("删除成功");
     }
 
     /***
      * 多条件搜索
-     * @param searchMap
-     * @return
      */
     @GetMapping(value = "/search")
-    public Result findList(@RequestParam Map searchMap) {
+    public Result<List<Address>> findList(@RequestParam Map<String, Object> searchMap) {
         List<Address> list = addressService.findList(searchMap);
         return Result.success("查询成功", list);
     }
 
     /***
      * 分页搜索实现
-     * @param searchMap
-     * @param page
-     * @param size
-     * @return
      */
     @GetMapping(value = "/search/{page}/{size}")
-    public Result findPage(@RequestParam Map searchMap, @PathVariable int page, @PathVariable int size) {
+    public Result<PageResult<Address>> findPage(@RequestParam Map<String, Object> searchMap, @PathVariable int page, @PathVariable int size) {
         Page<Address> pageList = addressService.findPage(searchMap, page, size);
-        PageResult pageResult = new PageResult(pageList.getTotal(), pageList.getResult());
+        PageResult<Address> pageResult = new PageResult<>(pageList.getTotal(), pageList.getResult());
         return Result.success("查询成功", pageResult);
     }
 

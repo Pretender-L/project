@@ -5,21 +5,20 @@ import com.project.system.pojo.LoginLog;
 import com.project.system.service.LoginLogService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class LoginLogServiceImpl implements LoginLogService {
-    @Autowired
+    @Resource
     private LoginLogMapper loginLogMapper;
 
     /***
      * 查询全部列表
-     * @return
      */
     @Override
     public List<LoginLog> findAll() {
@@ -28,8 +27,6 @@ public class LoginLogServiceImpl implements LoginLogService {
 
     /***
      * 根据ID查询
-     * @param id
-     * @return
      */
     @Override
     public LoginLog findById(Integer id) {
@@ -38,7 +35,6 @@ public class LoginLogServiceImpl implements LoginLogService {
 
     /***
      * 增加
-     * @param loginLog
      */
     @Override
     public void add(LoginLog loginLog) {
@@ -47,7 +43,6 @@ public class LoginLogServiceImpl implements LoginLogService {
 
     /***
      * 修改
-     * @param loginLog
      */
     @Override
     public void update(LoginLog loginLog) {
@@ -56,7 +51,6 @@ public class LoginLogServiceImpl implements LoginLogService {
 
     /***
      * 删除
-     * @param id
      */
     @Override
     public void delete(Integer id) {
@@ -65,8 +59,6 @@ public class LoginLogServiceImpl implements LoginLogService {
 
     /***
      * 条件查询
-     * @param searchMap
-     * @return
      */
     @Override
     public List<LoginLog> findList(Map<String, Object> searchMap) {
@@ -76,9 +68,6 @@ public class LoginLogServiceImpl implements LoginLogService {
 
     /***
      * 分页查询
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public Page<LoginLog> findPage(int page, int size) {
@@ -102,8 +91,6 @@ public class LoginLogServiceImpl implements LoginLogService {
 
     /***
      * 构建查询对象
-     * @param searchMap
-     * @return
      */
     private Example createExample(Map<String, Object> searchMap) {
         Example example = new Example(LoginLog.class);

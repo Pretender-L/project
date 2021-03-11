@@ -5,22 +5,21 @@ import com.project.system.pojo.Admin;
 import com.project.system.service.AdminService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-    @Autowired
+    @Resource
     private AdminMapper adminMapper;
 
     /***
      * 查询全部列表
-     * @return
      */
     @Override
     public List<Admin> findAll() {
@@ -29,8 +28,6 @@ public class AdminServiceImpl implements AdminService {
 
     /***
      * 根据ID查询
-     * @param id
-     * @return
      */
     @Override
     public Admin findById(Integer id) {
@@ -39,7 +36,6 @@ public class AdminServiceImpl implements AdminService {
 
     /***
      * 增加
-     * @param admin
      */
     @Override
     public void add(Admin admin) {
@@ -51,7 +47,6 @@ public class AdminServiceImpl implements AdminService {
 
     /***
      * 修改
-     * @param admin
      */
     @Override
     public void update(Admin admin) {
@@ -60,7 +55,6 @@ public class AdminServiceImpl implements AdminService {
 
     /***
      * 删除
-     * @param id
      */
     @Override
     public void delete(Integer id) {
@@ -69,8 +63,6 @@ public class AdminServiceImpl implements AdminService {
 
     /***
      * 条件查询
-     * @param searchMap
-     * @return
      */
     @Override
     public List<Admin> findList(Map<String, Object> searchMap) {
@@ -80,9 +72,6 @@ public class AdminServiceImpl implements AdminService {
 
     /***
      * 分页查询
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public Page<Admin> findPage(int page, int size) {
@@ -106,8 +95,6 @@ public class AdminServiceImpl implements AdminService {
 
     /***
      * 构建查询对象
-     * @param searchMap
-     * @return
      */
     private Example createExample(Map<String, Object> searchMap) {
         Example example = new Example(Admin.class);
@@ -137,8 +124,6 @@ public class AdminServiceImpl implements AdminService {
 
     /***
      * 根据登录名查询admin
-     * @param loginName
-     * @return
      */
     @Override
     public Admin findByLoginName(String loginName) {

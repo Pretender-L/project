@@ -19,11 +19,10 @@ import java.util.stream.Collectors;
 public class TokenDecode {
     //公钥
     private static final String PUBLIC_KEY = "public.key";
-    private static String publickey="";
+    private static String publicKey="";
 
     /***
      * 获取用户信息
-     * @return
      */
     public Map<String,String> getUserInfo(){
         //获取授权信息
@@ -49,15 +48,15 @@ public class TokenDecode {
      * @return 公钥 Key
      */
     public String getPubKey() {
-        if(!StringUtils.isEmpty(publickey)){
-            return publickey;
+        if(!StringUtils.isEmpty(publicKey)){
+            return publicKey;
         }
         Resource resource = new ClassPathResource(PUBLIC_KEY);
         try {
             InputStreamReader inputStreamReader = new InputStreamReader(resource.getInputStream());
             BufferedReader br = new BufferedReader(inputStreamReader);
-            publickey = br.lines().collect(Collectors.joining("\n"));
-            return publickey;
+            publicKey = br.lines().collect(Collectors.joining("\n"));
+            return publicKey;
         } catch (IOException ioe) {
             return null;
         }

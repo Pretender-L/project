@@ -5,21 +5,20 @@ import com.project.system.service.MenuService;
 import com.project.system.dao.MenuMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class MenuServiceImpl implements MenuService {
-    @Autowired
+    @Resource
     private MenuMapper menuMapper;
 
     /***
      * 查询全部列表
-     * @return
      */
     @Override
     public List<Menu> findAll() {
@@ -28,8 +27,6 @@ public class MenuServiceImpl implements MenuService {
 
     /***
      * 根据ID查询
-     * @param id
-     * @return
      */
     @Override
     public Menu findById(String id){
@@ -38,7 +35,6 @@ public class MenuServiceImpl implements MenuService {
 
     /***
      * 增加
-     * @param menu
      */
     @Override
     public void add(Menu menu){
@@ -47,7 +43,6 @@ public class MenuServiceImpl implements MenuService {
 
     /***
      * 修改
-     * @param menu
      */
     @Override
     public void update(Menu menu){
@@ -56,7 +51,6 @@ public class MenuServiceImpl implements MenuService {
 
     /***
      * 删除
-     * @param id
      */
     @Override
     public void delete(String id){
@@ -65,8 +59,6 @@ public class MenuServiceImpl implements MenuService {
 
     /***
      * 条件查询
-     * @param searchMap
-     * @return
      */
     @Override
     public List<Menu> findList(Map<String, Object> searchMap){
@@ -76,9 +68,6 @@ public class MenuServiceImpl implements MenuService {
 
     /***
      * 分页查询
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public Page<Menu> findPage(int page, int size){
@@ -102,8 +91,6 @@ public class MenuServiceImpl implements MenuService {
 
     /***
      * 构建查询对象
-     * @param searchMap
-     * @return
      */
     private Example createExample(Map<String, Object> searchMap){
         Example example=new Example(Menu.class);

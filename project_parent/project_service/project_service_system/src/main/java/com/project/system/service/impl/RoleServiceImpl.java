@@ -5,21 +5,20 @@ import com.project.system.pojo.Role;
 import com.project.system.service.RoleService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class RoleServiceImpl implements RoleService {
-    @Autowired
+    @Resource
     private RoleMapper roleMapper;
 
     /***
      * 查询全部列表
-     * @return
      */
     @Override
     public List<Role> findAll() {
@@ -28,8 +27,6 @@ public class RoleServiceImpl implements RoleService {
 
     /***
      * 根据ID查询
-     * @param id
-     * @return
      */
     @Override
     public Role findById(Integer id) {
@@ -38,7 +35,6 @@ public class RoleServiceImpl implements RoleService {
 
     /***
      * 增加
-     * @param role
      */
     @Override
     public void add(Role role) {
@@ -47,7 +43,6 @@ public class RoleServiceImpl implements RoleService {
 
     /***
      * 修改
-     * @param role
      */
     @Override
     public void update(Role role) {
@@ -56,7 +51,6 @@ public class RoleServiceImpl implements RoleService {
 
     /***
      * 删除
-     * @param id
      */
     @Override
     public void delete(Integer id) {
@@ -65,8 +59,6 @@ public class RoleServiceImpl implements RoleService {
 
     /***
      * 条件查询
-     * @param searchMap
-     * @return
      */
     @Override
     public List<Role> findList(Map<String, Object> searchMap) {
@@ -76,9 +68,6 @@ public class RoleServiceImpl implements RoleService {
 
     /***
      * 分页查询
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public Page<Role> findPage(int page, int size) {
@@ -102,8 +91,6 @@ public class RoleServiceImpl implements RoleService {
 
     /***
      * 构建查询对象
-     * @param searchMap
-     * @return
      */
     private Example createExample(Map<String, Object> searchMap) {
         Example example = new Example(Role.class);
@@ -124,8 +111,6 @@ public class RoleServiceImpl implements RoleService {
 
     /***
      * 根据adminId查询角色
-     * @param adminId
-     * @return
      */
     @Override
     public List<Role> findByAdminId(Integer adminId) {
