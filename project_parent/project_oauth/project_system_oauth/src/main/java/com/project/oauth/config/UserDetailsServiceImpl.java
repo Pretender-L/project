@@ -6,7 +6,6 @@ import com.project.system.feign.RoleFeign;
 import com.project.system.pojo.Admin;
 import com.project.system.pojo.Resource;
 import com.project.system.pojo.Role;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,11 +23,11 @@ import java.util.Set;
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-    @Autowired
+    @javax.annotation.Resource
     private AdminFeign adminFeign;
-    @Autowired
+    @javax.annotation.Resource
     private ResourceFeign resourceFeign;
-    @Autowired
+    @javax.annotation.Resource
     private RoleFeign roleFeign;
 
     /****
