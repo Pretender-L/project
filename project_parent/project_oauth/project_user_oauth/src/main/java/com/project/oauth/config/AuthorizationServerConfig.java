@@ -28,19 +28,19 @@ import java.security.KeyPair;
 @EnableAuthorizationServer
 class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     //数据源，用于从数据库获取数据进行认证操作，测试可以从内存中获取
-    @Autowired
+    @Resource
     private DataSource dataSource;
     //jwt令牌转换器
-    @Autowired
+    @Resource
     private JwtAccessTokenConverter jwtAccessTokenConverter;
     //SpringSecurity 用户自定义授权认证类
-    @Autowired
+    @Resource
     UserDetailsService userDetailsService;
     //授权认证管理器
-    @Autowired
+    @Resource
     AuthenticationManager authenticationManager;
     //令牌持久化存储接口
-    @Autowired
+    @Resource
     TokenStore tokenStore;
     /*@Autowired
     private CustomUserAuthenticationConverter customUserAuthenticationConverter;*/

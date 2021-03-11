@@ -5,21 +5,20 @@ import com.project.user.service.AreasService;
 import com.project.user.pojo.Areas;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class AreasServiceImpl implements AreasService {
-    @Autowired
+    @Resource
     private AreasMapper areasMapper;
 
     /***
      * 查询全部列表
-     * @return
      */
     @Override
     public List<Areas> findAll() {
@@ -28,8 +27,6 @@ public class AreasServiceImpl implements AreasService {
 
     /***
      * 根据ID查询
-     * @param areaid
-     * @return
      */
     @Override
     public Areas findById(String areaid) {
@@ -38,7 +35,6 @@ public class AreasServiceImpl implements AreasService {
 
     /***
      * 增加
-     * @param areas
      */
     @Override
     public void add(Areas areas) {
@@ -47,7 +43,6 @@ public class AreasServiceImpl implements AreasService {
 
     /***
      * 修改
-     * @param areas
      */
     @Override
     public void update(Areas areas) {
@@ -56,7 +51,6 @@ public class AreasServiceImpl implements AreasService {
 
     /***
      * 删除
-     * @param areaid
      */
     @Override
     public void delete(String areaid) {
@@ -65,8 +59,6 @@ public class AreasServiceImpl implements AreasService {
 
     /***
      * 条件查询
-     * @param searchMap
-     * @return
      */
     @Override
     public List<Areas> findList(Map<String, Object> searchMap) {
@@ -76,9 +68,6 @@ public class AreasServiceImpl implements AreasService {
 
     /***
      * 分页查询
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public Page<Areas> findPage(int page, int size) {
@@ -102,8 +91,6 @@ public class AreasServiceImpl implements AreasService {
 
     /***
      * 构建查询对象
-     * @param searchMap
-     * @return
      */
     private Example createExample(Map<String, Object> searchMap) {
         Example example = new Example(Areas.class);

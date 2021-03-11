@@ -2,7 +2,6 @@ package com.project.oauth.service.impl;
 
 import com.project.oauth.service.AuthService;
 import com.project.oauth.util.AuthToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -18,6 +17,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Map;
@@ -25,11 +25,11 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class AuthServiceImpl implements AuthService {
-    @Autowired
+    @Resource
     private RestTemplate restTemplate;
-    @Autowired
+    @Resource
     private LoadBalancerClient loadBalancerClient;
-    @Autowired
+    @Resource
     private StringRedisTemplate stringRedisTemplate;
     @Value("${auth.ttl}")
     private long ttl;

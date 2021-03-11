@@ -5,7 +5,6 @@ import com.project.common.entity.PageResult;
 import com.project.common.entity.Result;
 import com.project.user.pojo.Areas;
 import com.project.user.service.AreasService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

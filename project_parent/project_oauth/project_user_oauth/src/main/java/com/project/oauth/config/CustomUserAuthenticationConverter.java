@@ -1,7 +1,6 @@
 package com.project.oauth.config;
 
 import com.project.oauth.util.UserJwt;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,17 +8,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.provider.token.DefaultUserAuthenticationConverter;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Component
 public class CustomUserAuthenticationConverter extends DefaultUserAuthenticationConverter {
-    @Autowired
+    @Resource
     UserDetailsService userDetailsService;
 
     @Override
     public Map<String, ?> convertUserAuthentication(Authentication authentication) {
-        LinkedHashMap response = new LinkedHashMap();
+        LinkedHashMap<String,Object> response = new LinkedHashMap<>();
         String name = authentication.getName();
         response.put("username", name);
         Object principal = authentication.getPrincipal();

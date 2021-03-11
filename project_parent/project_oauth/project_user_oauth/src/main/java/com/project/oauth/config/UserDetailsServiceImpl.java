@@ -4,7 +4,6 @@ import com.project.oauth.util.UserJwt;
 import com.project.user.feign.ResourceFeign;
 import com.project.user.feign.UserFeign;
 import com.project.user.pojo.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,11 +23,11 @@ import java.util.List;
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-    @Autowired
+    @javax.annotation.Resource
     ClientDetailsService clientDetailsService;
-    @Autowired
+    @javax.annotation.Resource
     private UserFeign userFeign;
-    @Autowired
+    @javax.annotation.Resource
     private ResourceFeign resourceFeign;
 
     /***

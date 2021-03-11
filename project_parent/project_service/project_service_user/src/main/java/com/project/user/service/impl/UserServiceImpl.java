@@ -5,7 +5,6 @@ import com.project.user.service.UserService;
 import com.project.user.pojo.User;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 

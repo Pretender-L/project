@@ -5,16 +5,16 @@ import com.project.user.service.AddressService;
 import com.project.user.pojo.Address;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class AddressServiceImpl implements AddressService {
-    @Autowired
+    @Resource
     private AddressMapper addressMapper;
 
     /***
@@ -144,7 +144,6 @@ public class AddressServiceImpl implements AddressService {
     public List<Address> list(String username) {
         Address address = new Address();
         address.setUsername(username);
-        List<Address> addressList = addressMapper.select(address);
-        return addressList;
+        return addressMapper.select(address);
     }
 }

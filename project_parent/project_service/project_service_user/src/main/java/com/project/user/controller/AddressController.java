@@ -6,7 +6,6 @@ import com.project.common.entity.Result;
 import com.project.user.config.TokenDecode;
 import com.project.user.pojo.Address;
 import com.project.user.service.AddressService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
