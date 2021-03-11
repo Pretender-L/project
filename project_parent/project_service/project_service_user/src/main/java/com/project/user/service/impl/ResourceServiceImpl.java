@@ -5,7 +5,6 @@ import com.github.pagehelper.PageHelper;
 import com.project.user.dao.ResourceMapper;
 import com.project.user.pojo.Resource;
 import com.project.user.service.ResourceService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -14,12 +13,11 @@ import java.util.Map;
 
 @Service
 public class ResourceServiceImpl implements ResourceService {
-    @Autowired
+    @javax.annotation.Resource
     private ResourceMapper resourceMapper;
 
     /***
      * 查询全部列表
-     * @return
      */
     @Override
     public List<Resource> findAll() {
@@ -28,8 +26,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 根据ID查询
-     * @param id
-     * @return
      */
     @Override
     public Resource findById(Integer id) {
@@ -38,7 +34,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 增加
-     * @param resource
      */
     @Override
     public void add(Resource resource) {
@@ -47,7 +42,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 修改
-     * @param resource
      */
     @Override
     public void update(Resource resource) {
@@ -56,7 +50,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 删除
-     * @param id
      */
     @Override
     public void delete(Integer id) {
@@ -65,8 +58,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 条件查询
-     * @param searchMap
-     * @return
      */
     @Override
     public List<Resource> findList(Map<String, Object> searchMap) {
@@ -76,9 +67,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 分页查询
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public Page<Resource> findPage(int page, int size) {
@@ -102,8 +90,6 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 构建查询对象
-     * @param searchMap
-     * @return
      */
     private Example createExample(Map<String, Object> searchMap) {
         Example example = new Example(Resource.class);
@@ -131,12 +117,9 @@ public class ResourceServiceImpl implements ResourceService {
 
     /***
      * 根据adminId查询资源权限
-     * @param username
-     * @return
      */
     @Override
     public List<Resource> findByUsername(String username) {
-        List<Resource> resourceList = resourceMapper.findByUsername(username);
-        return resourceList;
+        return resourceMapper.findByUsername(username);
     }
 }

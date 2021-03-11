@@ -5,21 +5,20 @@ import com.project.user.service.CitiesService;
 import com.project.user.pojo.Cities;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class CitiesServiceImpl implements CitiesService {
-    @Autowired
+    @Resource
     private CitiesMapper citiesMapper;
 
     /***
      * 查询全部列表
-     * @return
      */
     @Override
     public List<Cities> findAll() {
@@ -28,8 +27,6 @@ public class CitiesServiceImpl implements CitiesService {
 
     /***
      * 根据ID查询
-     * @param cityid
-     * @return
      */
     @Override
     public Cities findById(String cityid) {
@@ -38,7 +35,6 @@ public class CitiesServiceImpl implements CitiesService {
 
     /***
      * 增加
-     * @param cities
      */
     @Override
     public void add(Cities cities) {
@@ -47,7 +43,6 @@ public class CitiesServiceImpl implements CitiesService {
 
     /***
      * 修改
-     * @param cities
      */
     @Override
     public void update(Cities cities) {
@@ -56,7 +51,6 @@ public class CitiesServiceImpl implements CitiesService {
 
     /***
      * 删除
-     * @param cityid
      */
     @Override
     public void delete(String cityid) {
@@ -65,8 +59,6 @@ public class CitiesServiceImpl implements CitiesService {
 
     /***
      * 条件查询
-     * @param searchMap
-     * @return
      */
     @Override
     public List<Cities> findList(Map<String, Object> searchMap) {
@@ -76,9 +68,6 @@ public class CitiesServiceImpl implements CitiesService {
 
     /***
      * 分页查询
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public Page<Cities> findPage(int page, int size) {
@@ -102,8 +91,6 @@ public class CitiesServiceImpl implements CitiesService {
 
     /***
      * 构建查询对象
-     * @param searchMap
-     * @return
      */
     private Example createExample(Map<String, Object> searchMap) {
         Example example = new Example(Cities.class);

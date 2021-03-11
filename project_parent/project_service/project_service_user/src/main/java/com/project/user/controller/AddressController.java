@@ -9,6 +9,7 @@ import com.project.user.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -16,9 +17,9 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/address")
 public class AddressController {
-    @Autowired
+    @Resource
     private AddressService addressService;
-    @Autowired
+    @Resource
     private TokenDecode tokenDecode;
 
     /***

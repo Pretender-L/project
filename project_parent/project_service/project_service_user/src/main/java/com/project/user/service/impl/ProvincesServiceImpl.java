@@ -5,21 +5,20 @@ import com.project.user.service.ProvincesService;
 import com.project.user.pojo.Provinces;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class ProvincesServiceImpl implements ProvincesService {
-    @Autowired
+    @Resource
     private ProvincesMapper provincesMapper;
 
     /***
      * 查询全部列表
-     * @return
      */
     @Override
     public List<Provinces> findAll() {
@@ -28,8 +27,6 @@ public class ProvincesServiceImpl implements ProvincesService {
 
     /***
      * 根据ID查询
-     * @param provinceid
-     * @return
      */
     @Override
     public Provinces findById(String provinceid){
@@ -38,7 +35,6 @@ public class ProvincesServiceImpl implements ProvincesService {
 
     /***
      * 增加
-     * @param provinces
      */
     @Override
     public void add(Provinces provinces){
@@ -47,7 +43,6 @@ public class ProvincesServiceImpl implements ProvincesService {
 
     /***
      * 修改
-     * @param provinces
      */
     @Override
     public void update(Provinces provinces){
@@ -56,7 +51,6 @@ public class ProvincesServiceImpl implements ProvincesService {
 
     /***
      * 删除
-     * @param provinceid
      */
     @Override
     public void delete(String provinceid){
@@ -65,8 +59,6 @@ public class ProvincesServiceImpl implements ProvincesService {
 
     /***
      * 条件查询
-     * @param searchMap
-     * @return
      */
     @Override
     public List<Provinces> findList(Map<String, Object> searchMap){
@@ -76,9 +68,6 @@ public class ProvincesServiceImpl implements ProvincesService {
 
     /***
      * 分页查询
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public Page<Provinces> findPage(int page, int size){
@@ -102,8 +91,6 @@ public class ProvincesServiceImpl implements ProvincesService {
 
     /***
      * 构建查询对象
-     * @param searchMap
-     * @return
      */
     private Example createExample(Map<String, Object> searchMap){
         Example example=new Example(Provinces.class);

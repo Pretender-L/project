@@ -5,24 +5,21 @@ import com.project.user.service.UserService;
 import com.project.user.pojo.User;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
+    @Resource
     private UserMapper userMapper;
-    @Autowired
-    private RedisTemplate redisTemplate;
 
     /***
      * 查询全部列表
-     * @return
      */
     @Override
     public List<User> findAll() {
@@ -31,8 +28,6 @@ public class UserServiceImpl implements UserService {
 
     /***
      * 根据ID查询
-     * @param username
-     * @return
      */
     @Override
     public User findById(String username) {
@@ -41,7 +36,6 @@ public class UserServiceImpl implements UserService {
 
     /***
      * 增加
-     * @param user
      */
     @Override
     public void add(User user) {
@@ -50,7 +44,6 @@ public class UserServiceImpl implements UserService {
 
     /***
      * 修改
-     * @param user
      */
     @Override
     public void update(User user) {
@@ -59,7 +52,6 @@ public class UserServiceImpl implements UserService {
 
     /***
      * 删除
-     * @param username
      */
     @Override
     public void delete(String username) {
@@ -68,8 +60,6 @@ public class UserServiceImpl implements UserService {
 
     /***
      * 条件查询
-     * @param searchMap
-     * @return
      */
     @Override
     public List<User> findList(Map<String, Object> searchMap) {
@@ -79,9 +69,6 @@ public class UserServiceImpl implements UserService {
 
     /***
      * 分页查询
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public Page<User> findPage(int page, int size) {
@@ -105,8 +92,6 @@ public class UserServiceImpl implements UserService {
 
     /***
      * 构建查询对象
-     * @param searchMap
-     * @return
      */
     private Example createExample(Map<String, Object> searchMap) {
         Example example = new Example(User.class);

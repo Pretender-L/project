@@ -131,15 +131,14 @@ public class UserServiceImpl implements UserService {
         //第一个参数是查询实体的查询条件， 第二个参数是条件匹配器（模糊查询等）
         //根据user对象有的属性查询
         Example<User> example = Example.of(user, exampleMatcher);
-        Page<User> page = userRepository.findAll(example, pageable);
-        return page;
+        return userRepository.findAll(example, pageable);
     }
 
     @Override
     public Page<User> findListByCondition(PageInfo pageInfo, String condition) {
         PageRequest pageable = PageRequest.of(pageInfo.getCurrentPage() - 1, pageInfo.getPageSize());
-        Page page = userRepository.findCondition(condition, pageable);
-        return page;
+        return userRepository.findCondition(condition, pageable);
+
     }
 
     @Override
@@ -183,7 +182,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Map<String,String>> findPartUser(String sex) {
+    public List<Map<String, String>> findPartUser(String sex) {
         return userRepository.findPartUser(sex);
     }
 }
