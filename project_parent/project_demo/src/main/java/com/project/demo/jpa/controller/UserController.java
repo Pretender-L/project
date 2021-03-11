@@ -123,7 +123,7 @@ public class UserController {
     /***
      * 根据生日分页排序(降序)
      */
-    @GetMapping("/findAllPageSortDesc/{page}/{size}")
+    @GetMapping("/findAllPageSortDesc")
     public Result<PageResult<User>> findAllPageSortDesc(PageInfo pageInfo) throws BadException {
         Page<User> page = userService.findAllPageSortDesc(pageInfo);
         PageResult<User> pageResult = new PageResult<>((long) page.getTotalPages(), page.getContent());

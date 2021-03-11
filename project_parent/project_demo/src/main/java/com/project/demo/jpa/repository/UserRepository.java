@@ -19,8 +19,6 @@ public interface UserRepository extends JpaRepository<User, String>, JpaSpecific
     /**
      * nativeQuery = true:开启本地化sql
      * Modifying = 声明删除或更新操作
-     *
-     * @param userIds
      */
     @Transactional
     @Modifying
@@ -29,10 +27,6 @@ public interface UserRepository extends JpaRepository<User, String>, JpaSpecific
 
     /**
      * CONCAT:返回值得字符串拼接
-     *
-     * @param condition
-     * @param pageable
-     * @return
      */
     @Query(value = "SELECT * FROM tb_user WHERE nickname LIKE CONCAT('%',:condition,'%') or sex=:condition", nativeQuery = true)
     Page<User> findCondition(@Param("condition") String condition, Pageable pageable);
